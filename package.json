@@ -1,18 +1,21 @@
 {
   "name": "color-classify",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Classify the color along the reference color.",
+  "main": "color-classify.js",
   "scripts": {
     "start": "onchange 'src/**/*' -- npm run build",
     "build": "rollup -c",
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-register",
+    "lint": "eslint src/**"
   },
   "author": "tsuyoshiwada",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^6.0.4",
     "babel-preset-es2015-rollup": "^1.1.1",
     "babel-register": "^6.8.0",
+    "eslint": "^2.9.0",
     "mocha": "^2.4.5",
     "onchange": "^2.4.0",
     "power-assert": "^1.4.0",
@@ -22,7 +25,6 @@
     "rollup-plugin-node-resolve": "^1.5.0"
   },
   "dependencies": {
-    "color": "^0.11.1",
     "color-js": "^1.0.3",
     "lodash.foreach": "^4.2.0",
     "lodash.minby": "^4.3.0"

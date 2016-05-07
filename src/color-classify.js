@@ -3,6 +3,7 @@ import minBy from "lodash.minby"
 import Color from "color-js"
 import base16Colors from "./base16-colors"
 
+
 class ColorClassify {
   constructor(baseColors = base16Colors) {
     this.baseColors = baseColors.map(color => {
