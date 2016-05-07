@@ -1,0 +1,26 @@
+{
+  "name": "color-classify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "onchange 'src/**/*' -- npm run build",
+    "build": "rollup -c"
+  },
+  "author": "tsuyoshiwada",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "onchange": "^2.4.0",
+    "rollup": "^0.26.2",
+    "rollup-plugin-babel": "^2.4.0",
+    "rollup-plugin-commonjs": "^2.2.1",
+    "rollup-plugin-node-resolve": "^1.5.0"
+  },
+  "dependencies": {
+    "color": "^0.11.1",
+    "color-js": "^1.0.3",
+    "lodash.foreach": "^4.2.0",
+    "lodash.minby": "^4.3.0"
+  }
+}
