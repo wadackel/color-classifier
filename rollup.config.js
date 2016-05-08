@@ -5,9 +5,9 @@ import commonjs from "rollup-plugin-commonjs"
 import babel from "rollup-plugin-babel"
 
 export default {
-  entry: "src/color-classify.js",
-  dest: "color-classify.js",
-  moduleName: "ColorClassify",
+  entry: "src/color-classifier.js",
+  dest: "color-classifier.js",
+  moduleName: "ColorClassifier",
   format: "umd",
   plugins: [
     nodeResolve({

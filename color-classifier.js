@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global.ColorClassify = factory());
+  (global.ColorClassifier = factory());
 }(this, function () { 'use strict';
 
   var __commonjs_global = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : this;
@@ -4273,10 +4273,10 @@
 
   var base16Colors = ["#000000", "#808080", "#c0c0c0", "#ffffff", "#0000ff", "#000080", "#008080", "#008000", "#00ff00", "#00ffff", "#ffff00", "#ff0000", "#ff00ff", "#808000", "#800080", "#800000"];
 
-  var ColorClassify = function () {
-    function ColorClassify() {
+  var ColorClassifier = function () {
+    function ColorClassifier() {
       var baseColors = arguments.length <= 0 || arguments[0] === undefined ? base16Colors : arguments[0];
-      babelHelpers.classCallCheck(this, ColorClassify);
+      babelHelpers.classCallCheck(this, ColorClassifier);
 
       this.baseColors = baseColors.map(function (color) {
         return {
@@ -4286,7 +4286,7 @@
       });
     }
 
-    babelHelpers.createClass(ColorClassify, [{
+    babelHelpers.createClass(ColorClassifier, [{
       key: "getColorDistance",
       value: function getColorDistance(a, b) {
         var hueDiff = 0;
@@ -4336,11 +4336,11 @@
         return results;
       }
     }]);
-    return ColorClassify;
+    return ColorClassifier;
   }();
 
-  ColorClassify.base16Colors = base16Colors;
+  ColorClassifier.base16Colors = base16Colors;
 
-  return ColorClassify;
+  return ColorClassifier;
 
 }));

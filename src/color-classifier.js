@@ -4,7 +4,7 @@ import Color from "color-js"
 import base16Colors from "./base16-colors"
 
 
-class ColorClassify {
+class ColorClassifier {
   constructor(baseColors = base16Colors) {
     this.baseColors = baseColors.map(color => {
       return {
@@ -60,6 +60,6 @@ class ColorClassify {
 }
 
 
-ColorClassify.base16Colors = base16Colors;
+ColorClassifier.base16Colors = base16Colors;
 
-export default ColorClassify;
+export default ColorClassifier;

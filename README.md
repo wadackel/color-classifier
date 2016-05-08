@@ -1,5 +1,5 @@
-color-classify
-==============
+color-classifier
+================
 
 **----------WIP---------**
 
@@ -11,15 +11,25 @@ Classify the color along the reference color.
 __TODO__
 
 
+
 ## INSTALL
 
-__TODO__
+```bash
+$ npm install color-classifier --save
+```
 
 
 
 ## USAGE
 
-__TODO__
+```javascript
+import ColorClassifier, {base16Colors} from "color-classifier"
+
+const colorClassifier = new ColorClassifier(base16Colors);
+const color = colorClassifier.classify("__TODO__");
+
+console.log(color); // __TODO__
+```
 
 
 
@@ -31,7 +41,7 @@ __TODO__
 
 ## LICENCE
 
-Released under the [MIT Licence](https://raw.githubusercontent.com/tsuyoshiwada/color-classify/master/LICENSE)
+Released under the [MIT Licence](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/master/LICENSE)
 
 
 
@@ -49,4 +59,4 @@ __TODO__
 
 ---
 
-Bugs, feature requests and comments are more than welcome in the [issues](https://github.com/tsuyoshiwada/color-classify/issues)
+Bugs, feature requests and comments are more than welcome in the [issues](https://github.com/tsuyoshiwada/color-classifier/issues)

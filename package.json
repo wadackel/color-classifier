@@ -1,12 +1,12 @@
 {
-  "name": "color-classify",
+  "name": "color-classifier",
   "version": "0.0.1",
   "description": "Classify the color along the reference color.",
-  "main": "color-classify.js",
+  "main": "color-classifier.js",
   "scripts": {
     "start": "onchange 'src/**/*' -- npm run build",
     "build": "rollup -c",
-    "test": "mocha --compilers js:babel-register",
+    "test": "npm run lint && mocha --compilers js:babel-register",
     "lint": "eslint src/**"
   },
   "author": "tsuyoshiwada",
