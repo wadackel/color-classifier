@@ -1,9 +1,131 @@
 @charset "utf-8";
 
+@import url("https://fonts.googleapis.com/css?family=Abel");
 @import "normalize";
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(0, 0, 0, .9);
+}
+
+::-moz-selection {
+  background: rgba(0, 0, 0, .9);
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Abel", sans-serif;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 9999;
+  margin: 0;
+  padding: .2em;
+  background: #fff;
+  border: 3px solid #000;
+  font-size: 1.875rem;
+  line-height: 1;
+}
+
+.row {
+  overflow: hidden;
+  height: 100%;
+}
+
+.col {
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.color-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  &__item {
+    position: relative;
+    flex-grow: 1;
+    margin: 0;
+    .color {
+      position: absolute;
+    }
+  }
+}
+
+.color {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: .68rem;
+  cursor: pointer;
+  &--active {
+    opacity: 1;
+  }
+  &__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+  &__delete {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: block;
+    width: 50px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .25s ease-out;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      opacity: .5;
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    // opacity: .3;
+  }
 }
