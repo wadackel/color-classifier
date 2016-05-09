@@ -4,17 +4,13 @@ import base16Colors from "./base16-colors"
 
 class ColorClassifier {
   constructor(baseColors = base16Colors) {
-    console.log( new Color("#008080") );
-    console.log( new Color("#00F") );
-    console.log( new Color("#C0C0C0") );
-    console.log( new Color("#fff") );
-
-    // this.baseColors = baseColors.map(color => {
-    //   return {
-    //     hsv: Color(color).toHSV(),
-    //     original: color
-    //   };
-    // });
+    this.baseColors = baseColors.map(baseColor => {
+      const color = new Color(baseColor);
+      return {
+        baseColor,
+        color
+      };
+    });
   }
 
   getAppoximateColor(color) {
@@ -30,7 +26,7 @@ class ColorClassifier {
     // return minBy(array, "distance").color;
   }
 
-  exec(colors) {
+  classify(color) {
     // const results = {};
     //
     // forEach(this.baseColors, baseColor => results[baseColor.original] = []);

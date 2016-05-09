@@ -134,17 +134,13 @@
       var baseColors = arguments.length <= 0 || arguments[0] === undefined ? base16Colors : arguments[0];
       babelHelpers.classCallCheck(this, ColorClassifier);
 
-      console.log(new Color("#008080"));
-      console.log(new Color("#00F"));
-      console.log(new Color("#C0C0C0"));
-      console.log(new Color("#fff"));
-
-      // this.baseColors = baseColors.map(color => {
-      //   return {
-      //     hsv: Color(color).toHSV(),
-      //     original: color
-      //   };
-      // });
+      this.baseColors = baseColors.map(function (baseColor) {
+        var color = new Color(baseColor);
+        return {
+          baseColor: baseColor,
+          color: color
+        };
+      });
     }
 
     babelHelpers.createClass(ColorClassifier, [{
@@ -162,8 +158,8 @@
         // return minBy(array, "distance").color;
       }
     }, {
-      key: "exec",
-      value: function exec(colors) {
+      key: "classify",
+      value: function classify(color) {
         // const results = {};
         //
         // forEach(this.baseColors, baseColor => results[baseColor.original] = []);
