@@ -1,8 +1,32 @@
+const HEX_SHORT = /^#([a-fA-F0-9]{3})$/;
+const HEX = /^#([a-fA-F0-9]{6})$/;
+
 export default class Color {
   static parseRgb(rgb) {
+    const obj = {};
+
+    if (HEX_SHORT.test(rgb)) {
+      const r = rgb.slice(1, 2);
+      const g = rgb.slice(2, 3);
+      const b = rgb.slice(3, 4);
+      obj.r = parseInt(r + r, 16);
+      obj.g = parseInt(g + g, 16);
+      obj.b = parseInt(b + b, 16);
+
+    } else if (HEX.test(rgb)) {
+      obj.r = parseInt(rgb.slice(1, 3), 16);
+      obj.g = parseInt(rgb.slice(3, 5), 16);
+      obj.b = parseInt(rgb.slice(5, 7), 16);
+
+    } else {
+      return null;
+    }
+
+    return obj;
   }
 
   static rgbToHsv(rgb) {
+    // TODO
   }
 
   static hsvDistance(a, b) {
@@ -22,6 +46,7 @@ export default class Color {
   }
 
   static rgbDistance(a, b) {
+    // TODO
   }
 
   constructor(rgb) {

@@ -32,13 +32,37 @@
 
   babelHelpers;
 
+  var HEX_SHORT = /^#([a-fA-F0-9]{3})$/;
+  var HEX = /^#([a-fA-F0-9]{6})$/;
+
   var Color = function () {
     babelHelpers.createClass(Color, null, [{
       key: "parseRgb",
-      value: function parseRgb(rgb) {}
+      value: function parseRgb(rgb) {
+        var obj = {};
+
+        if (HEX_SHORT.test(rgb)) {
+          var r = rgb.slice(1, 2);
+          var g = rgb.slice(2, 3);
+          var b = rgb.slice(3, 4);
+          obj.r = parseInt(r + r, 16);
+          obj.g = parseInt(g + g, 16);
+          obj.b = parseInt(b + b, 16);
+        } else if (HEX.test(rgb)) {
+          obj.r = parseInt(rgb.slice(1, 3), 16);
+          obj.g = parseInt(rgb.slice(3, 5), 16);
+          obj.b = parseInt(rgb.slice(5, 7), 16);
+        } else {
+          return null;
+        }
+
+        return obj;
+      }
     }, {
       key: "rgbToHsv",
-      value: function rgbToHsv(rgb) {}
+      value: function rgbToHsv(rgb) {
+        // TODO
+      }
     }, {
       key: "hsvDistance",
       value: function hsvDistance(a, b) {
@@ -54,7 +78,9 @@
       }
     }, {
       key: "rgbDistance",
-      value: function rgbDistance(a, b) {}
+      value: function rgbDistance(a, b) {
+        // TODO
+      }
     }]);
 
     function Color(rgb) {
