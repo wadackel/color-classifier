@@ -10,6 +10,10 @@ export default class ColorList extends Component {
     this.props.onDeleteColor(index);
   }
 
+  handleAddColorClick() {
+    this.props.onRequestAddColor();
+  }
+
   render() {
     const { colors } = this.props;
     const colorItems = colors.map((color, index) => (
@@ -21,6 +25,10 @@ export default class ColorList extends Component {
         />
       </div>
     ));
+
+    colorItems.push(
+      <div className="color-list__item--add" key="add-color" onClick={::this.handleAddColorClick}>Add Color</div>
+    );
 
     return (
       <div className="color-list">

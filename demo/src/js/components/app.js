@@ -24,6 +24,14 @@ export default class App extends Component {
     this.setState({colors: newColors});
   }
 
+  handleRequestAddColor() {
+    const { colors } = this.state;
+    const newColors = [...colors];
+    const color = `#${Math.random().toString(16).slice(-6)}`;
+    newColors.push(color);
+    this.setState({colors: newColors});
+  }
+
   render() {
     return (
       <div className="full-size">
@@ -35,6 +43,7 @@ export default class App extends Component {
               colors={this.state.colors}
               onChangeColor={::this.handleChangeColor}
               onDeleteColor={::this.handleDeleteColor}
+              onRequestAddColor={::this.handleRequestAddColor}
             />
           </div>
         </div>
