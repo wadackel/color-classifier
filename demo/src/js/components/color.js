@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { SketchPicker } from "react-color"
+import ColorPicker from "./color-picker"
 import ColorUtil from "../../../../src/utils/color"
 
 function luminance(color) {
@@ -32,6 +32,7 @@ export default class Color extends Component {
   }
 
   handleChange(color) {
+    console.log(color);
     this.props.onChange(color);
   }
 
@@ -46,8 +47,11 @@ export default class Color extends Component {
     const { displayColorPicker } = this.state;
     const popover = {
       position: "absolute",
-      zIndex: 9999
+      zIndex: 9999,
+      width: "100%",
+      height: "100%"
     };
+
     const cover = {
       position: "fixed",
       top: 0,
@@ -62,14 +66,13 @@ export default class Color extends Component {
         style={{
           color: getTextColor(color)
         }}
-        onClick={::this.handleClick}
       >
-        <div className="color__inner">
-          {displayColorPicker ? <div style={popover}>
-            <div style={cover} onClick={::this.handleClose} />
-            <SketchPicker color={color} onChange={::this.handleChange} />
-          </div> : null}
+        {displayColorPicker ? <div style={popover}>
+          <div style={cover} onClick={::this.handleClose} />
+          <ColorPicker color={color} onChange={::this.handleChange} />
+        </div> : null}
 
+        <div className="color__inner" onClick={::this.handleClick}>
           <span className="color__label">{color}</span>
           <button className="color__delete" onClick={::this.handleDeleteClick}>&times;</button>
         </div>
