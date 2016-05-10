@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Abel");
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,600);
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -386,7 +386,8 @@ html {
 
 html {
   font-size: 16px;
-  font-family: "Abel", sans-serif; }
+  font-family: "Josefin Sans", sans-serif;
+  letter-spacing: .05em; }
 
 .full-size {
   width: 100%;
@@ -398,7 +399,7 @@ html {
   left: 10px;
   z-index: 9999;
   margin: 0;
-  padding: .2em;
+  padding: .2em .2em .1em .2em;
   background: #fff;
   border: 3px solid #000;
   font-size: 1.875rem;
@@ -454,7 +455,7 @@ html {
   width: 100%;
   height: 100%;
   color: #fff;
-  font-size: .68rem;
+  font-size: .72rem;
   cursor: pointer; }
   .color--active {
     opacity: 1; }
@@ -484,6 +485,7 @@ html {
     border: 0;
     color: inherit;
     font-size: 1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
     -webkit-transition: all .25s ease-out;
     transition: all .25s ease-out; }
@@ -498,3 +500,17 @@ html {
     bottom: 0;
     left: 0;
     z-index: 0; }
+
+.main-color {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+  .main-color__label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }

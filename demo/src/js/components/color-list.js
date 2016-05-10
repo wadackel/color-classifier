@@ -21,8 +21,7 @@ export default class ColorList extends Component {
         <Color
           color={color}
           onChange={(color) => this.handleChange(index, color)}
-          onDelete={() => this.handleDelete(index)}
-        />
+          onDelete={() => this.handleDelete(index)} />
       </div>
     ));
 

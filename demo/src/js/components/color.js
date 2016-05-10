@@ -1,27 +1,11 @@
 import React, { Component } from "react"
 import ColorPicker from "./color-picker"
-import ColorUtil from "../../../../src/utils/color"
-
-function luminance(color) {
-  const rgb = ColorUtil.parseHex(color);
-  return Math.floor(
-    0.298912 * rgb.r +
-    0.586611 * rgb.g +
-    0.114478 * rgb.b
-  );
-}
-
-function getTextColor(backgroundColor) {
-  return luminance(backgroundColor) < 120 ? "#fff" : "#000";
-}
+import { getTextColor } from "../utils/color"
 
 export default class Color extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      displayColorPicker: false
-    };
-  }
+  state = {
+    displayColorPicker: false
+  };
 
   handleClick(e) {
     this.setState({displayColorPicker: true});
@@ -44,32 +28,18 @@ export default class Color extends Component {
   render() {
     const { color } = this.props;
     const { displayColorPicker } = this.state;
-    const popover = {
-      position: "absolute",
-      zIndex: 9999,
-      width: "100%",
-      height: "100%"
-    };
-
-    const cover = {
-      position: "fixed",
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0
-    };
 
     return (
       <div
         className="color"
         style={{
           color: getTextColor(color)
-        }}
-      >
-        {displayColorPicker ? <div style={popover}>
-          <div style={cover} onClick={::this.handleClose} />
-          <ColorPicker color={color} onChangeComplete={::this.handleChangeComplete} />
-        </div> : null}
+        }}>
+        <ColorPicker
+          color={color}
+          display={displayColorPicker}
+          onChangeComplete={::this.handleChangeComplete}
+          onRequestClose={::this.handleClose} />
 
         <div className="color__inner" onClick={::this.handleClick}>
           <span className="color__label">{color}</span>
