@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import url("https://fonts.googleapis.com/css?family=Abel");
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,600);
 @import "normalize";
 
 *,
@@ -25,7 +25,8 @@ html {
 
 html {
   font-size: 16px;
-  font-family: "Abel", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  letter-spacing: .05em;
 }
 
 .full-size {
@@ -39,7 +40,7 @@ html {
   left: 10px;
   z-index: 9999;
   margin: 0;
-  padding: .2em;
+  padding: .2em .2em .1em .2em;
   background: #fff;
   border: 3px solid #000;
   font-size: 1.875rem;
@@ -95,7 +96,7 @@ html {
   width: 100%;
   height: 100%;
   color: #fff;
-  font-size: .68rem;
+  font-size: .72rem;
   cursor: pointer;
 
   &--active {
@@ -130,6 +131,7 @@ html {
     border: 0;
     color: inherit;
     font-size: 1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
     transition: all .25s ease-out;
 
@@ -149,5 +151,21 @@ html {
     bottom: 0;
     left: 0;
     z-index: 0;
+  }
+}
+
+.main-color {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    transform: translate(-50%, -50%);
   }
 }
