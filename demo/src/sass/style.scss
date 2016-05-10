@@ -76,11 +76,17 @@ html {
     }
 
     &--add {
-      $height: 40px;
-      flex-basis: $height;
+      $_height: 40px;
+      flex-basis: $_height;
       text-align: center;
       cursor: pointer;
-      line-height: $height;
+      background: #fff;
+      line-height: $_height;
+      transition: all .3s ease-out;
+
+      &:hover {
+        background: darken(#fff, 8%);
+      }
     }
   }
 }
@@ -143,6 +149,5 @@ html {
     bottom: 0;
     left: 0;
     z-index: 0;
-    // opacity: .3;
   }
 }

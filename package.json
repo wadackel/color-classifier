@@ -38,6 +38,7 @@
     "eslint": "^2.9.0",
     "mocha": "^2.4.5",
     "node-sass": "^3.7.0",
+    "object-assign": "^4.1.0",
     "onchange": "^2.4.0",
     "postcss-cli": "^2.5.2",
     "power-assert": "^1.4.0",

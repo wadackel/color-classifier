@@ -1,3 +1,4 @@
+import assign from "object-assign"
 import React, { Component } from "react"
 import { CustomPicker } from "react-color"
 import { Saturation, Hue } from "react-color/lib/components/common"
@@ -27,13 +28,11 @@ class ColorPicker extends Component {
 
   render() {
     const pickerStyle = {
-      boxSizing: "initial",
+      position: "relative",
+      zIndex: 10,
+      boxSizing: "border-box",
       width: "100%",
-      height: "100%",
-      background: "#fff",
-      borderRadius: "2px",
-      boxShadow: "0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)",
-      fontFamily: "Menlo"
+      height: "100%"
     };
 
     const saturationStyle = {
