@@ -233,7 +233,13 @@ var App = function (_Component) {
 
   _createClass(App, [{
     key: "handleChangeColor",
-    value: function handleChangeColor(index, color) {}
+    value: function handleChangeColor(index, color) {
+      var colors = this.state.colors;
+
+      var newColors = [].concat(_toConsumableArray(colors));
+      newColors[index] = color;
+      this.setState({ colors: newColors });
+    }
   }, {
     key: "handleDeleteColor",
     value: function handleDeleteColor(index) {
@@ -543,10 +549,9 @@ var Color = function (_Component) {
       this.setState({ displayColorPicker: false });
     }
   }, {
-    key: "handleChange",
-    value: function handleChange(color) {
-      console.log(color);
-      this.props.onChange(color);
+    key: "handleChangeComplete",
+    value: function handleChangeComplete(color) {
+      this.props.onChange(color.hex);
     }
   }, {
     key: "handleDeleteClick",
@@ -588,7 +593,7 @@ var Color = function (_Component) {
           "div",
           { style: popover },
           _react2.default.createElement("div", { style: cover, onClick: this.handleClose.bind(this) }),
-          _react2.default.createElement(_colorPicker2.default, { color: color, onChange: this.handleChange.bind(this) })
+          _react2.default.createElement(_colorPicker2.default, { color: color, onChangeComplete: this.handleChangeComplete.bind(this) })
         ) : null,
         _react2.default.createElement(
           "div",
