@@ -443,7 +443,12 @@ html {
               flex-basis: 40px;
       text-align: center;
       cursor: pointer;
-      line-height: 40px; }
+      background: #fff;
+      line-height: 40px;
+      -webkit-transition: all .3s ease-out;
+      transition: all .3s ease-out; }
+      .color-list__item--add:hover {
+        background: #ebebeb; }
 
 .color {
   width: 100%;

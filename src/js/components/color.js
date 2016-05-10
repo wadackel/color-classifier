@@ -24,7 +24,7 @@ export default class Color extends Component {
   }
 
   handleClick(e) {
-    this.setState({displayColorPicker: !this.state.displayColorPicker});
+    this.setState({displayColorPicker: true});
   }
 
   handleClose() {

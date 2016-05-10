@@ -458,13 +458,11 @@ var ColorPicker = function (_Component2) {
     key: "render",
     value: function render() {
       var pickerStyle = {
-        boxSizing: "initial",
+        position: "relative",
+        zIndex: 10,
+        boxSizing: "border-box",
         width: "100%",
-        height: "100%",
-        background: "#fff",
-        borderRadius: "2px",
-        boxShadow: "0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)",
-        fontFamily: "Menlo"
+        height: "100%"
       };
 
       var saturationStyle = {
@@ -563,7 +561,7 @@ var Color = function (_Component) {
   _createClass(Color, [{
     key: "handleClick",
     value: function handleClick(e) {
-      this.setState({ displayColorPicker: !this.state.displayColorPicker });
+      this.setState({ displayColorPicker: true });
     }
   }, {
     key: "handleClose",
