@@ -250,6 +250,16 @@ var App = function (_Component) {
       this.setState({ colors: newColors });
     }
   }, {
+    key: "handleRequestAddColor",
+    value: function handleRequestAddColor() {
+      var colors = this.state.colors;
+
+      var newColors = [].concat(_toConsumableArray(colors));
+      var color = "#" + Math.random().toString(16).slice(-6);
+      newColors.push(color);
+      this.setState({ colors: newColors });
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react2.default.createElement(
@@ -270,7 +280,8 @@ var App = function (_Component) {
             _react2.default.createElement(_colorList2.default, {
               colors: this.state.colors,
               onChangeColor: this.handleChangeColor.bind(this),
-              onDeleteColor: this.handleDeleteColor.bind(this)
+              onDeleteColor: this.handleDeleteColor.bind(this),
+              onRequestAddColor: this.handleRequestAddColor.bind(this)
             })
           )
         )
@@ -328,6 +339,11 @@ var ColorList = function (_Component) {
       this.props.onDeleteColor(index);
     }
   }, {
+    key: "handleAddColorClick",
+    value: function handleAddColorClick() {
+      this.props.onRequestAddColor();
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -349,6 +365,12 @@ var ColorList = function (_Component) {
           })
         );
       });
+
+      colorItems.push(_react2.default.createElement(
+        "div",
+        { className: "color-list__item--add", key: "add-color", onClick: this.handleAddColorClick.bind(this) },
+        "Add Color"
+      ));
 
       return _react2.default.createElement(
         "div",
