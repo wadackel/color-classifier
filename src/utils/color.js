@@ -80,7 +80,7 @@ export default class Color {
   }
 
   constructor(hex) {
-    this.original = rgb;
+    this.original = hex;
     this.rgb = Color.parseHex(hex);
     this.hsv = Color.rgbToHsv(this.rgb);
   }
