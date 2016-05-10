@@ -11,6 +11,10 @@ export default class App extends Component {
   }
 
   handleChangeColor(index, color) {
+    const { colors } = this.state;
+    const newColors = [...colors];
+    newColors[index] = color;
+    this.setState({colors: newColors});
   }
 
   handleDeleteColor(index) {

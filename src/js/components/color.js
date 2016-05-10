@@ -31,9 +31,8 @@ export default class Color extends Component {
     this.setState({displayColorPicker: false});
   }
 
-  handleChange(color) {
-    console.log(color);
-    this.props.onChange(color);
+  handleChangeComplete(color) {
+    this.props.onChange(color.hex);
   }
 
   handleDeleteClick(e) {
@@ -69,7 +68,7 @@ export default class Color extends Component {
       >
         {displayColorPicker ? <div style={popover}>
           <div style={cover} onClick={::this.handleClose} />
-          <ColorPicker color={color} onChange={::this.handleChange} />
+          <ColorPicker color={color} onChangeComplete={::this.handleChangeComplete} />
         </div> : null}
 
         <div className="color__inner" onClick={::this.handleClick}>
