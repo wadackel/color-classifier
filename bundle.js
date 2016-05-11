@@ -4,6 +4,14 @@
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
+/*!
+ * color-classifier
+ * Classify the color along the reference color.
+ *
+ * @author tsuyoshiwada
+ * @license MIT
+ * @version 0.0.1
+ */
 !function (n, t) {
   "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : n.ColorClassifier = t();
 }(undefined, function () {
