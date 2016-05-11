@@ -24,7 +24,7 @@ class ColorClassifier {
 
     baseColors.forEach(baseColor => {
       array.push({
-        distance: Color.hsvDistance(baseColor.hsv, hsv),
+        distance: Color.ciede2kDistance(baseColor.original, hex),
         color: baseColor.original
       });
     });
