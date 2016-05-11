@@ -11,73 +11,77 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * @license MIT
  * @version 0.0.1
  */
-!function (r, n) {
-  "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = n() : "function" == typeof define && define.amd ? define(n) : r.ColorClassifier = n();
+!function (e, r) {
+  "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = r() : "function" == typeof define && define.amd ? define(r) : e.ColorClassifier = r();
 }(undefined, function () {
   "use strict";
-  function r(r, e) {
-    var t = [].concat(n.toConsumableArray(r));return t.sort(function (r, n) {
-      return r[e] < n[e] ? -1 : r[e] > n[e] ? 1 : 0;
+  function e(e, n) {
+    var t = [].concat(r.toConsumableArray(e));return t.sort(function (e, r) {
+      return e[n] < r[n] ? -1 : e[n] > r[n] ? 1 : 0;
     }), t.shift();
-  }var n = {};n.classCallCheck = function (r, n) {
-    if (!(r instanceof n)) throw new TypeError("Cannot call a class as a function");
-  }, n.createClass = function () {
-    function r(r, n) {
-      for (var e = 0; e < n.length; e++) {
-        var t = n[e];t.enumerable = t.enumerable || !1, t.configurable = !0, "value" in t && (t.writable = !0), Object.defineProperty(r, t.key, t);
+  }var r = {};r.classCallCheck = function (e, r) {
+    if (!(e instanceof r)) throw new TypeError("Cannot call a class as a function");
+  }, r.createClass = function () {
+    function e(e, r) {
+      for (var n = 0; n < r.length; n++) {
+        var t = r[n];t.enumerable = t.enumerable || !1, t.configurable = !0, "value" in t && (t.writable = !0), Object.defineProperty(e, t.key, t);
       }
-    }return function (n, e, t) {
-      return e && r(n.prototype, e), t && r(n, t), n;
+    }return function (r, n, t) {
+      return n && e(r.prototype, n), t && e(r, t), r;
     };
-  }(), n.toConsumableArray = function (r) {
-    if (Array.isArray(r)) {
-      for (var n = 0, e = Array(r.length); n < r.length; n++) {
-        e[n] = r[n];
-      }return e;
-    }return Array.from(r);
-  };var e = /^#([a-fA-F0-9]{3})$/,
+  }(), r.toConsumableArray = function (e) {
+    if (Array.isArray(e)) {
+      for (var r = 0, n = Array(e.length); r < e.length; r++) {
+        n[r] = e[r];
+      }return n;
+    }return Array.from(e);
+  };var n = /^#([a-fA-F0-9]{3})$/,
       t = /^#([a-fA-F0-9]{6})$/,
       a = function () {
-    function r(e) {
-      n.classCallCheck(this, r), this.original = e, this.rgb = r.parseHex(e), this.hsv = r.rgbToHsv(this.rgb);
-    }return n.createClass(r, null, [{ key: "parseHex", value: function value(r) {
-        var n = {};if (e.test(r)) {
-          var a = r.slice(1, 2),
-              s = r.slice(2, 3),
-              o = r.slice(3, 4);n.r = parseInt(a + a, 16), n.g = parseInt(s + s, 16), n.b = parseInt(o + o, 16);
+    function e(n) {
+      r.classCallCheck(this, e), this.original = n, this.rgb = e.parseHex(n), this.hsv = e.rgbToHsv(this.rgb);
+    }return r.createClass(e, null, [{ key: "parseHex", value: function value(e) {
+        var r = {};if (n.test(e)) {
+          var a = e.slice(1, 2),
+              s = e.slice(2, 3),
+              o = e.slice(3, 4);r.r = parseInt(a + a, 16), r.g = parseInt(s + s, 16), r.b = parseInt(o + o, 16);
         } else {
-          if (!t.test(r)) return null;n.r = parseInt(r.slice(1, 3), 16), n.g = parseInt(r.slice(3, 5), 16), n.b = parseInt(r.slice(5, 7), 16);
-        }return n;
-      } }, { key: "rgbToHsv", value: function value(r) {
-        var n = r.r,
-            e = r.g,
-            t = r.b,
+          if (!t.test(e)) return null;r.r = parseInt(e.slice(1, 3), 16), r.g = parseInt(e.slice(3, 5), 16), r.b = parseInt(e.slice(5, 7), 16);
+        }return r;
+      } }, { key: "rgbToHsv", value: function value(e) {
+        var r = e.r,
+            n = e.g,
+            t = e.b,
             a = {},
-            s = Math.min(n, e, t),
-            o = Math.max(n, e, t),
-            i = o - s;return 0 === o ? a.s = 0 : a.s = Math.round(i / o * 100), o === s ? a.h = 0 : n === o ? a.h = (e - t) / i : e === o ? a.h = 2 + (t - n) / i : a.h = 4 + (n - e) / i, a.h = Math.min(Math.round(60 * a.h), 360), a.h < 0 && (a.h += 360), a.v = Math.round(o / 255 * 100), a;
-      } }, { key: "hsvDistance", value: function value(r, n) {
-        var e = 0;return e = r.h > n.h ? Math.min(r.h - n.h, n.h - r.h + 360) : Math.min(n.h - r.h, r.h - n.h + 360), Math.sqrt(Math.pow(e, 2) + Math.pow(r.s - n.s, 2) + Math.pow(r.v - n.v, 2));
-      } }, { key: "rgbDistance", value: function value(r, n) {} }]), r;
+            s = Math.min(r, n, t),
+            o = Math.max(r, n, t),
+            i = o - s;return 0 === o ? a.s = 0 : a.s = Math.round(i / o * 100), o === s ? a.h = 0 : r === o ? a.h = (n - t) / i : n === o ? a.h = 2 + (t - r) / i : a.h = 4 + (r - n) / i, a.h = Math.min(Math.round(60 * a.h), 360), a.h < 0 && (a.h += 360), a.v = Math.round(o / 255 * 100), a;
+      } }, { key: "hsvDistance", value: function value(e, r) {
+        var n = 0;return n = e.h > r.h ? Math.min(e.h - r.h, r.h - e.h + 360) : Math.min(r.h - e.h, e.h - r.h + 360), Math.sqrt(Math.pow(n, 2) + Math.pow(e.s - r.s, 2) + Math.pow(e.v - r.v, 2));
+      } }, { key: "rgbDistance", value: function value(e, r) {} }]), e;
   }(),
       s = ["#000000", "#808080", "#c0c0c0", "#ffffff", "#0000ff", "#000080", "#008080", "#008000", "#00ff00", "#00ffff", "#ffff00", "#ff0000", "#ff00ff", "#808000", "#800080", "#800000"],
       o = function () {
-    function e() {
-      var r = arguments.length <= 0 || void 0 === arguments[0] ? s : arguments[0];n.classCallCheck(this, e), this.baseColors = r.map(function (r) {
-        return new a(r);
-      });
-    }return n.createClass(e, [{ key: "classify", value: function value(n) {
-        var e = this.baseColors,
-            t = new a(n).hsv,
-            s = [];return e.forEach(function (r) {
-          s.push({ distance: a.hsvDistance(r.hsv, t), color: r.original });
-        }), r(s, "distance").color;
-      } }, { key: "classifyFromArray", value: function value(r) {
-        var n = this,
-            e = {};return r.forEach(function (r) {
-          var t = n.classify(r);e.hasOwnProperty(t) || (e[t] = []), e[t].push(r);
-        }), e;
-      } }]), e;
+    function n() {
+      var e = arguments.length <= 0 || void 0 === arguments[0] ? s : arguments[0];r.classCallCheck(this, n), this.setBaseColors(e);
+    }return r.createClass(n, [{ key: "setBaseColors", value: function value(e) {
+        this.baseColors = e.map(function (e) {
+          return new a(e);
+        });
+      } }, { key: "getBaseColors", value: function value() {
+        return this.baseColors;
+      } }, { key: "classify", value: function value(r) {
+        var n = this.baseColors,
+            t = new a(r).hsv,
+            s = [];return n.forEach(function (e) {
+          s.push({ distance: a.hsvDistance(e.hsv, t), color: e.original });
+        }), e(s, "distance").color;
+      } }, { key: "classifyFromArray", value: function value(e) {
+        var r = this,
+            n = {};return e.forEach(function (e) {
+          var t = r.classify(e);n.hasOwnProperty(t) || (n[t] = []), n[t].push(e);
+        }), n;
+      } }]), n;
   }();return o.base16Colors = s, o;
 });
 
@@ -121,22 +125,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_Component) {
   _inherits(App, _Component);
 
-  function App() {
-    var _Object$getPrototypeO;
-
-    var _temp, _this, _ret;
-
+  function App(props) {
     _classCallCheck(this, App);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(App)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+    _this.state = {
       color: (0, _color.getRandomColor)(),
       colors: [].concat(_toConsumableArray(_.base16Colors)),
       displayColorPicker: false
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    };
+
+    _this.colorClassifier = new _2.default(_this.state.colors);
+    return _this;
   }
 
   _createClass(App, [{
@@ -182,10 +183,15 @@ var App = function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var colorClassifier = this.colorClassifier;
       var _state = this.state;
       var color = _state.color;
+      var colors = _state.colors;
       var displayColorPicker = _state.displayColorPicker;
 
+
+      colorClassifier.setBaseColors(colors);
+      var activeColor = colorClassifier.classify(color);
 
       return _react2.default.createElement(
         "div",
@@ -232,6 +238,7 @@ var App = function (_Component) {
             { className: "col" },
             _react2.default.createElement(_colorList2.default, {
               colors: this.state.colors,
+              activeColor: activeColor,
               onChangeColor: this.handleChangeColor.bind(this),
               onDeleteColor: this.handleDeleteColor.bind(this),
               onRequestAddColor: this.handleRequestAddColor.bind(this) })
@@ -300,7 +307,9 @@ var ColorList = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var colors = this.props.colors;
+      var _props = this.props;
+      var colors = _props.colors;
+      var activeColor = _props.activeColor;
 
       var colorItems = colors.map(function (color, index) {
         return _react2.default.createElement(
@@ -308,6 +317,7 @@ var ColorList = function (_Component) {
           { className: "color-list__item", key: color },
           _react2.default.createElement(_color2.default, {
             color: color,
+            active: color === activeColor,
             onChange: function onChange(color) {
               return _this2.handleChange(index, color);
             },
@@ -574,14 +584,16 @@ var Color = function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var color = this.props.color;
+      var _props = this.props;
+      var color = _props.color;
+      var active = _props.active;
       var displayColorPicker = this.state.displayColorPicker;
 
 
       return _react2.default.createElement(
         "div",
         {
-          className: "color",
+          className: active ? "color--active" : "color",
           style: {
             color: (0, _color.getTextColor)(color)
           } },

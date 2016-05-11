@@ -15,11 +15,12 @@ export default class ColorList extends Component {
   }
 
   render() {
-    const { colors } = this.props;
+    const { colors, activeColor } = this.props;
     const colorItems = colors.map((color, index) => (
       <div className="color-list__item" key={color}>
         <Color
           color={color}
+          active={color === activeColor}
           onChange={(color) => this.handleChange(index, color)}
           onDelete={() => this.handleDelete(index)} />
       </div>

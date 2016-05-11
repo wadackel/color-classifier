@@ -26,12 +26,12 @@ export default class Color extends Component {
   }
 
   render() {
-    const { color } = this.props;
+    const { color, active } = this.props;
     const { displayColorPicker } = this.state;
 
     return (
       <div
-        className="color"
+        className={active ? "color--active" : "color"}
         style={{
           color: getTextColor(color)
         }}>
