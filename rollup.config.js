@@ -5,7 +5,20 @@ import commonjs from "rollup-plugin-commonjs"
 import babel from "rollup-plugin-babel"
 import uglify from "rollup-plugin-uglify"
 
+const pkg = require("./package.json");
+const banner = `
+/*!
+ * ${pkg.name}
+ * ${pkg.description}
+ *
+ * @author ${pkg.author}
+ * @license ${pkg.license}
+ * @version ${pkg.version}
+ */
+`;
+
 export default {
+  banner,
   moduleName: "ColorClassifier",
   format: "umd",
   plugins: [
@@ -17,6 +30,16 @@ export default {
       include: "node_modules/**"
     }),
     babel(),
-    uglify()
+    uglify({
+      output: {
+        comments: function(node, comment) {
+          const text = comment.value;
+          const type = comment.type;
+          if (type == "comment2") {
+            return /@preserve|@license|@cc_on/i.test(text);
+          }
+        }
+      }
+    })
   ]
-};
+}
