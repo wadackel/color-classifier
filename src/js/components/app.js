@@ -11,6 +11,11 @@ export default class App extends Component {
     displayColorPicker: false
   };
 
+  constructor(props) {
+    super(props);
+    this.colorClassifier = new ColorClassifier(this.state.colors);
+  }
+
   handleMainChangeColor(color) {
     this.setState({
       color: color.hex,
@@ -46,7 +51,11 @@ export default class App extends Component {
   }
 
   render() {
-    const { color, displayColorPicker } = this.state;
+    const { colorClassifier } = this;
+    const { color, colors, displayColorPicker } = this.state;
+
+    colorClassifier.setBaseColors(colors);
+    const activeColor = colorClassifier.classify(color);
 
     return (
       <div className="full-size">
@@ -78,6 +87,7 @@ export default class App extends Component {
           <div className="col">
             <ColorList
               colors={this.state.colors}
+              activeColor={activeColor}
               onChangeColor={::this.handleChangeColor}
               onDeleteColor={::this.handleDeleteColor}
               onRequestAddColor={::this.handleRequestAddColor} />

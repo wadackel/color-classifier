@@ -100,7 +100,17 @@ html {
   cursor: pointer;
 
   &--active {
-    opacity: 1;
+    @extend .color;
+
+    .color__inner,
+    .color__bg {
+      opacity: 1;
+    }
+  }
+
+  &__inner,
+  &__bg {
+    opacity: .3;
   }
 
   &__inner {
