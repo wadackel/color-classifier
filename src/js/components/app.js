@@ -79,7 +79,8 @@ export default class App extends Component {
                 className="main-color__label"
                 style={{
                   color: getTextColor(color)
-                }}>
+                }}
+                onClick={e => e.stopPropagation()}>
                 {color}
               </span>
             </div>
