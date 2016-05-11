@@ -11,69 +11,74 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * @license MIT
  * @version 0.0.1
  */
-!function (r, e) {
-  "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : r.ColorClassifier = e();
+!function (r, n) {
+  "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = n() : "function" == typeof define && define.amd ? define(n) : r.ColorClassifier = n();
 }(undefined, function () {
   "use strict";
-  function r(r, n) {
-    var t = [].concat(e.toConsumableArray(r));return t.sort(function (r, e) {
-      return r[n] < e[n] ? -1 : r[n] > e[n] ? 1 : 0;
+  function r(r, e) {
+    var t = [].concat(n.toConsumableArray(r));return t.sort(function (r, n) {
+      return r[e] < n[e] ? -1 : r[e] > n[e] ? 1 : 0;
     }), t.shift();
-  }var e = {};e.classCallCheck = function (r, e) {
-    if (!(r instanceof e)) throw new TypeError("Cannot call a class as a function");
-  }, e.createClass = function () {
-    function r(r, e) {
-      for (var n = 0; n < e.length; n++) {
-        var t = e[n];t.enumerable = t.enumerable || !1, t.configurable = !0, "value" in t && (t.writable = !0), Object.defineProperty(r, t.key, t);
+  }var n = {};n.classCallCheck = function (r, n) {
+    if (!(r instanceof n)) throw new TypeError("Cannot call a class as a function");
+  }, n.createClass = function () {
+    function r(r, n) {
+      for (var e = 0; e < n.length; e++) {
+        var t = n[e];t.enumerable = t.enumerable || !1, t.configurable = !0, "value" in t && (t.writable = !0), Object.defineProperty(r, t.key, t);
       }
-    }return function (e, n, t) {
-      return n && r(e.prototype, n), t && r(e, t), e;
+    }return function (n, e, t) {
+      return e && r(n.prototype, e), t && r(n, t), n;
     };
-  }(), e.toConsumableArray = function (r) {
+  }(), n.toConsumableArray = function (r) {
     if (Array.isArray(r)) {
-      for (var e = 0, n = Array(r.length); e < r.length; e++) {
-        n[e] = r[e];
-      }return n;
+      for (var n = 0, e = Array(r.length); n < r.length; n++) {
+        e[n] = r[n];
+      }return e;
     }return Array.from(r);
-  };var n = /^#([a-fA-F0-9]{3})$/,
+  };var e = /^#([a-fA-F0-9]{3})$/,
       t = /^#([a-fA-F0-9]{6})$/,
       a = function () {
-    function r(n) {
-      e.classCallCheck(this, r), this.original = n, this.rgb = r.parseHex(n), this.hsv = r.rgbToHsv(this.rgb);
-    }return e.createClass(r, null, [{ key: "parseHex", value: function value(r) {
-        var e = {};if (n.test(r)) {
+    function r(e) {
+      n.classCallCheck(this, r), this.original = e, this.rgb = r.parseHex(e), this.hsv = r.rgbToHsv(this.rgb);
+    }return n.createClass(r, null, [{ key: "parseHex", value: function value(r) {
+        var n = {};if (e.test(r)) {
           var a = r.slice(1, 2),
               s = r.slice(2, 3),
-              i = r.slice(3, 4);e.r = parseInt(a + a, 16), e.g = parseInt(s + s, 16), e.b = parseInt(i + i, 16);
+              o = r.slice(3, 4);n.r = parseInt(a + a, 16), n.g = parseInt(s + s, 16), n.b = parseInt(o + o, 16);
         } else {
-          if (!t.test(r)) return null;e.r = parseInt(r.slice(1, 3), 16), e.g = parseInt(r.slice(3, 5), 16), e.b = parseInt(r.slice(5, 7), 16);
-        }return e;
+          if (!t.test(r)) return null;n.r = parseInt(r.slice(1, 3), 16), n.g = parseInt(r.slice(3, 5), 16), n.b = parseInt(r.slice(5, 7), 16);
+        }return n;
       } }, { key: "rgbToHsv", value: function value(r) {
-        var e = r.r,
-            n = r.g,
+        var n = r.r,
+            e = r.g,
             t = r.b,
             a = {},
-            s = Math.min(e, n, t),
-            i = Math.max(e, n, t),
-            o = i - s;return 0 === i ? a.s = 0 : a.s = Math.round(o / i * 100), i === s ? a.h = 0 : e === i ? a.h = (n - t) / o : n === i ? a.h = 2 + (t - e) / o : a.h = 4 + (e - n) / o, a.h = Math.min(Math.round(60 * a.h), 360), a.h < 0 && (a.h += 360), a.v = Math.round(i / 255 * 100), a;
-      } }, { key: "hsvDistance", value: function value(r, e) {
-        var n = 0;return n = r.h > e.h ? Math.min(r.h - e.h, e.h - r.h + 360) : Math.min(e.h - r.h, r.h - e.h + 360), Math.sqrt(Math.pow(n, 2) + Math.pow(r.s - e.s, 2) + Math.pow(r.v - e.v, 2));
-      } }, { key: "rgbDistance", value: function value(r, e) {} }]), r;
+            s = Math.min(n, e, t),
+            o = Math.max(n, e, t),
+            i = o - s;return 0 === o ? a.s = 0 : a.s = Math.round(i / o * 100), o === s ? a.h = 0 : n === o ? a.h = (e - t) / i : e === o ? a.h = 2 + (t - n) / i : a.h = 4 + (n - e) / i, a.h = Math.min(Math.round(60 * a.h), 360), a.h < 0 && (a.h += 360), a.v = Math.round(o / 255 * 100), a;
+      } }, { key: "hsvDistance", value: function value(r, n) {
+        var e = 0;return e = r.h > n.h ? Math.min(r.h - n.h, n.h - r.h + 360) : Math.min(n.h - r.h, r.h - n.h + 360), Math.sqrt(Math.pow(e, 2) + Math.pow(r.s - n.s, 2) + Math.pow(r.v - n.v, 2));
+      } }, { key: "rgbDistance", value: function value(r, n) {} }]), r;
   }(),
       s = ["#000000", "#808080", "#c0c0c0", "#ffffff", "#0000ff", "#000080", "#008080", "#008000", "#00ff00", "#00ffff", "#ffff00", "#ff0000", "#ff00ff", "#808000", "#800080", "#800000"],
-      i = function () {
-    function n() {
-      var r = arguments.length <= 0 || void 0 === arguments[0] ? s : arguments[0];e.classCallCheck(this, n), this.baseColors = r.map(function (r) {
+      o = function () {
+    function e() {
+      var r = arguments.length <= 0 || void 0 === arguments[0] ? s : arguments[0];n.classCallCheck(this, e), this.baseColors = r.map(function (r) {
         return new a(r);
       });
-    }return e.createClass(n, [{ key: "classify", value: function value(e) {
-        if (Array.isArray(e)) return null;var n = this.baseColors,
-            t = new a(e).hsv,
-            s = [];return n.forEach(function (r) {
+    }return n.createClass(e, [{ key: "classify", value: function value(n) {
+        var e = this.baseColors,
+            t = new a(n).hsv,
+            s = [];return e.forEach(function (r) {
           s.push({ distance: a.hsvDistance(r.hsv, t), color: r.original });
         }), r(s, "distance").color;
-      } }]), n;
-  }();return i.base16Colors = s, i;
+      } }, { key: "classifyFromArray", value: function value(r) {
+        var n = this,
+            e = {};return r.forEach(function (r) {
+          var t = n.classify(r);e.hasOwnProperty(t) || (e[t] = []), e[t].push(r);
+        }), e;
+      } }]), e;
+  }();return o.base16Colors = s, o;
 });
 
 },{}],2:[function(require,module,exports){
