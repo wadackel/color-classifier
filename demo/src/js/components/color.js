@@ -42,7 +42,7 @@ export default class Color extends Component {
           onRequestClose={::this.handleClose} />
 
         <div className="color__inner" onClick={::this.handleClick}>
-          <span className="color__label">{color}</span>
+          <span className="color__label" onClick={e => e.stopPropagation()}>{color}</span>
           <button className="color__delete" onClick={::this.handleDeleteClick}>&times;</button>
         </div>
         <div className="color__bg" style={{backgroundColor: color}} />

@@ -228,6 +228,9 @@ var App = function (_Component) {
                   className: "main-color__label",
                   style: {
                     color: (0, _color.getTextColor)(color)
+                  },
+                  onClick: function onClick(e) {
+                    return e.stopPropagation();
                   } },
                 color
               )
@@ -607,7 +610,9 @@ var Color = function (_Component) {
           { className: "color__inner", onClick: this.handleClick.bind(this) },
           _react2.default.createElement(
             "span",
-            { className: "color__label" },
+            { className: "color__label", onClick: function onClick(e) {
+                return e.stopPropagation();
+              } },
             color
           ),
           _react2.default.createElement(
