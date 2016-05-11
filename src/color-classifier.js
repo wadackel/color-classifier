@@ -9,11 +9,6 @@ class ColorClassifier {
   }
 
   classify(hex) {
-    if (Array.isArray(hex)) {
-      // TODO
-      return null;
-    }
-
     const { baseColors } = this;
     const hsv = new Color(hex).hsv;
     const array = [];
@@ -26,6 +21,22 @@ class ColorClassifier {
     });
 
     return minBy(array, "distance").color;
+  }
+
+  classifyFromArray(hexArray) {
+    const results = {};
+
+    hexArray.forEach(hex => {
+      const baseColor = this.classify(hex);
+
+      if (!results.hasOwnProperty(baseColor)) {
+        results[baseColor] = [];
+      }
+
+      results[baseColor].push(hex);
+    });
+
+    return results;
   }
 }
 
