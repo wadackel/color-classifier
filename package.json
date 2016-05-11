@@ -53,8 +53,5 @@
     "rollup-plugin-uglify": "^0.3.1",
     "uglify-js": "^2.6.2",
     "watchify": "^3.7.0"
-  },
-  "dependencies": {
-    "lodash.minby": "^4.3.0"
   }
 }

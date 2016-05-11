@@ -1,4 +1,4 @@
-import minBy from "lodash.minBy"
+import minBy from "./utils/min-by"
 import Color from "./utils/color"
 import base16Colors from "./base16-colors"
 
