@@ -5,6 +5,15 @@ import base16Colors from "./base16-colors"
 
 class ColorClassifier {
   constructor(baseColors = base16Colors) {
+    this.setBaseColors(baseColors);
+  }
+
+  setBaseColors(baseColors) {
+    this.baseColors = baseColors.map(baseColor => new Color(baseColor));
+  }
+
+  getBaseColors() {
+    return this.baseColors;
     this.baseColors = baseColors.map(baseColor => new Color(baseColor));
   }
 
