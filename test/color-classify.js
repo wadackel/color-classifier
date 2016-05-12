@@ -2,9 +2,9 @@
 
 import assert from "power-assert"
 import isPlainObject from "is-plain-object"
-import Color from "../src/utils/color"
 import ColorClassifier from "../src/color-classifier"
-const { AlgorithmTypes } = ColorClassifier;
+import Color from "../src/utils/color"
+const { Palette, AlgorithmTypes } = ColorClassifier;
 
 
 describe("ColorClassify", () => {
@@ -13,8 +13,8 @@ describe("ColorClassify", () => {
     it("should be set and get", () => {
       const c = new ColorClassifier();
 
-      c.setBaseColors(["#fff", "#000"]);
-      assert.deepStrictEqual(c.getBaseColors(), [
+      c.setPalette(["#fff", "#000"]);
+      assert.deepStrictEqual(c.getPalette(), [
         new Color("#fff"),
         new Color("#000")
       ]);
@@ -26,11 +26,11 @@ describe("ColorClassify", () => {
     it("should be throws error", () => {
       const c = new ColorClassifier();
 
-      assert.throws(() => { c.setBaseColors(null); }, Error);
-      assert.throws(() => { c.setBaseColors(undefined); }, Error);
-      assert.throws(() => { c.setBaseColors(""); }, Error);
-      assert.throws(() => { c.setBaseColors(0); }, Error);
-      assert.throws(() => { c.setBaseColors({}); }, Error);
+      assert.throws(() => { c.setPalette(null); }, Error);
+      assert.throws(() => { c.setPalette(undefined); }, Error);
+      assert.throws(() => { c.setPalette(""); }, Error);
+      assert.throws(() => { c.setPalette(0); }, Error);
+      assert.throws(() => { c.setPalette({}); }, Error);
 
       assert.throws(() => { c.setAlgorithmType(null); }, Error);
       assert.throws(() => { c.setAlgorithmType(undefined); }, Error);

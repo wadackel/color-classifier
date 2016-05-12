@@ -1,31 +1,27 @@
 import minBy from "./utils/min-by"
 import Color, { AlgorithmTypes } from "./utils/color"
-import base16Colors from "./base16-colors"
+import * as Palette from "./palette/"
 
 
 class ColorClassifier {
-  static AlgorithmTypes = AlgorithmTypes;
-  static base16Colors = base16Colors;
-
   static throwError(msg) {
     throw new Error(`[ColorClassifier] ${msg}`);
   }
 
-
-  constructor(baseColors = base16Colors, algorithmType = AlgorithmTypes.CIEDE2000) {
-    this.setBaseColors(baseColors);
+  constructor(palette = Palette.W3C, algorithmType = AlgorithmTypes.CIEDE2000) {
+    this.setPalette(palette);
     this.setAlgorithmType(algorithmType);
   }
 
-  setBaseColors(baseColors) {
-    if (!Array.isArray(baseColors)) {
-      ColorClassifier.throwError(`baseColors is should be a Array.`)
+  setPalette(palette) {
+    if (!Array.isArray(palette)) {
+      ColorClassifier.throwError(`palette is should be a Array.`)
     }
-    this.baseColors = baseColors.map(baseColor => new Color(baseColor));
+    this.palette = palette.map(baseColor => new Color(baseColor));
   }
 
-  getBaseColors() {
-    return this.baseColors;
+  getPalette() {
+    return this.palette;
   }
 
   setAlgorithmType(algorithmType) {
@@ -40,14 +36,14 @@ class ColorClassifier {
   }
 
   classify(hex) {
-    const { baseColors, algorithmType } = this;
+    const { palette, algorithmType } = this;
     const color = new Color(hex);
     const array = [];
 
-    baseColors.forEach(baseColor => {
+    palette.forEach(paletteColor => {
       array.push({
-        distance: Color.distance(baseColor, color, algorithmType),
-        color: baseColor.original
+        distance: Color.distance(paletteColor, color, algorithmType),
+        color: paletteColor.original
       });
     });
 
@@ -58,13 +54,13 @@ class ColorClassifier {
     const results = {};
 
     hexArray.forEach(hex => {
-      const baseColor = this.classify(hex);
+      const resultColor = this.classify(hex);
 
-      if (!results.hasOwnProperty(baseColor)) {
-        results[baseColor] = [];
+      if (!results.hasOwnProperty(resultColor)) {
+        results[resultColor] = [];
       }
 
-      results[baseColor].push(hex);
+      results[resultColor].push(hex);
     });
 
     return results;
@@ -72,4 +68,6 @@ class ColorClassifier {
 }
 
 
+ColorClassifier.Palette = Palette;
+ColorClassifier.AlgorithmTypes = AlgorithmTypes;
 export default ColorClassifier;
