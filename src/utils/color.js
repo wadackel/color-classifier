@@ -3,7 +3,6 @@ import radians from "./radians"
 
 const HEX_SHORT = /^#([a-fA-F0-9]{3})$/;
 const HEX = /^#([a-fA-F0-9]{6})$/;
-const MAX = 100; // diff #fff, #000
 
 const v25_7 = Math.pow(25, 7);
 const d6 = radians(6);
@@ -95,7 +94,14 @@ export default class Color {
   }
 
   static rgbDistance(color1, color2) {
-    // TODO
+    const a = color1.rgb;
+    const b = color2.rgb;
+
+    return Math.sqrt(
+      Math.pow(a.r - b.r, 2)
+      + Math.pow(a.g - b.g, 2)
+      + Math.pow(a.b - b.b, 2)
+    );
   }
 
   static hsvDistance(color1, color2) {
@@ -117,30 +123,24 @@ export default class Color {
   }
 
   static ciede2kDistance(color1, color2) {
-    const a = color1.hex;
-    const b = color2.hex;
-    return Color._ciede2kDistance(a, b) / MAX;
-  }
+    const a = convert.hex.lab(color1.hex);
+    const b = convert.hex.lab(color2.hex);
 
-  static _ciede2kDistance(a, b) {
-    const aa = convert.hex.lab(a);
-    const bb = convert.hex.lab(b);
+    const l1 = a[0];
+    const a1 = a[1];
+    const b1 = a[2];
 
-    const l1 = aa[0];
-    const a1 = aa[1];
-    const b1 = aa[2];
+    const l2 = b[0];
+    const a2 = b[1];
+    const b2 = b[2];
 
-    const l2 = bb[0];
-    const a2 = bb[1];
-    const b2 = bb[2];
-
-    return Color.__ciede2kDistance(
+    return Color._ciede2kDistance(
       l1, a1, b1,
       l2, a2, b2
     );
   }
 
-  static __ciede2kDistance(l1, a1, b1, l2, a2, b2) {
+  static _ciede2kDistance(l1, a1, b1, l2, a2, b2) {
     const dld = l2 - l1;
     const lb = (l1 + l2) / 2;
 
