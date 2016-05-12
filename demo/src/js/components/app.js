@@ -1,13 +1,14 @@
 import React, { Component } from "react"
-import ColorClassifier, { base16Colors } from "../../../../"
+import ColorClassifier, { Palette } from "../../../../"
 import ColorList from "./color-list"
 import ColorPicker from "./color-picker"
 import { getTextColor, getRandomColor } from "../utils/color"
 
+
 export default class App extends Component {
   state = {
     color: getRandomColor(),
-    colors: [...base16Colors],
+    colors: [...Palette.PCCS],
     displayColorPicker: false
   };
 
@@ -54,7 +55,7 @@ export default class App extends Component {
     const { colorClassifier } = this;
     const { color, colors, displayColorPicker } = this.state;
 
-    colorClassifier.setBaseColors(colors);
+    colorClassifier.setPalette(colors);
     const activeColor = colorClassifier.classify(color);
 
     return (

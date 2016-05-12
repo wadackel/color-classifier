@@ -11,276 +11,276 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * @license MIT
  * @version 0.0.1
  */
-!function (r, e) {
-  "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : r.ColorClassifier = e();
+!function (e, r) {
+  "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = r() : "function" == typeof define && define.amd ? define(r) : e.ColorClassifier = r();
 }(undefined, function () {
   "use strict";
-  function r(r, e) {
-    return e = { exports: {} }, r(e, e.exports), e.exports;
-  }function e(r, e) {
-    var n = [].concat(t.toConsumableArray(r));return n.sort(function (r, n) {
-      return r[e] < n[e] ? -1 : r[e] > n[e] ? 1 : 0;
-    }), n.shift();
-  }function n(r) {
-    return r * Math.PI / 180;
-  }var t = {};t["typeof"] = "function" == typeof Symbol && "symbol" == _typeof(Symbol.iterator) ? function (r) {
-    return typeof r === "undefined" ? "undefined" : _typeof(r);
-  } : function (r) {
-    return r && "function" == typeof Symbol && r.constructor === Symbol ? "symbol" : typeof r === "undefined" ? "undefined" : _typeof(r);
-  }, t.classCallCheck = function (r, e) {
-    if (!(r instanceof e)) throw new TypeError("Cannot call a class as a function");
-  }, t.createClass = function () {
-    function r(r, e) {
-      for (var n = 0; n < e.length; n++) {
-        var t = e[n];t.enumerable = t.enumerable || !1, t.configurable = !0, "value" in t && (t.writable = !0), Object.defineProperty(r, t.key, t);
+  function e(e, r) {
+    return r = { exports: {} }, e(r, r.exports), r.exports;
+  }function r(e, r) {
+    var t = [].concat(n.toConsumableArray(e));return t.sort(function (e, t) {
+      return e[r] < t[r] ? -1 : e[r] > t[r] ? 1 : 0;
+    }), t.shift();
+  }function t(e) {
+    return e * Math.PI / 180;
+  }var n = {};n["typeof"] = "function" == typeof Symbol && "symbol" == _typeof(Symbol.iterator) ? function (e) {
+    return typeof e === "undefined" ? "undefined" : _typeof(e);
+  } : function (e) {
+    return e && "function" == typeof Symbol && e.constructor === Symbol ? "symbol" : typeof e === "undefined" ? "undefined" : _typeof(e);
+  }, n.classCallCheck = function (e, r) {
+    if (!(e instanceof r)) throw new TypeError("Cannot call a class as a function");
+  }, n.createClass = function () {
+    function e(e, r) {
+      for (var t = 0; t < r.length; t++) {
+        var n = r[t];n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(e, n.key, n);
       }
-    }return function (e, n, t) {
-      return n && r(e.prototype, n), t && r(e, t), e;
+    }return function (r, t, n) {
+      return t && e(r.prototype, t), n && e(r, n), r;
     };
-  }(), t.defineProperty = function (r, e, n) {
-    return e in r ? Object.defineProperty(r, e, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : r[e] = n, r;
-  }, t.slicedToArray = function () {
-    function r(r, e) {
-      var n = [],
-          t = !0,
+  }(), n.defineProperty = function (e, r, t) {
+    return r in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e;
+  }, n.slicedToArray = function () {
+    function e(e, r) {
+      var t = [],
+          n = !0,
           a = !1,
           o = void 0;try {
-        for (var i, u = r[Symbol.iterator](); !(t = (i = u.next()).done) && (n.push(i.value), !e || n.length !== e); t = !0) {}
+        for (var i, u = e[Symbol.iterator](); !(n = (i = u.next()).done) && (t.push(i.value), !r || t.length !== r); n = !0) {}
       } catch (h) {
         a = !0, o = h;
       } finally {
         try {
-          !t && u["return"] && u["return"]();
+          !n && u["return"] && u["return"]();
         } finally {
           if (a) throw o;
         }
-      }return n;
-    }return function (e, n) {
-      if (Array.isArray(e)) return e;if (Symbol.iterator in Object(e)) return r(e, n);throw new TypeError("Invalid attempt to destructure non-iterable instance");
+      }return t;
+    }return function (r, t) {
+      if (Array.isArray(r)) return r;if (Symbol.iterator in Object(r)) return e(r, t);throw new TypeError("Invalid attempt to destructure non-iterable instance");
     };
-  }(), t.toConsumableArray = function (r) {
-    if (Array.isArray(r)) {
-      for (var e = 0, n = Array(r.length); e < r.length; e++) {
-        n[e] = r[e];
-      }return n;
-    }return Array.from(r);
+  }(), n.toConsumableArray = function (e) {
+    if (Array.isArray(e)) {
+      for (var r = 0, t = Array(e.length); r < e.length; r++) {
+        t[r] = e[r];
+      }return t;
+    }return Array.from(e);
   };var a,
-      o = r(function (r) {
-    r.exports = { aliceblue: [240, 248, 255], antiquewhite: [250, 235, 215], aqua: [0, 255, 255], aquamarine: [127, 255, 212], azure: [240, 255, 255], beige: [245, 245, 220], bisque: [255, 228, 196], black: [0, 0, 0], blanchedalmond: [255, 235, 205], blue: [0, 0, 255], blueviolet: [138, 43, 226], brown: [165, 42, 42], burlywood: [222, 184, 135], cadetblue: [95, 158, 160], chartreuse: [127, 255, 0], chocolate: [210, 105, 30], coral: [255, 127, 80], cornflowerblue: [100, 149, 237], cornsilk: [255, 248, 220], crimson: [220, 20, 60], cyan: [0, 255, 255], darkblue: [0, 0, 139], darkcyan: [0, 139, 139], darkgoldenrod: [184, 134, 11], darkgray: [169, 169, 169], darkgreen: [0, 100, 0], darkgrey: [169, 169, 169], darkkhaki: [189, 183, 107], darkmagenta: [139, 0, 139], darkolivegreen: [85, 107, 47], darkorange: [255, 140, 0], darkorchid: [153, 50, 204], darkred: [139, 0, 0], darksalmon: [233, 150, 122], darkseagreen: [143, 188, 143], darkslateblue: [72, 61, 139], darkslategray: [47, 79, 79], darkslategrey: [47, 79, 79], darkturquoise: [0, 206, 209], darkviolet: [148, 0, 211], deeppink: [255, 20, 147], deepskyblue: [0, 191, 255], dimgray: [105, 105, 105], dimgrey: [105, 105, 105], dodgerblue: [30, 144, 255], firebrick: [178, 34, 34], floralwhite: [255, 250, 240], forestgreen: [34, 139, 34], fuchsia: [255, 0, 255], gainsboro: [220, 220, 220], ghostwhite: [248, 248, 255], gold: [255, 215, 0], goldenrod: [218, 165, 32], gray: [128, 128, 128], green: [0, 128, 0], greenyellow: [173, 255, 47], grey: [128, 128, 128], honeydew: [240, 255, 240], hotpink: [255, 105, 180], indianred: [205, 92, 92], indigo: [75, 0, 130], ivory: [255, 255, 240], khaki: [240, 230, 140], lavender: [230, 230, 250], lavenderblush: [255, 240, 245], lawngreen: [124, 252, 0], lemonchiffon: [255, 250, 205], lightblue: [173, 216, 230], lightcoral: [240, 128, 128], lightcyan: [224, 255, 255], lightgoldenrodyellow: [250, 250, 210], lightgray: [211, 211, 211], lightgreen: [144, 238, 144], lightgrey: [211, 211, 211], lightpink: [255, 182, 193], lightsalmon: [255, 160, 122], lightseagreen: [32, 178, 170], lightskyblue: [135, 206, 250], lightslategray: [119, 136, 153], lightslategrey: [119, 136, 153], lightsteelblue: [176, 196, 222], lightyellow: [255, 255, 224], lime: [0, 255, 0], limegreen: [50, 205, 50], linen: [250, 240, 230], magenta: [255, 0, 255], maroon: [128, 0, 0], mediumaquamarine: [102, 205, 170], mediumblue: [0, 0, 205], mediumorchid: [186, 85, 211], mediumpurple: [147, 112, 219], mediumseagreen: [60, 179, 113], mediumslateblue: [123, 104, 238], mediumspringgreen: [0, 250, 154], mediumturquoise: [72, 209, 204], mediumvioletred: [199, 21, 133], midnightblue: [25, 25, 112], mintcream: [245, 255, 250], mistyrose: [255, 228, 225], moccasin: [255, 228, 181], navajowhite: [255, 222, 173], navy: [0, 0, 128], oldlace: [253, 245, 230], olive: [128, 128, 0], olivedrab: [107, 142, 35], orange: [255, 165, 0], orangered: [255, 69, 0], orchid: [218, 112, 214], palegoldenrod: [238, 232, 170], palegreen: [152, 251, 152], paleturquoise: [175, 238, 238], palevioletred: [219, 112, 147], papayawhip: [255, 239, 213], peachpuff: [255, 218, 185], peru: [205, 133, 63], pink: [255, 192, 203], plum: [221, 160, 221], powderblue: [176, 224, 230], purple: [128, 0, 128], rebeccapurple: [102, 51, 153], red: [255, 0, 0], rosybrown: [188, 143, 143], royalblue: [65, 105, 225], saddlebrown: [139, 69, 19], salmon: [250, 128, 114], sandybrown: [244, 164, 96], seagreen: [46, 139, 87], seashell: [255, 245, 238], sienna: [160, 82, 45], silver: [192, 192, 192], skyblue: [135, 206, 235], slateblue: [106, 90, 205], slategray: [112, 128, 144], slategrey: [112, 128, 144], snow: [255, 250, 250], springgreen: [0, 255, 127], steelblue: [70, 130, 180], tan: [210, 180, 140], teal: [0, 128, 128], thistle: [216, 191, 216], tomato: [255, 99, 71], turquoise: [64, 224, 208], violet: [238, 130, 238], wheat: [245, 222, 179], white: [255, 255, 255], whitesmoke: [245, 245, 245], yellow: [255, 255, 0], yellowgreen: [154, 205, 50] };
+      o = e(function (e) {
+    e.exports = { aliceblue: [240, 248, 255], antiquewhite: [250, 235, 215], aqua: [0, 255, 255], aquamarine: [127, 255, 212], azure: [240, 255, 255], beige: [245, 245, 220], bisque: [255, 228, 196], black: [0, 0, 0], blanchedalmond: [255, 235, 205], blue: [0, 0, 255], blueviolet: [138, 43, 226], brown: [165, 42, 42], burlywood: [222, 184, 135], cadetblue: [95, 158, 160], chartreuse: [127, 255, 0], chocolate: [210, 105, 30], coral: [255, 127, 80], cornflowerblue: [100, 149, 237], cornsilk: [255, 248, 220], crimson: [220, 20, 60], cyan: [0, 255, 255], darkblue: [0, 0, 139], darkcyan: [0, 139, 139], darkgoldenrod: [184, 134, 11], darkgray: [169, 169, 169], darkgreen: [0, 100, 0], darkgrey: [169, 169, 169], darkkhaki: [189, 183, 107], darkmagenta: [139, 0, 139], darkolivegreen: [85, 107, 47], darkorange: [255, 140, 0], darkorchid: [153, 50, 204], darkred: [139, 0, 0], darksalmon: [233, 150, 122], darkseagreen: [143, 188, 143], darkslateblue: [72, 61, 139], darkslategray: [47, 79, 79], darkslategrey: [47, 79, 79], darkturquoise: [0, 206, 209], darkviolet: [148, 0, 211], deeppink: [255, 20, 147], deepskyblue: [0, 191, 255], dimgray: [105, 105, 105], dimgrey: [105, 105, 105], dodgerblue: [30, 144, 255], firebrick: [178, 34, 34], floralwhite: [255, 250, 240], forestgreen: [34, 139, 34], fuchsia: [255, 0, 255], gainsboro: [220, 220, 220], ghostwhite: [248, 248, 255], gold: [255, 215, 0], goldenrod: [218, 165, 32], gray: [128, 128, 128], green: [0, 128, 0], greenyellow: [173, 255, 47], grey: [128, 128, 128], honeydew: [240, 255, 240], hotpink: [255, 105, 180], indianred: [205, 92, 92], indigo: [75, 0, 130], ivory: [255, 255, 240], khaki: [240, 230, 140], lavender: [230, 230, 250], lavenderblush: [255, 240, 245], lawngreen: [124, 252, 0], lemonchiffon: [255, 250, 205], lightblue: [173, 216, 230], lightcoral: [240, 128, 128], lightcyan: [224, 255, 255], lightgoldenrodyellow: [250, 250, 210], lightgray: [211, 211, 211], lightgreen: [144, 238, 144], lightgrey: [211, 211, 211], lightpink: [255, 182, 193], lightsalmon: [255, 160, 122], lightseagreen: [32, 178, 170], lightskyblue: [135, 206, 250], lightslategray: [119, 136, 153], lightslategrey: [119, 136, 153], lightsteelblue: [176, 196, 222], lightyellow: [255, 255, 224], lime: [0, 255, 0], limegreen: [50, 205, 50], linen: [250, 240, 230], magenta: [255, 0, 255], maroon: [128, 0, 0], mediumaquamarine: [102, 205, 170], mediumblue: [0, 0, 205], mediumorchid: [186, 85, 211], mediumpurple: [147, 112, 219], mediumseagreen: [60, 179, 113], mediumslateblue: [123, 104, 238], mediumspringgreen: [0, 250, 154], mediumturquoise: [72, 209, 204], mediumvioletred: [199, 21, 133], midnightblue: [25, 25, 112], mintcream: [245, 255, 250], mistyrose: [255, 228, 225], moccasin: [255, 228, 181], navajowhite: [255, 222, 173], navy: [0, 0, 128], oldlace: [253, 245, 230], olive: [128, 128, 0], olivedrab: [107, 142, 35], orange: [255, 165, 0], orangered: [255, 69, 0], orchid: [218, 112, 214], palegoldenrod: [238, 232, 170], palegreen: [152, 251, 152], paleturquoise: [175, 238, 238], palevioletred: [219, 112, 147], papayawhip: [255, 239, 213], peachpuff: [255, 218, 185], peru: [205, 133, 63], pink: [255, 192, 203], plum: [221, 160, 221], powderblue: [176, 224, 230], purple: [128, 0, 128], rebeccapurple: [102, 51, 153], red: [255, 0, 0], rosybrown: [188, 143, 143], royalblue: [65, 105, 225], saddlebrown: [139, 69, 19], salmon: [250, 128, 114], sandybrown: [244, 164, 96], seagreen: [46, 139, 87], seashell: [255, 245, 238], sienna: [160, 82, 45], silver: [192, 192, 192], skyblue: [135, 206, 235], slateblue: [106, 90, 205], slategray: [112, 128, 144], slategrey: [112, 128, 144], snow: [255, 250, 250], springgreen: [0, 255, 127], steelblue: [70, 130, 180], tan: [210, 180, 140], teal: [0, 128, 128], thistle: [216, 191, 216], tomato: [255, 99, 71], turquoise: [64, 224, 208], violet: [238, 130, 238], wheat: [245, 222, 179], white: [255, 255, 255], whitesmoke: [245, 245, 245], yellow: [255, 255, 0], yellowgreen: [154, 205, 50] };
   }),
-      i = o && "object" === ("undefined" == typeof o ? "undefined" : t["typeof"](o)) && "default" in o ? o["default"] : o,
-      u = r(function (r) {
-    var e = i,
-        n = {};for (var t in e) {
-      e.hasOwnProperty(t) && (n[e[t].join()] = t);
-    }var a = r.exports = { rgb: { channels: 3 }, hsl: { channels: 3 }, hsv: { channels: 3 }, hwb: { channels: 3 }, cmyk: { channels: 4 }, xyz: { channels: 3 }, lab: { channels: 3 }, lch: { channels: 3 }, hex: { channels: 1 }, keyword: { channels: 1 }, ansi16: { channels: 1 }, ansi256: { channels: 1 }, hcg: { channels: 3 }, apple: { channels: 3 } };for (var o in a) {
+      i = o && "object" === ("undefined" == typeof o ? "undefined" : n["typeof"](o)) && "default" in o ? o["default"] : o,
+      u = e(function (e) {
+    var r = i,
+        t = {};for (var n in r) {
+      r.hasOwnProperty(n) && (t[r[n].join()] = n);
+    }var a = e.exports = { rgb: { channels: 3 }, hsl: { channels: 3 }, hsv: { channels: 3 }, hwb: { channels: 3 }, cmyk: { channels: 4 }, xyz: { channels: 3 }, lab: { channels: 3 }, lch: { channels: 3 }, hex: { channels: 1 }, keyword: { channels: 1 }, ansi16: { channels: 1 }, ansi256: { channels: 1 }, hcg: { channels: 3 }, apple: { channels: 3 } };for (var o in a) {
       if (a.hasOwnProperty(o)) {
         if (!("channels" in a[o])) throw new Error("missing channels property: " + o);var u = a[o].channels;delete a[o].channels, Object.defineProperty(a[o], "channels", { value: u });
       }
-    }a.rgb.hsl = function (r) {
-      var e,
-          n,
+    }a.rgb.hsl = function (e) {
+      var r,
           t,
-          a = r[0] / 255,
-          o = r[1] / 255,
-          i = r[2] / 255,
+          n,
+          a = e[0] / 255,
+          o = e[1] / 255,
+          i = e[2] / 255,
           u = Math.min(a, o, i),
           h = Math.max(a, o, i),
-          l = h - u;return h === u ? e = 0 : a === h ? e = (o - i) / l : o === h ? e = 2 + (i - a) / l : i === h && (e = 4 + (a - o) / l), e = Math.min(60 * e, 360), 0 > e && (e += 360), t = (u + h) / 2, n = h === u ? 0 : .5 >= t ? l / (h + u) : l / (2 - h - u), [e, 100 * n, 100 * t];
-    }, a.rgb.hsv = function (r) {
-      var e,
-          n,
+          l = h - u;return h === u ? r = 0 : a === h ? r = (o - i) / l : o === h ? r = 2 + (i - a) / l : i === h && (r = 4 + (a - o) / l), r = Math.min(60 * r, 360), 0 > r && (r += 360), n = (u + h) / 2, t = h === u ? 0 : .5 >= n ? l / (h + u) : l / (2 - h - u), [r, 100 * t, 100 * n];
+    }, a.rgb.hsv = function (e) {
+      var r,
           t,
-          a = r[0],
-          o = r[1],
-          i = r[2],
+          n,
+          a = e[0],
+          o = e[1],
+          i = e[2],
           u = Math.min(a, o, i),
           h = Math.max(a, o, i),
-          l = h - u;return n = 0 === h ? 0 : l / h * 1e3 / 10, h === u ? e = 0 : a === h ? e = (o - i) / l : o === h ? e = 2 + (i - a) / l : i === h && (e = 4 + (a - o) / l), e = Math.min(60 * e, 360), 0 > e && (e += 360), t = h / 255 * 1e3 / 10, [e, n, t];
-    }, a.rgb.hwb = function (r) {
-      var e = r[0],
-          n = r[1],
-          t = r[2],
-          o = a.rgb.hsl(r)[0],
-          i = 1 / 255 * Math.min(e, Math.min(n, t));return t = 1 - 1 / 255 * Math.max(e, Math.max(n, t)), [o, 100 * i, 100 * t];
-    }, a.rgb.cmyk = function (r) {
-      var e,
-          n,
+          l = h - u;return t = 0 === h ? 0 : l / h * 1e3 / 10, h === u ? r = 0 : a === h ? r = (o - i) / l : o === h ? r = 2 + (i - a) / l : i === h && (r = 4 + (a - o) / l), r = Math.min(60 * r, 360), 0 > r && (r += 360), n = h / 255 * 1e3 / 10, [r, t, n];
+    }, a.rgb.hwb = function (e) {
+      var r = e[0],
+          t = e[1],
+          n = e[2],
+          o = a.rgb.hsl(e)[0],
+          i = 1 / 255 * Math.min(r, Math.min(t, n));return n = 1 - 1 / 255 * Math.max(r, Math.max(t, n)), [o, 100 * i, 100 * n];
+    }, a.rgb.cmyk = function (e) {
+      var r,
           t,
+          n,
           a,
-          o = r[0] / 255,
-          i = r[1] / 255,
-          u = r[2] / 255;return a = Math.min(1 - o, 1 - i, 1 - u), e = (1 - o - a) / (1 - a) || 0, n = (1 - i - a) / (1 - a) || 0, t = (1 - u - a) / (1 - a) || 0, [100 * e, 100 * n, 100 * t, 100 * a];
-    }, a.rgb.keyword = function (r) {
-      return n[r.join()];
-    }, a.keyword.rgb = function (r) {
-      return e[r];
-    }, a.rgb.xyz = function (r) {
-      var e = r[0] / 255,
-          n = r[1] / 255,
-          t = r[2] / 255;e = e > .04045 ? Math.pow((e + .055) / 1.055, 2.4) : e / 12.92, n = n > .04045 ? Math.pow((n + .055) / 1.055, 2.4) : n / 12.92, t = t > .04045 ? Math.pow((t + .055) / 1.055, 2.4) : t / 12.92;var a = .4124 * e + .3576 * n + .1805 * t,
-          o = .2126 * e + .7152 * n + .0722 * t,
-          i = .0193 * e + .1192 * n + .9505 * t;return [100 * a, 100 * o, 100 * i];
-    }, a.rgb.lab = function (r) {
-      var e,
-          n,
+          o = e[0] / 255,
+          i = e[1] / 255,
+          u = e[2] / 255;return a = Math.min(1 - o, 1 - i, 1 - u), r = (1 - o - a) / (1 - a) || 0, t = (1 - i - a) / (1 - a) || 0, n = (1 - u - a) / (1 - a) || 0, [100 * r, 100 * t, 100 * n, 100 * a];
+    }, a.rgb.keyword = function (e) {
+      return t[e.join()];
+    }, a.keyword.rgb = function (e) {
+      return r[e];
+    }, a.rgb.xyz = function (e) {
+      var r = e[0] / 255,
+          t = e[1] / 255,
+          n = e[2] / 255;r = r > .04045 ? Math.pow((r + .055) / 1.055, 2.4) : r / 12.92, t = t > .04045 ? Math.pow((t + .055) / 1.055, 2.4) : t / 12.92, n = n > .04045 ? Math.pow((n + .055) / 1.055, 2.4) : n / 12.92;var a = .4124 * r + .3576 * t + .1805 * n,
+          o = .2126 * r + .7152 * t + .0722 * n,
+          i = .0193 * r + .1192 * t + .9505 * n;return [100 * a, 100 * o, 100 * i];
+    }, a.rgb.lab = function (e) {
+      var r,
           t,
-          o = a.rgb.xyz(r),
+          n,
+          o = a.rgb.xyz(e),
           i = o[0],
           u = o[1],
-          h = o[2];return i /= 95.047, u /= 100, h /= 108.883, i = i > .008856 ? Math.pow(i, 1 / 3) : 7.787 * i + 16 / 116, u = u > .008856 ? Math.pow(u, 1 / 3) : 7.787 * u + 16 / 116, h = h > .008856 ? Math.pow(h, 1 / 3) : 7.787 * h + 16 / 116, e = 116 * u - 16, n = 500 * (i - u), t = 200 * (u - h), [e, n, t];
-    }, a.hsl.rgb = function (r) {
-      var e,
-          n,
+          h = o[2];return i /= 95.047, u /= 100, h /= 108.883, i = i > .008856 ? Math.pow(i, 1 / 3) : 7.787 * i + 16 / 116, u = u > .008856 ? Math.pow(u, 1 / 3) : 7.787 * u + 16 / 116, h = h > .008856 ? Math.pow(h, 1 / 3) : 7.787 * h + 16 / 116, r = 116 * u - 16, t = 500 * (i - u), n = 200 * (u - h), [r, t, n];
+    }, a.hsl.rgb = function (e) {
+      var r,
           t,
+          n,
           a,
           o,
-          i = r[0] / 360,
-          u = r[1] / 100,
-          h = r[2] / 100;if (0 === u) return o = 255 * h, [o, o, o];n = .5 > h ? h * (1 + u) : h + u - h * u, e = 2 * h - n, a = [0, 0, 0];for (var l = 0; 3 > l; l++) {
-        t = i + 1 / 3 * -(l - 1), 0 > t && t++, t > 1 && t--, o = 1 > 6 * t ? e + 6 * (n - e) * t : 1 > 2 * t ? n : 2 > 3 * t ? e + (n - e) * (2 / 3 - t) * 6 : e, a[l] = 255 * o;
+          i = e[0] / 360,
+          u = e[1] / 100,
+          h = e[2] / 100;if (0 === u) return o = 255 * h, [o, o, o];t = .5 > h ? h * (1 + u) : h + u - h * u, r = 2 * h - t, a = [0, 0, 0];for (var l = 0; 3 > l; l++) {
+        n = i + 1 / 3 * -(l - 1), 0 > n && n++, n > 1 && n--, o = 1 > 6 * n ? r + 6 * (t - r) * n : 1 > 2 * n ? t : 2 > 3 * n ? r + (t - r) * (2 / 3 - n) * 6 : r, a[l] = 255 * o;
       }return a;
-    }, a.hsl.hsv = function (r) {
-      var e,
-          n,
-          t = r[0],
-          a = r[1] / 100,
-          o = r[2] / 100;return 0 === o ? [0, 0, 0] : (o *= 2, a *= 1 >= o ? o : 2 - o, n = (o + a) / 2, e = 2 * a / (o + a), [t, 100 * e, 100 * n]);
-    }, a.hsv.rgb = function (r) {
-      var e = r[0] / 60,
-          n = r[1] / 100,
-          t = r[2] / 100,
-          a = Math.floor(e) % 6,
-          o = e - Math.floor(e),
-          i = 255 * t * (1 - n),
-          u = 255 * t * (1 - n * o),
-          h = 255 * t * (1 - n * (1 - o));switch (t *= 255, a) {case 0:
-          return [t, h, i];case 1:
-          return [u, t, i];case 2:
-          return [i, t, h];case 3:
-          return [i, u, t];case 4:
-          return [h, i, t];case 5:
-          return [t, i, u];}
-    }, a.hsv.hsl = function (r) {
-      var e,
-          n,
-          t = r[0],
-          a = r[1] / 100,
-          o = r[2] / 100;return n = (2 - a) * o, e = a * o, e /= 1 >= n ? n : 2 - n, e = e || 0, n /= 2, [t, 100 * e, 100 * n];
-    }, a.hwb.rgb = function (r) {
-      var e,
-          n,
+    }, a.hsl.hsv = function (e) {
+      var r,
           t,
+          n = e[0],
+          a = e[1] / 100,
+          o = e[2] / 100;return 0 === o ? [0, 0, 0] : (o *= 2, a *= 1 >= o ? o : 2 - o, t = (o + a) / 2, r = 2 * a / (o + a), [n, 100 * r, 100 * t]);
+    }, a.hsv.rgb = function (e) {
+      var r = e[0] / 60,
+          t = e[1] / 100,
+          n = e[2] / 100,
+          a = Math.floor(r) % 6,
+          o = r - Math.floor(r),
+          i = 255 * n * (1 - t),
+          u = 255 * n * (1 - t * o),
+          h = 255 * n * (1 - t * (1 - o));switch (n *= 255, a) {case 0:
+          return [n, h, i];case 1:
+          return [u, n, i];case 2:
+          return [i, n, h];case 3:
+          return [i, u, n];case 4:
+          return [h, i, n];case 5:
+          return [n, i, u];}
+    }, a.hsv.hsl = function (e) {
+      var r,
+          t,
+          n = e[0],
+          a = e[1] / 100,
+          o = e[2] / 100;return t = (2 - a) * o, r = a * o, r /= 1 >= t ? t : 2 - t, r = r || 0, t /= 2, [n, 100 * r, 100 * t];
+    }, a.hwb.rgb = function (e) {
+      var r,
+          t,
+          n,
           a,
-          o = r[0] / 360,
-          i = r[1] / 100,
-          u = r[2] / 100,
-          h = i + u;h > 1 && (i /= h, u /= h), e = Math.floor(6 * o), n = 1 - u, t = 6 * o - e, 0 !== (1 & e) && (t = 1 - t), a = i + t * (n - i);var l, s, c;switch (e) {default:case 6:case 0:
-          l = n, s = a, c = i;break;case 1:
-          l = a, s = n, c = i;break;case 2:
-          l = i, s = n, c = a;break;case 3:
-          l = i, s = a, c = n;break;case 4:
-          l = a, s = i, c = n;break;case 5:
-          l = n, s = i, c = a;}return [255 * l, 255 * s, 255 * c];
-    }, a.cmyk.rgb = function (r) {
-      var e,
-          n,
+          o = e[0] / 360,
+          i = e[1] / 100,
+          u = e[2] / 100,
+          h = i + u;h > 1 && (i /= h, u /= h), r = Math.floor(6 * o), t = 1 - u, n = 6 * o - r, 0 !== (1 & r) && (n = 1 - n), a = i + n * (t - i);var l, c, s;switch (r) {default:case 6:case 0:
+          l = t, c = a, s = i;break;case 1:
+          l = a, c = t, s = i;break;case 2:
+          l = i, c = t, s = a;break;case 3:
+          l = i, c = a, s = t;break;case 4:
+          l = a, c = i, s = t;break;case 5:
+          l = t, c = i, s = a;}return [255 * l, 255 * c, 255 * s];
+    }, a.cmyk.rgb = function (e) {
+      var r,
           t,
-          a = r[0] / 100,
-          o = r[1] / 100,
-          i = r[2] / 100,
-          u = r[3] / 100;return e = 1 - Math.min(1, a * (1 - u) + u), n = 1 - Math.min(1, o * (1 - u) + u), t = 1 - Math.min(1, i * (1 - u) + u), [255 * e, 255 * n, 255 * t];
-    }, a.xyz.rgb = function (r) {
-      var e,
           n,
+          a = e[0] / 100,
+          o = e[1] / 100,
+          i = e[2] / 100,
+          u = e[3] / 100;return r = 1 - Math.min(1, a * (1 - u) + u), t = 1 - Math.min(1, o * (1 - u) + u), n = 1 - Math.min(1, i * (1 - u) + u), [255 * r, 255 * t, 255 * n];
+    }, a.xyz.rgb = function (e) {
+      var r,
           t,
-          a = r[0] / 100,
-          o = r[1] / 100,
-          i = r[2] / 100;return e = 3.2406 * a + -1.5372 * o + i * -.4986, n = a * -.9689 + 1.8758 * o + .0415 * i, t = .0557 * a + o * -.204 + 1.057 * i, e = e > .0031308 ? 1.055 * Math.pow(e, 1 / 2.4) - .055 : e *= 12.92, n = n > .0031308 ? 1.055 * Math.pow(n, 1 / 2.4) - .055 : n *= 12.92, t = t > .0031308 ? 1.055 * Math.pow(t, 1 / 2.4) - .055 : t *= 12.92, e = Math.min(Math.max(0, e), 1), n = Math.min(Math.max(0, n), 1), t = Math.min(Math.max(0, t), 1), [255 * e, 255 * n, 255 * t];
-    }, a.xyz.lab = function (r) {
-      var e,
           n,
+          a = e[0] / 100,
+          o = e[1] / 100,
+          i = e[2] / 100;return r = 3.2406 * a + -1.5372 * o + i * -.4986, t = a * -.9689 + 1.8758 * o + .0415 * i, n = .0557 * a + o * -.204 + 1.057 * i, r = r > .0031308 ? 1.055 * Math.pow(r, 1 / 2.4) - .055 : r *= 12.92, t = t > .0031308 ? 1.055 * Math.pow(t, 1 / 2.4) - .055 : t *= 12.92, n = n > .0031308 ? 1.055 * Math.pow(n, 1 / 2.4) - .055 : n *= 12.92, r = Math.min(Math.max(0, r), 1), t = Math.min(Math.max(0, t), 1), n = Math.min(Math.max(0, n), 1), [255 * r, 255 * t, 255 * n];
+    }, a.xyz.lab = function (e) {
+      var r,
           t,
-          a = r[0],
-          o = r[1],
-          i = r[2];return a /= 95.047, o /= 100, i /= 108.883, a = a > .008856 ? Math.pow(a, 1 / 3) : 7.787 * a + 16 / 116, o = o > .008856 ? Math.pow(o, 1 / 3) : 7.787 * o + 16 / 116, i = i > .008856 ? Math.pow(i, 1 / 3) : 7.787 * i + 16 / 116, e = 116 * o - 16, n = 500 * (a - o), t = 200 * (o - i), [e, n, t];
-    }, a.lab.xyz = function (r) {
-      var e,
           n,
+          a = e[0],
+          o = e[1],
+          i = e[2];return a /= 95.047, o /= 100, i /= 108.883, a = a > .008856 ? Math.pow(a, 1 / 3) : 7.787 * a + 16 / 116, o = o > .008856 ? Math.pow(o, 1 / 3) : 7.787 * o + 16 / 116, i = i > .008856 ? Math.pow(i, 1 / 3) : 7.787 * i + 16 / 116, r = 116 * o - 16, t = 500 * (a - o), n = 200 * (o - i), [r, t, n];
+    }, a.lab.xyz = function (e) {
+      var r,
           t,
+          n,
           a,
-          o = r[0],
-          i = r[1],
-          u = r[2];return 8 >= o ? (n = 100 * o / 903.3, a = 7.787 * (n / 100) + 16 / 116) : (n = 100 * Math.pow((o + 16) / 116, 3), a = Math.pow(n / 100, 1 / 3)), e = .008856 >= e / 95.047 ? e = 95.047 * (i / 500 + a - 16 / 116) / 7.787 : 95.047 * Math.pow(i / 500 + a, 3), t = .008859 >= t / 108.883 ? t = 108.883 * (a - u / 200 - 16 / 116) / 7.787 : 108.883 * Math.pow(a - u / 200, 3), [e, n, t];
-    }, a.lab.lch = function (r) {
-      var e,
-          n,
+          o = e[0],
+          i = e[1],
+          u = e[2];return 8 >= o ? (t = 100 * o / 903.3, a = 7.787 * (t / 100) + 16 / 116) : (t = 100 * Math.pow((o + 16) / 116, 3), a = Math.pow(t / 100, 1 / 3)), r = .008856 >= r / 95.047 ? r = 95.047 * (i / 500 + a - 16 / 116) / 7.787 : 95.047 * Math.pow(i / 500 + a, 3), n = .008859 >= n / 108.883 ? n = 108.883 * (a - u / 200 - 16 / 116) / 7.787 : 108.883 * Math.pow(a - u / 200, 3), [r, t, n];
+    }, a.lab.lch = function (e) {
+      var r,
           t,
-          a = r[0],
-          o = r[1],
-          i = r[2];return e = Math.atan2(i, o), n = 360 * e / 2 / Math.PI, 0 > n && (n += 360), t = Math.sqrt(o * o + i * i), [a, t, n];
-    }, a.lch.lab = function (r) {
-      var e,
           n,
+          a = e[0],
+          o = e[1],
+          i = e[2];return r = Math.atan2(i, o), t = 360 * r / 2 / Math.PI, 0 > t && (t += 360), n = Math.sqrt(o * o + i * i), [a, n, t];
+    }, a.lch.lab = function (e) {
+      var r,
           t,
-          a = r[0],
-          o = r[1],
-          i = r[2];return t = i / 360 * 2 * Math.PI, e = o * Math.cos(t), n = o * Math.sin(t), [a, e, n];
-    }, a.rgb.ansi16 = function (r) {
-      var e = r[0],
-          n = r[1],
-          t = r[2],
-          o = 1 in arguments ? arguments[1] : a.rgb.hsv(r)[2];if (o = Math.round(o / 50), 0 === o) return 30;var i = 30 + (Math.round(t / 255) << 2 | Math.round(n / 255) << 1 | Math.round(e / 255));return 2 === o && (i += 60), i;
-    }, a.hsv.ansi16 = function (r) {
-      return a.rgb.ansi16(a.hsv.rgb(r), r[2]);
-    }, a.rgb.ansi256 = function (r) {
-      var e = r[0],
-          n = r[1],
-          t = r[2];if (e === n && n === t) return 8 > e ? 16 : e > 248 ? 231 : Math.round((e - 8) / 247 * 24) + 232;var a = 16 + 36 * Math.round(e / 255 * 5) + 6 * Math.round(n / 255 * 5) + Math.round(t / 255 * 5);return a;
-    }, a.ansi16.rgb = function (r) {
-      var e = r % 10;if (0 === e || 7 === e) return r > 50 && (e += 3.5), e = e / 10.5 * 255, [e, e, e];var n = .5 * (~ ~(r > 50) + 1),
-          t = (1 & e) * n * 255,
-          a = (e >> 1 & 1) * n * 255,
-          o = (e >> 2 & 1) * n * 255;return [t, a, o];
-    }, a.ansi256.rgb = function (r) {
-      if (r >= 232) {
-        var e = 10 * (r - 232) + 8;return [e, e, e];
-      }r -= 16;var n,
-          t = Math.floor(r / 36) / 5 * 255,
-          a = Math.floor((n = r % 36) / 6) / 5 * 255,
-          o = n % 6 / 5 * 255;return [t, a, o];
-    }, a.rgb.hex = function (r) {
-      var e = ((255 & Math.round(r[0])) << 16) + ((255 & Math.round(r[1])) << 8) + (255 & Math.round(r[2])),
-          n = e.toString(16).toUpperCase();return "000000".substring(n.length) + n;
-    }, a.hex.rgb = function (r) {
-      var e = r.toString(16).match(/[a-f0-9]{6}/i);if (!e) return [0, 0, 0];var n = parseInt(e[0], 16),
-          t = n >> 16 & 255,
-          a = n >> 8 & 255,
-          o = 255 & n;return [t, a, o];
-    }, a.rgb.hcg = function (r) {
-      var e,
           n,
-          t = r[0] / 255,
-          a = r[1] / 255,
-          o = r[2] / 255,
-          i = Math.max(Math.max(t, a), o),
-          u = Math.min(Math.min(t, a), o),
-          h = i - u;return e = 1 > h ? u / (1 - h) : 0, n = 0 >= h ? 0 : i === t ? (a - o) / h % 6 : i === a ? 2 + (o - t) / h : 4 + (t - a) / h + 4, n /= 6, n %= 1, [360 * n, 100 * h, 100 * e];
-    }, a.hsl.hcg = function (r) {
-      var e = r[1] / 100,
-          n = r[2] / 100,
-          t = 1,
-          a = 0;return t = .5 > n ? 2 * e * n : 2 * e * (1 - n), 1 > t && (a = (n - .5 * t) / (1 - t)), [r[0], 100 * t, 100 * a];
-    }, a.hsv.hcg = function (r) {
-      var e = r[1] / 100,
-          n = r[2] / 100,
-          t = e * n,
-          a = 0;return 1 > t && (a = (n - t) / (1 - t)), [r[0], 100 * t, 100 * a];
-    }, a.hcg.rgb = function (r) {
-      var e = r[0] / 360,
-          n = r[1] / 100,
-          t = r[2] / 100;if (0 === n) return [255 * t, 255 * t, 255 * t];var a = [0, 0, 0],
-          o = e % 1 * 6,
+          a = e[0],
+          o = e[1],
+          i = e[2];return n = i / 360 * 2 * Math.PI, r = o * Math.cos(n), t = o * Math.sin(n), [a, r, t];
+    }, a.rgb.ansi16 = function (e) {
+      var r = e[0],
+          t = e[1],
+          n = e[2],
+          o = 1 in arguments ? arguments[1] : a.rgb.hsv(e)[2];if (o = Math.round(o / 50), 0 === o) return 30;var i = 30 + (Math.round(n / 255) << 2 | Math.round(t / 255) << 1 | Math.round(r / 255));return 2 === o && (i += 60), i;
+    }, a.hsv.ansi16 = function (e) {
+      return a.rgb.ansi16(a.hsv.rgb(e), e[2]);
+    }, a.rgb.ansi256 = function (e) {
+      var r = e[0],
+          t = e[1],
+          n = e[2];if (r === t && t === n) return 8 > r ? 16 : r > 248 ? 231 : Math.round((r - 8) / 247 * 24) + 232;var a = 16 + 36 * Math.round(r / 255 * 5) + 6 * Math.round(t / 255 * 5) + Math.round(n / 255 * 5);return a;
+    }, a.ansi16.rgb = function (e) {
+      var r = e % 10;if (0 === r || 7 === r) return e > 50 && (r += 3.5), r = r / 10.5 * 255, [r, r, r];var t = .5 * (~ ~(e > 50) + 1),
+          n = (1 & r) * t * 255,
+          a = (r >> 1 & 1) * t * 255,
+          o = (r >> 2 & 1) * t * 255;return [n, a, o];
+    }, a.ansi256.rgb = function (e) {
+      if (e >= 232) {
+        var r = 10 * (e - 232) + 8;return [r, r, r];
+      }e -= 16;var t,
+          n = Math.floor(e / 36) / 5 * 255,
+          a = Math.floor((t = e % 36) / 6) / 5 * 255,
+          o = t % 6 / 5 * 255;return [n, a, o];
+    }, a.rgb.hex = function (e) {
+      var r = ((255 & Math.round(e[0])) << 16) + ((255 & Math.round(e[1])) << 8) + (255 & Math.round(e[2])),
+          t = r.toString(16).toUpperCase();return "000000".substring(t.length) + t;
+    }, a.hex.rgb = function (e) {
+      var r = e.toString(16).match(/[a-f0-9]{6}/i);if (!r) return [0, 0, 0];var t = parseInt(r[0], 16),
+          n = t >> 16 & 255,
+          a = t >> 8 & 255,
+          o = 255 & t;return [n, a, o];
+    }, a.rgb.hcg = function (e) {
+      var r,
+          t,
+          n = e[0] / 255,
+          a = e[1] / 255,
+          o = e[2] / 255,
+          i = Math.max(Math.max(n, a), o),
+          u = Math.min(Math.min(n, a), o),
+          h = i - u;return r = 1 > h ? u / (1 - h) : 0, t = 0 >= h ? 0 : i === n ? (a - o) / h % 6 : i === a ? 2 + (o - n) / h : 4 + (n - a) / h + 4, t /= 6, t %= 1, [360 * t, 100 * h, 100 * r];
+    }, a.hsl.hcg = function (e) {
+      var r = e[1] / 100,
+          t = e[2] / 100,
+          n = 1,
+          a = 0;return n = .5 > t ? 2 * r * t : 2 * r * (1 - t), 1 > n && (a = (t - .5 * n) / (1 - n)), [e[0], 100 * n, 100 * a];
+    }, a.hsv.hcg = function (e) {
+      var r = e[1] / 100,
+          t = e[2] / 100,
+          n = r * t,
+          a = 0;return 1 > n && (a = (t - n) / (1 - n)), [e[0], 100 * n, 100 * a];
+    }, a.hcg.rgb = function (e) {
+      var r = e[0] / 360,
+          t = e[1] / 100,
+          n = e[2] / 100;if (0 === t) return [255 * n, 255 * n, 255 * n];var a = [0, 0, 0],
+          o = r % 1 * 6,
           i = o % 1,
           u = 1 - i,
           h = 0;switch (Math.floor(o)) {case 0:
@@ -289,194 +289,196 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           a[0] = 0, a[1] = 1, a[2] = i;break;case 3:
           a[0] = 0, a[1] = u, a[2] = 1;break;case 4:
           a[0] = i, a[1] = 0, a[2] = 1;break;default:
-          a[0] = 1, a[1] = 0, a[2] = u;}return h = (1 - n) * t, [255 * (n * a[0] + h), 255 * (n * a[1] + h), 255 * (n * a[2] + h)];
-    }, a.hcg.hsv = function (r) {
-      var e = r[1] / 100,
-          n = r[2] / 100,
-          t = e + n * (1 - e),
-          a = 0;return t > 0 && (a = e / t), [r[0], 100 * a, 100 * t];
-    }, a.hcg.hsl = function (r) {
-      var e = r[1] / 100,
-          n = r[2] / 100,
-          t = n * (1 - e) + .5 * e,
-          a = 0;return t > 0 && .5 > t ? a = e / (2 * t) : t >= .5 && 1 > t && (a = e / (2 * (1 - t))), [r[0], 100 * a, 100 * t];
-    }, a.hcg.hwb = function (r) {
-      var e = r[1] / 100,
-          n = r[2] / 100,
-          t = e + n * (1 - e);return [r[0], 100 * (t - e), 100 * (1 - t)];
-    }, a.hwb.hcg = function (r) {
-      var e = r[1] / 100,
-          n = r[2] / 100,
-          t = 1 - n,
-          a = t - e,
-          o = 0;return 1 > a && (o = (t - a) / (1 - a)), [r[0], 100 * a, 100 * o];
-    }, a.apple.rgb = function (r) {
-      return [r[0] / 65535 * 255, r[1] / 65535 * 255, r[2] / 65535 * 255];
-    }, a.rgb.apple = function (r) {
-      return [r[0] / 255 * 65535, r[1] / 255 * 65535, r[2] / 255 * 65535];
+          a[0] = 1, a[1] = 0, a[2] = u;}return h = (1 - t) * n, [255 * (t * a[0] + h), 255 * (t * a[1] + h), 255 * (t * a[2] + h)];
+    }, a.hcg.hsv = function (e) {
+      var r = e[1] / 100,
+          t = e[2] / 100,
+          n = r + t * (1 - r),
+          a = 0;return n > 0 && (a = r / n), [e[0], 100 * a, 100 * n];
+    }, a.hcg.hsl = function (e) {
+      var r = e[1] / 100,
+          t = e[2] / 100,
+          n = t * (1 - r) + .5 * r,
+          a = 0;return n > 0 && .5 > n ? a = r / (2 * n) : n >= .5 && 1 > n && (a = r / (2 * (1 - n))), [e[0], 100 * a, 100 * n];
+    }, a.hcg.hwb = function (e) {
+      var r = e[1] / 100,
+          t = e[2] / 100,
+          n = r + t * (1 - r);return [e[0], 100 * (n - r), 100 * (1 - n)];
+    }, a.hwb.hcg = function (e) {
+      var r = e[1] / 100,
+          t = e[2] / 100,
+          n = 1 - t,
+          a = n - r,
+          o = 0;return 1 > a && (o = (n - a) / (1 - a)), [e[0], 100 * a, 100 * o];
+    }, a.apple.rgb = function (e) {
+      return [e[0] / 65535 * 255, e[1] / 65535 * 255, e[2] / 65535 * 255];
+    }, a.rgb.apple = function (e) {
+      return [e[0] / 255 * 65535, e[1] / 255 * 65535, e[2] / 255 * 65535];
     };
   }),
-      h = u && "object" === ("undefined" == typeof u ? "undefined" : t["typeof"](u)) && "default" in u ? u["default"] : u,
-      l = r(function (r) {
-    function e() {
-      for (var r = {}, e = i.length, n = 0; e > n; n++) {
-        r[i[n]] = { distance: -1, parent: null };
-      }return r;
-    }function n(r) {
-      var n = e(),
-          t = [r];for (n[r].distance = 0; t.length;) {
-        for (var a = t.pop(), i = Object.keys(o[a]), u = i.length, h = 0; u > h; h++) {
+      h = u && "object" === ("undefined" == typeof u ? "undefined" : n["typeof"](u)) && "default" in u ? u["default"] : u,
+      l = e(function (e) {
+    function r() {
+      for (var e = {}, r = i.length, t = 0; r > t; t++) {
+        e[i[t]] = { distance: -1, parent: null };
+      }return e;
+    }function t(e) {
+      var t = r(),
+          n = [e];for (t[e].distance = 0; n.length;) {
+        for (var a = n.pop(), i = Object.keys(o[a]), u = i.length, h = 0; u > h; h++) {
           var l = i[h],
-              s = n[l];-1 === s.distance && (s.distance = n[a].distance + 1, s.parent = a, t.unshift(l));
+              c = t[l];-1 === c.distance && (c.distance = t[a].distance + 1, c.parent = a, n.unshift(l));
         }
-      }return n;
-    }function t(r, e) {
-      return function (n) {
-        return e(r(n));
-      };
-    }function a(r, e) {
-      for (var n = [e[r].parent, r], a = o[e[r].parent][r], i = e[r].parent; e[i].parent;) {
-        n.unshift(e[i].parent), a = t(o[e[i].parent][i], a), i = e[i].parent;
-      }return a.conversion = n, a;
-    }var o = h,
-        i = Object.keys(o);r.exports = function (r) {
-      for (var e = n(r), t = {}, o = Object.keys(e), i = o.length, u = 0; i > u; u++) {
-        var h = o[u],
-            l = e[h];null !== l.parent && (t[h] = a(h, e));
       }return t;
+    }function n(e, r) {
+      return function (t) {
+        return r(e(t));
+      };
+    }function a(e, r) {
+      for (var t = [r[e].parent, e], a = o[r[e].parent][e], i = r[e].parent; r[i].parent;) {
+        t.unshift(r[i].parent), a = n(o[r[i].parent][i], a), i = r[i].parent;
+      }return a.conversion = t, a;
+    }var o = h,
+        i = Object.keys(o);e.exports = function (e) {
+      for (var r = t(e), n = {}, o = Object.keys(r), i = o.length, u = 0; i > u; u++) {
+        var h = o[u],
+            l = r[h];null !== l.parent && (n[h] = a(h, r));
+      }return n;
     };
   }),
-      s = l && "object" === ("undefined" == typeof l ? "undefined" : t["typeof"](l)) && "default" in l ? l["default"] : l,
-      c = r(function (r) {
-    function e(r) {
-      var e = function e(_e) {
-        return void 0 === _e || null === _e ? _e : (arguments.length > 1 && (_e = Array.prototype.slice.call(arguments)), r(_e));
-      };return "conversion" in r && (e.conversion = r.conversion), e;
-    }function n(r) {
-      var e = function e(_e2) {
-        if (void 0 === _e2 || null === _e2) return _e2;arguments.length > 1 && (_e2 = Array.prototype.slice.call(arguments));var n = r(_e2);if ("object" === ("undefined" == typeof n ? "undefined" : t["typeof"](n))) for (var a = n.length, o = 0; a > o; o++) {
-          n[o] = Math.round(n[o]);
-        }return n;
-      };return "conversion" in r && (e.conversion = r.conversion), e;
+      c = l && "object" === ("undefined" == typeof l ? "undefined" : n["typeof"](l)) && "default" in l ? l["default"] : l,
+      s = e(function (e) {
+    function r(e) {
+      var r = function r(_r) {
+        return void 0 === _r || null === _r ? _r : (arguments.length > 1 && (_r = Array.prototype.slice.call(arguments)), e(_r));
+      };return "conversion" in e && (r.conversion = e.conversion), r;
+    }function t(e) {
+      var r = function r(_r2) {
+        if (void 0 === _r2 || null === _r2) return _r2;arguments.length > 1 && (_r2 = Array.prototype.slice.call(arguments));var t = e(_r2);if ("object" === ("undefined" == typeof t ? "undefined" : n["typeof"](t))) for (var a = t.length, o = 0; a > o; o++) {
+          t[o] = Math.round(t[o]);
+        }return t;
+      };return "conversion" in e && (r.conversion = e.conversion), r;
     }var a = h,
-        o = s,
+        o = c,
         i = {},
-        u = Object.keys(a);u.forEach(function (r) {
-      i[r] = {}, Object.defineProperty(i[r], "channels", { value: a[r].channels });var t = o(r),
-          u = Object.keys(t);u.forEach(function (a) {
-        var o = t[a];i[r][a] = n(o), i[r][a].raw = e(o);
+        u = Object.keys(a);u.forEach(function (e) {
+      i[e] = {}, Object.defineProperty(i[e], "channels", { value: a[e].channels });var n = o(e),
+          u = Object.keys(n);u.forEach(function (a) {
+        var o = n[a];i[e][a] = t(o), i[e][a].raw = r(o);
       });
-    }), r.exports = i;
+    }), e.exports = i;
   }),
-      f = c && "object" === ("undefined" == typeof c ? "undefined" : t["typeof"](c)) && "default" in c ? c["default"] : c,
+      f = s && "object" === ("undefined" == typeof s ? "undefined" : n["typeof"](s)) && "default" in s ? s["default"] : s,
       d = /^#([a-fA-F0-9]{3})$/,
       v = /^#([a-fA-F0-9]{6})$/,
-      y = Math.pow(25, 7),
-      g = n(6),
-      p = n(25),
-      b = n(30),
-      M = n(60),
-      m = n(63),
-      w = n(275),
+      b = Math.pow(25, 7),
+      p = t(6),
+      y = t(25),
+      g = t(30),
+      M = t(60),
+      m = t(63),
+      w = t(275),
       k = 1,
       x = 1,
       C = 1,
-      A = { CIEDE2000: "CIEDE2000", HSV: "HSV", RGB: "RGB" },
-      P = (a = {}, t.defineProperty(a, A.CIEDE2000, "ciede2kDistance"), t.defineProperty(a, A.HSV, "hsvDistance"), t.defineProperty(a, A.RGB, "rgbDistance"), a),
-      j = function () {
-    function r(e) {
-      t.classCallCheck(this, r), this.original = e, this.hex = r.normalizeHex(e), this.rgb = r.parseHex(this.hex), this.hsv = r.rgbToHsv(this.rgb);
-    }return t.createClass(r, null, [{ key: "normalizeHex", value: function value(r) {
-        if (v.test(r)) return r;if (d.test(r)) {
-          var e = r.slice(1, 2),
-              n = r.slice(2, 3),
-              t = r.slice(3, 4);return "#" + (e + e) + (n + n) + (t + t);
+      F = { CIEDE2000: "CIEDE2000", HSV: "HSV", RGB: "RGB" },
+      P = (a = {}, n.defineProperty(a, F.CIEDE2000, "ciede2kDistance"), n.defineProperty(a, F.HSV, "hsvDistance"), n.defineProperty(a, F.RGB, "rgbDistance"), a),
+      A = function () {
+    function e(r) {
+      n.classCallCheck(this, e), this.original = r, this.hex = e.normalizeHex(r), this.rgb = e.parseHex(this.hex), this.hsv = e.rgbToHsv(this.rgb);
+    }return n.createClass(e, null, [{ key: "normalizeHex", value: function value(e) {
+        if (v.test(e)) return e;if (d.test(e)) {
+          var r = e.slice(1, 2),
+              t = e.slice(2, 3),
+              n = e.slice(3, 4);return "#" + (r + r) + (t + t) + (n + n);
         }return null;
-      } }, { key: "parseHex", value: function value(r) {
-        var e = this.normalizeHex(r);if (null === e) return null;var n = f.hex.rgb(e),
-            a = t.slicedToArray(n, 3),
+      } }, { key: "parseHex", value: function value(e) {
+        var r = this.normalizeHex(e);if (null === r) return null;var t = f.hex.rgb(r),
+            a = n.slicedToArray(t, 3),
             o = a[0],
             i = a[1],
             u = a[2];return { r: o, g: i, b: u };
-      } }, { key: "rgbToHsv", value: function value(r) {
-        var e = f.rgb.hsv([r.r, r.g, r.b]),
-            n = t.slicedToArray(e, 3),
-            a = n[0],
-            o = n[1],
-            i = n[2];return { h: a, s: o, v: i };
-      } }, { key: "distance", value: function value(e, n, t) {
-        return r[P[t]](e, n);
-      } }, { key: "rgbDistance", value: function value(r, e) {
-        var n = r.rgb,
-            t = e.rgb;return Math.sqrt(Math.pow(n.r - t.r, 2) + Math.pow(n.g - t.g, 2) + Math.pow(n.b - t.b, 2));
-      } }, { key: "hsvDistance", value: function value(r, e) {
-        var n = r.hsv,
-            t = r.hsv,
-            a = 0;return a = n.h > t.h ? Math.min(n.h - t.h, t.h - n.h + 360) : Math.min(t.h - n.h, n.h - t.h + 360), Math.sqrt(Math.pow(a, 2) + Math.pow(n.s - t.s, 2) + Math.pow(n.v - t.v, 2));
-      } }, { key: "ciede2kDistance", value: function value(e, n) {
-        var t = f.hex.lab(e.hex),
-            a = f.hex.lab(n.hex),
-            o = t[0],
-            i = t[1],
-            u = t[2],
+      } }, { key: "rgbToHsv", value: function value(e) {
+        var r = f.rgb.hsv([e.r, e.g, e.b]),
+            t = n.slicedToArray(r, 3),
+            a = t[0],
+            o = t[1],
+            i = t[2];return { h: a, s: o, v: i };
+      } }, { key: "distance", value: function value(r, t, n) {
+        return e[P[n]](r, t);
+      } }, { key: "rgbDistance", value: function value(e, r) {
+        var t = e.rgb,
+            n = r.rgb;return Math.sqrt(Math.pow(t.r - n.r, 2) + Math.pow(t.g - n.g, 2) + Math.pow(t.b - n.b, 2));
+      } }, { key: "hsvDistance", value: function value(e, r) {
+        var t = e.hsv,
+            n = e.hsv,
+            a = 0;return a = t.h > n.h ? Math.min(t.h - n.h, n.h - t.h + 360) : Math.min(n.h - t.h, t.h - n.h + 360), Math.sqrt(Math.pow(a, 2) + Math.pow(t.s - n.s, 2) + Math.pow(t.v - n.v, 2));
+      } }, { key: "ciede2kDistance", value: function value(r, t) {
+        var n = f.hex.lab(r.hex),
+            a = f.hex.lab(t.hex),
+            o = n[0],
+            i = n[1],
+            u = n[2],
             h = a[0],
             l = a[1],
-            s = a[2];return r._ciede2kDistance(o, i, u, h, l, s);
-      } }, { key: "_ciede2kDistance", value: function value(r, e, n, t, a, o) {
-        var i = t - r,
-            u = (r + t) / 2,
-            h = Math.hypot(e, n),
+            c = a[2];return e._ciede2kDistance(o, i, u, h, l, c);
+      } }, { key: "_ciede2kDistance", value: function value(e, r, t, n, a, o) {
+        var i = n - e,
+            u = (e + n) / 2,
+            h = Math.hypot(r, t),
             l = Math.hypot(a, o),
-            s = (h + l) / 2,
-            c = Math.pow(s, 7),
-            f = e + e / 2 * (1 - Math.sqrt(c / (c + y))),
-            d = a + a / 2 * (1 - Math.sqrt(c / (c + y))),
-            v = Math.hypot(f, n),
-            A = Math.hypot(d, o),
-            P = (v + A) / 2,
-            j = Math.pow(P, 7),
-            E = A - v,
-            q = 0 === n && 0 === f ? 0 : Math.atan2(n, f);0 > q && (q += 2 * Math.PI);var I = 0 === o && 0 === d ? 0 : Math.atan2(o, d);0 > I && (I += 2 * Math.PI);var O = I - q;v * A === 0 ? O = 0 : Math.abs(q - I) > Math.PI && (q >= I ? O += 2 * Math.PI : O -= 2 * Math.PI);var T = 2 * Math.sqrt(v * A) * Math.sin(O / 2),
-            D = 0;v * A !== 0 && (D = Math.abs(q - I) > Math.PI ? (q + I + 2 * Math.PI) / 2 : (q + I) / 2);var S = 1 - .17 * Math.cos(D - b) + .24 * Math.cos(2 * D) + .32 * Math.cos(3 * D + g) - .2 * Math.cos(4 * D - m),
-            z = Math.pow(u - 50, 2),
-            H = 1 + .0015 * z / Math.sqrt(20 + z),
-            B = 1 + .045 * P,
-            F = 1 + .015 * P * S,
-            G = -2 * Math.sqrt(j / (j + y)) * Math.sin(M * Math.exp(-Math.pow((D - w) / p, 2))),
-            R = Math.pow(i / (k * H), 2) + Math.pow(E / (x * B), 2) + Math.pow(T / (C * F), 2) + G * (E / (x * B)) * (T / (C * F));return Math.sqrt(R);
-      } }]), r;
+            c = (h + l) / 2,
+            s = Math.pow(c, 7),
+            f = r + r / 2 * (1 - Math.sqrt(s / (s + b))),
+            d = a + a / 2 * (1 - Math.sqrt(s / (s + b))),
+            v = Math.hypot(f, t),
+            F = Math.hypot(d, o),
+            P = (v + F) / 2,
+            A = Math.pow(P, 7),
+            j = F - v,
+            E = 0 === t && 0 === f ? 0 : Math.atan2(t, f);0 > E && (E += 2 * Math.PI);var q = 0 === o && 0 === d ? 0 : Math.atan2(o, d);0 > q && (q += 2 * Math.PI);var I = q - E;v * F === 0 ? I = 0 : Math.abs(E - q) > Math.PI && (E >= q ? I += 2 * Math.PI : I -= 2 * Math.PI);var O = 2 * Math.sqrt(v * F) * Math.sin(I / 2),
+            T = 0;v * F !== 0 && (T = Math.abs(E - q) > Math.PI ? (E + q + 2 * Math.PI) / 2 : (E + q) / 2);var D = 1 - .17 * Math.cos(T - g) + .24 * Math.cos(2 * T) + .32 * Math.cos(3 * T + p) - .2 * Math.cos(4 * T - m),
+            S = Math.pow(u - 50, 2),
+            z = 1 + .0015 * S / Math.sqrt(20 + S),
+            H = 1 + .045 * P,
+            B = 1 + .015 * P * D,
+            G = -2 * Math.sqrt(A / (A + b)) * Math.sin(M * Math.exp(-Math.pow((T - w) / y, 2))),
+            R = Math.pow(i / (k * z), 2) + Math.pow(j / (x * H), 2) + Math.pow(O / (C * B), 2) + G * (j / (x * H)) * (O / (C * B));return Math.sqrt(R);
+      } }]), e;
   }(),
-      E = ["#000000", "#808080", "#c0c0c0", "#ffffff", "#0000ff", "#000080", "#008080", "#008000", "#00ff00", "#00ffff", "#ffff00", "#ff0000", "#ff00ff", "#808000", "#800080", "#800000"],
-      q = function () {
-    function r() {
-      var e = arguments.length <= 0 || void 0 === arguments[0] ? E : arguments[0],
-          n = arguments.length <= 1 || void 0 === arguments[1] ? A.CIEDE2000 : arguments[1];t.classCallCheck(this, r), this.setBaseColors(e), this.setAlgorithmType(n);
-    }return t.createClass(r, null, [{ key: "throwError", value: function value(r) {
-        throw new Error("[ColorClassifier] " + r);
-      } }]), t.createClass(r, [{ key: "setBaseColors", value: function value(e) {
-        Array.isArray(e) || r.throwError("baseColors is should be a Array."), this.baseColors = e.map(function (r) {
-          return new j(r);
+      j = ["#000000", "#C0C0C0", "#808080", "#FFFFFF", "#800000", "#FF0000", "#800080", "#FF00FF", "#008000", "#00FF00", "#808000", "#FFFF00", "#000080", "#0000FF", "#008080", "#00FFFF"],
+      E = ["#b5184f", "#cd1f42", "#dd3737", "#e55125", "#e66d00", "#f29500", "#eeac00", "#e2c500", "#c8bb00", "#a4b300", "#4aa315", "#009a55", "#008c69", "#007e77", "#007c8c", "#006b93", "#005a91", "#00569c", "#00509d", "#474798", "#663e8c", "#793580", "#892c71", "#ab2664", "#efefef", "#d2d2d2", "#b6b6b6", "#9b9b9b", "#818181", "#696969", "#525252", "#3c3c3c", "#292929"],
+      q = Object.freeze({ W3C: j, PCCS: E }),
+      I = function () {
+    function e() {
+      var r = arguments.length <= 0 || void 0 === arguments[0] ? j : arguments[0],
+          t = arguments.length <= 1 || void 0 === arguments[1] ? F.CIEDE2000 : arguments[1];n.classCallCheck(this, e), this.setPalette(r), this.setAlgorithmType(t);
+    }return n.createClass(e, null, [{ key: "throwError", value: function value(e) {
+        throw new Error("[ColorClassifier] " + e);
+      } }]), n.createClass(e, [{ key: "setPalette", value: function value(r) {
+        Array.isArray(r) || e.throwError("palette is should be a Array."), this.palette = r.map(function (e) {
+          return new A(e);
         });
-      } }, { key: "getBaseColors", value: function value() {
-        return this.baseColors;
-      } }, { key: "setAlgorithmType", value: function value(e) {
-        A.hasOwnProperty(e) || r.throwError(e + " is an undefined algorithm type."), this.algorithmType = e;
+      } }, { key: "getPalette", value: function value() {
+        return this.palette;
+      } }, { key: "setAlgorithmType", value: function value(r) {
+        F.hasOwnProperty(r) || e.throwError(r + " is an undefined algorithm type."), this.algorithmType = r;
       } }, { key: "getAlgorithmType", value: function value() {
         return this.algorithmType;
-      } }, { key: "classify", value: function value(r) {
-        var n = this.baseColors,
-            t = this.algorithmType,
-            a = new j(r),
-            o = [];return n.forEach(function (r) {
-          o.push({ distance: j.distance(r, a, t), color: r.original });
-        }), e(o, "distance").color;
-      } }, { key: "classifyFromArray", value: function value(r) {
-        var e = this,
-            n = {};return r.forEach(function (r) {
-          var t = e.classify(r);n.hasOwnProperty(t) || (n[t] = []), n[t].push(r);
-        }), n;
-      } }]), r;
-  }();return q.AlgorithmTypes = A, q.base16Colors = E, q;
+      } }, { key: "classify", value: function value(e) {
+        var t = this.palette,
+            n = this.algorithmType,
+            a = new A(e),
+            o = [];return t.forEach(function (e) {
+          o.push({ distance: A.distance(e, a, n), color: e.original });
+        }), r(o, "distance").color;
+      } }, { key: "classifyFromArray", value: function value(e) {
+        var r = this,
+            t = {};return e.forEach(function (e) {
+          var n = r.classify(e);t.hasOwnProperty(n) || (t[n] = []), t[n].push(e);
+        }), t;
+      } }]), e;
+  }();return I.Palette = q, I.AlgorithmTypes = F, I;
 });
 
 },{}],2:[function(require,module,exports){
@@ -526,7 +528,7 @@ var App = function (_Component) {
 
     _this.state = {
       color: (0, _color.getRandomColor)(),
-      colors: [].concat(_toConsumableArray(_.base16Colors)),
+      colors: [].concat(_toConsumableArray(_.Palette.PCCS)),
       displayColorPicker: false
     };
 
@@ -584,7 +586,7 @@ var App = function (_Component) {
       var displayColorPicker = _state.displayColorPicker;
 
 
-      colorClassifier.setBaseColors(colors);
+      colorClassifier.setPalette(colors);
       var activeColor = colorClassifier.classify(color);
 
       return _react2.default.createElement(
