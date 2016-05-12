@@ -2,10 +2,44 @@
 
 import assert from "power-assert"
 import isPlainObject from "is-plain-object"
+import Color from "../src/utils/color"
 import ColorClassifier from "../src/color-classifier"
+const { AlgorithmTypes } = ColorClassifier;
 
 
 describe("ColorClassify", () => {
+
+  describe("setter/getter", () => {
+    it("should be set and get", () => {
+      const c = new ColorClassifier();
+
+      c.setBaseColors(["#fff", "#000"]);
+      assert.deepStrictEqual(c.getBaseColors(), [
+        new Color("#fff"),
+        new Color("#000")
+      ]);
+
+      c.setAlgorithmType(AlgorithmTypes.HSV);
+      assert(c.getAlgorithmType() === AlgorithmTypes.HSV);
+    });
+
+    it("should be throws error", () => {
+      const c = new ColorClassifier();
+
+      assert.throws(() => { c.setBaseColors(null); }, Error);
+      assert.throws(() => { c.setBaseColors(undefined); }, Error);
+      assert.throws(() => { c.setBaseColors(""); }, Error);
+      assert.throws(() => { c.setBaseColors(0); }, Error);
+      assert.throws(() => { c.setBaseColors({}); }, Error);
+
+      assert.throws(() => { c.setAlgorithmType(null); }, Error);
+      assert.throws(() => { c.setAlgorithmType(undefined); }, Error);
+      assert.throws(() => { c.setAlgorithmType(""); }, Error);
+      assert.throws(() => { c.setAlgorithmType(0); }, Error);
+      assert.throws(() => { c.setAlgorithmType({}); }, Error);
+      assert.throws(() => { c.setAlgorithmType([]); }, Error);
+    });
+  });
 
   describe("classify()", () => {
     it("should be return the single hex string", () => {
