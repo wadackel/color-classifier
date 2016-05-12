@@ -371,20 +371,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       f = c && "object" === ("undefined" == typeof c ? "undefined" : t["typeof"](c)) && "default" in c ? c["default"] : c,
       d = /^#([a-fA-F0-9]{3})$/,
       v = /^#([a-fA-F0-9]{6})$/,
-      b = 100,
-      g = Math.pow(25, 7),
-      p = n(6),
-      y = n(25),
+      y = 100,
+      p = Math.pow(25, 7),
+      g = n(6),
+      b = n(25),
       M = n(30),
       m = n(60),
-      k = n(63),
-      w = n(275),
+      w = n(63),
+      k = n(275),
       x = 1,
       C = 1,
-      P = 1,
-      j = { CIEDE2000: "CIEDE2000", HSV: "HSV", RGB: "RGB" },
-      q = (a = {}, t.defineProperty(a, j.CIEDE2000, "ciede2kDistance"), t.defineProperty(a, j.HSV, "hsvDistance"), t.defineProperty(a, j.RGB, "rgbDistance"), a),
-      A = function () {
+      A = 1,
+      P = { CIEDE2000: "CIEDE2000", HSV: "HSV", RGB: "RGB" },
+      j = (a = {}, t.defineProperty(a, P.CIEDE2000, "ciede2kDistance"), t.defineProperty(a, P.HSV, "hsvDistance"), t.defineProperty(a, P.RGB, "rgbDistance"), a),
+      E = function () {
     function e(r) {
       t.classCallCheck(this, e), this.original = r, this.hex = e.normalizeHex(r), this.rgb = e.parseHex(this.hex), this.hsv = e.rgbToHsv(this.rgb);
     }return t.createClass(e, null, [{ key: "normalizeHex", value: function value(e) {
@@ -406,14 +406,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             o = n[1],
             i = n[2];return { h: a, s: o, v: i };
       } }, { key: "distance", value: function value(r, n, t) {
-        return e[q[t]](r, n);
+        return e[j[t]](r, n);
       } }, { key: "rgbDistance", value: function value(e, r) {} }, { key: "hsvDistance", value: function value(e, r) {
         var n = e.hsv,
             t = e.hsv,
             a = 0;return a = n.h > t.h ? Math.min(n.h - t.h, t.h - n.h + 360) : Math.min(t.h - n.h, n.h - t.h + 360), Math.sqrt(Math.pow(a, 2) + Math.pow(n.s - t.s, 2) + Math.pow(n.v - t.v, 2));
       } }, { key: "ciede2kDistance", value: function value(r, n) {
         var t = r.hex,
-            a = n.hex;return e._ciede2kDistance(t, a) / b;
+            a = n.hex;return e._ciede2kDistance(t, a) / y;
       } }, { key: "_ciede2kDistance", value: function value(r, n) {
         var t = f.hex.lab(r),
             a = f.hex.lab(n),
@@ -430,47 +430,54 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             l = Math.hypot(a, o),
             s = (h + l) / 2,
             c = Math.pow(s, 7),
-            f = r + r / 2 * (1 - Math.sqrt(c / (c + g))),
-            d = a + a / 2 * (1 - Math.sqrt(c / (c + g))),
+            f = r + r / 2 * (1 - Math.sqrt(c / (c + p))),
+            d = a + a / 2 * (1 - Math.sqrt(c / (c + p))),
             v = Math.hypot(f, n),
-            b = Math.hypot(d, o),
-            j = (v + b) / 2,
-            q = Math.pow(j, 7),
-            A = b - v,
-            E = 0 === n && 0 === f ? 0 : Math.atan2(n, f);0 > E && (E += 2 * Math.PI);var I = 0 === o && 0 === d ? 0 : Math.atan2(o, d);0 > I && (I += 2 * Math.PI);var D = I - E;v * b === 0 ? D = 0 : Math.abs(E - I) > Math.PI && (E >= I ? D += 2 * Math.PI : D -= 2 * Math.PI);var O = 2 * Math.sqrt(v * b) * Math.sin(D / 2),
-            S = 0;v * b !== 0 && (S = Math.abs(E - I) > Math.PI ? (E + I + 2 * Math.PI) / 2 : (E + I) / 2);var z = 1 - .17 * Math.cos(S - M) + .24 * Math.cos(2 * S) + .32 * Math.cos(3 * S + p) - .2 * Math.cos(4 * S - k),
-            H = Math.pow(u - 50, 2),
-            T = 1 + .0015 * H / Math.sqrt(20 + H),
-            B = 1 + .045 * j,
-            _ = 1 + .015 * j * z,
-            F = -2 * Math.sqrt(q / (q + g)) * Math.sin(m * Math.exp(-Math.pow((S - w) / y, 2))),
-            G = Math.pow(i / (x * T), 2) + Math.pow(A / (C * B), 2) + Math.pow(O / (P * _), 2) + F * (A / (C * B)) * (O / (P * _));return Math.sqrt(G);
+            y = Math.hypot(d, o),
+            P = (v + y) / 2,
+            j = Math.pow(P, 7),
+            E = y - v,
+            q = 0 === n && 0 === f ? 0 : Math.atan2(n, f);0 > q && (q += 2 * Math.PI);var I = 0 === o && 0 === d ? 0 : Math.atan2(o, d);0 > I && (I += 2 * Math.PI);var D = I - q;v * y === 0 ? D = 0 : Math.abs(q - I) > Math.PI && (q >= I ? D += 2 * Math.PI : D -= 2 * Math.PI);var O = 2 * Math.sqrt(v * y) * Math.sin(D / 2),
+            T = 0;v * y !== 0 && (T = Math.abs(q - I) > Math.PI ? (q + I + 2 * Math.PI) / 2 : (q + I) / 2);var S = 1 - .17 * Math.cos(T - M) + .24 * Math.cos(2 * T) + .32 * Math.cos(3 * T + g) - .2 * Math.cos(4 * T - w),
+            z = Math.pow(u - 50, 2),
+            H = 1 + .0015 * z / Math.sqrt(20 + z),
+            B = 1 + .045 * P,
+            _ = 1 + .015 * P * S,
+            F = -2 * Math.sqrt(j / (j + p)) * Math.sin(m * Math.exp(-Math.pow((T - k) / b, 2))),
+            G = Math.pow(i / (x * H), 2) + Math.pow(E / (C * B), 2) + Math.pow(O / (A * _), 2) + F * (E / (C * B)) * (O / (A * _));return Math.sqrt(G);
       } }]), e;
   }(),
-      E = ["#000000", "#808080", "#c0c0c0", "#ffffff", "#0000ff", "#000080", "#008080", "#008000", "#00ff00", "#00ffff", "#ffff00", "#ff0000", "#ff00ff", "#808000", "#800080", "#800000"],
+      q = ["#000000", "#808080", "#c0c0c0", "#ffffff", "#0000ff", "#000080", "#008080", "#008000", "#00ff00", "#00ffff", "#ffff00", "#ff0000", "#ff00ff", "#808000", "#800080", "#800000"],
       I = function () {
     function e() {
-      var r = arguments.length <= 0 || void 0 === arguments[0] ? E : arguments[0];t.classCallCheck(this, e), this.setBaseColors(r);
-    }return t.createClass(e, [{ key: "setBaseColors", value: function value(e) {
-        this.baseColors = e.map(function (e) {
-          return new A(e);
+      var r = arguments.length <= 0 || void 0 === arguments[0] ? q : arguments[0],
+          n = arguments.length <= 1 || void 0 === arguments[1] ? P.CIEDE2000 : arguments[1];t.classCallCheck(this, e), this.setBaseColors(r), this.setAlgorithmType(n);
+    }return t.createClass(e, null, [{ key: "throwError", value: function value(e) {
+        throw new Error("[ColorClassifier] " + e);
+      } }]), t.createClass(e, [{ key: "setBaseColors", value: function value(r) {
+        Array.isArray(r) || e.throwError("baseColors is should be a Array."), this.baseColors = r.map(function (e) {
+          return new E(e);
         });
       } }, { key: "getBaseColors", value: function value() {
         return this.baseColors;
+      } }, { key: "setAlgorithmType", value: function value(r) {
+        P.hasOwnProperty(r) || e.throwError(r + " is an undefined algorithm type."), this.algorithmType = r;
+      } }, { key: "getAlgorithmType", value: function value() {
+        return this.algorithmType;
       } }, { key: "classify", value: function value(e) {
-        var n = arguments.length <= 1 || void 0 === arguments[1] ? j.CIEDE2000 : arguments[1],
-            t = this.baseColors,
-            a = new A(e),
-            o = [];return t.forEach(function (e) {
-          o.push({ distance: A.distance(e, a, n), color: e.original });
+        var n = this.baseColors,
+            t = this.algorithmType,
+            a = new E(e),
+            o = [];return n.forEach(function (e) {
+          o.push({ distance: E.distance(e, a, t), color: e.original });
         }), r(o, "distance").color;
       } }, { key: "classifyFromArray", value: function value(e) {
         var r = this,
-            n = (arguments.length <= 1 || void 0 === arguments[1] ? j.CIEDE2000 : arguments[1], {});return e.forEach(function (e) {
+            n = {};return e.forEach(function (e) {
           var t = r.classify(e);n.hasOwnProperty(t) || (n[t] = []), n[t].push(e);
         }), n;
       } }]), e;
-  }();return I.AlgorithmTypes = j, I.base16Colors = E, I;
+  }();return I.AlgorithmTypes = P, I.base16Colors = q, I;
 });
 
 },{}],2:[function(require,module,exports){

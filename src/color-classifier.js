@@ -7,12 +7,20 @@ class ColorClassifier {
   static AlgorithmTypes = AlgorithmTypes;
   static base16Colors = base16Colors;
 
+  static throwError(msg) {
+    throw new Error(`[ColorClassifier] ${msg}`);
+  }
 
-  constructor(baseColors = base16Colors) {
+
+  constructor(baseColors = base16Colors, algorithmType = AlgorithmTypes.CIEDE2000) {
     this.setBaseColors(baseColors);
+    this.setAlgorithmType(algorithmType);
   }
 
   setBaseColors(baseColors) {
+    if (!Array.isArray(baseColors)) {
+      ColorClassifier.throwError(`baseColors is should be a Array.`)
+    }
     this.baseColors = baseColors.map(baseColor => new Color(baseColor));
   }
 
@@ -20,8 +28,19 @@ class ColorClassifier {
     return this.baseColors;
   }
 
-  classify(hex, algorithmType = AlgorithmTypes.CIEDE2000) {
-    const { baseColors } = this;
+  setAlgorithmType(algorithmType) {
+    if (!AlgorithmTypes.hasOwnProperty(algorithmType)) {
+      ColorClassifier.throwError(`${algorithmType} is an undefined algorithm type.`)
+    }
+    this.algorithmType = algorithmType;
+  }
+
+  getAlgorithmType() {
+    return this.algorithmType;
+  }
+
+  classify(hex) {
+    const { baseColors, algorithmType } = this;
     const color = new Color(hex);
     const array = [];
 
@@ -35,7 +54,7 @@ class ColorClassifier {
     return minBy(array, "distance").color;
   }
 
-  classifyFromArray(hexArray, algorithmType = AlgorithmTypes.CIEDE2000) {
+  classifyFromArray(hexArray) {
     const results = {};
 
     hexArray.forEach(hex => {
