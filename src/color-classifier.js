@@ -1,9 +1,13 @@
 import minBy from "./utils/min-by"
-import Color from "./utils/color"
+import Color, { AlgorithmTypes } from "./utils/color"
 import base16Colors from "./base16-colors"
 
 
 class ColorClassifier {
+  static AlgorithmTypes = AlgorithmTypes;
+  static base16Colors = base16Colors;
+
+
   constructor(baseColors = base16Colors) {
     this.setBaseColors(baseColors);
   }
@@ -14,17 +18,16 @@ class ColorClassifier {
 
   getBaseColors() {
     return this.baseColors;
-    this.baseColors = baseColors.map(baseColor => new Color(baseColor));
   }
 
-  classify(hex) {
+  classify(hex, algorithmType = AlgorithmTypes.CIEDE2000) {
     const { baseColors } = this;
-    const hsv = new Color(hex).hsv;
+    const color = new Color(hex);
     const array = [];
 
     baseColors.forEach(baseColor => {
       array.push({
-        distance: Color.ciede2kDistance(baseColor.original, hex),
+        distance: Color.distance(baseColor, color, algorithmType),
         color: baseColor.original
       });
     });
@@ -32,7 +35,7 @@ class ColorClassifier {
     return minBy(array, "distance").color;
   }
 
-  classifyFromArray(hexArray) {
+  classifyFromArray(hexArray, algorithmType = AlgorithmTypes.CIEDE2000) {
     const results = {};
 
     hexArray.forEach(hex => {
@@ -49,7 +52,5 @@ class ColorClassifier {
   }
 }
 
-
-ColorClassifier.base16Colors = base16Colors;
 
 export default ColorClassifier;

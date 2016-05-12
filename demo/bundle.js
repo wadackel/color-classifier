@@ -37,23 +37,45 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }return function (r, n, t) {
       return n && e(r.prototype, n), t && e(r, t), r;
     };
+  }(), t.defineProperty = function (e, r, n) {
+    return r in e ? Object.defineProperty(e, r, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = n, e;
+  }, t.slicedToArray = function () {
+    function e(e, r) {
+      var n = [],
+          t = !0,
+          a = !1,
+          o = void 0;try {
+        for (var i, u = e[Symbol.iterator](); !(t = (i = u.next()).done) && (n.push(i.value), !r || n.length !== r); t = !0) {}
+      } catch (h) {
+        a = !0, o = h;
+      } finally {
+        try {
+          !t && u["return"] && u["return"]();
+        } finally {
+          if (a) throw o;
+        }
+      }return n;
+    }return function (r, n) {
+      if (Array.isArray(r)) return r;if (Symbol.iterator in Object(r)) return e(r, n);throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    };
   }(), t.toConsumableArray = function (e) {
     if (Array.isArray(e)) {
       for (var r = 0, n = Array(e.length); r < e.length; r++) {
         n[r] = e[r];
       }return n;
     }return Array.from(e);
-  };var a = e(function (e) {
+  };var a,
+      o = e(function (e) {
     e.exports = { aliceblue: [240, 248, 255], antiquewhite: [250, 235, 215], aqua: [0, 255, 255], aquamarine: [127, 255, 212], azure: [240, 255, 255], beige: [245, 245, 220], bisque: [255, 228, 196], black: [0, 0, 0], blanchedalmond: [255, 235, 205], blue: [0, 0, 255], blueviolet: [138, 43, 226], brown: [165, 42, 42], burlywood: [222, 184, 135], cadetblue: [95, 158, 160], chartreuse: [127, 255, 0], chocolate: [210, 105, 30], coral: [255, 127, 80], cornflowerblue: [100, 149, 237], cornsilk: [255, 248, 220], crimson: [220, 20, 60], cyan: [0, 255, 255], darkblue: [0, 0, 139], darkcyan: [0, 139, 139], darkgoldenrod: [184, 134, 11], darkgray: [169, 169, 169], darkgreen: [0, 100, 0], darkgrey: [169, 169, 169], darkkhaki: [189, 183, 107], darkmagenta: [139, 0, 139], darkolivegreen: [85, 107, 47], darkorange: [255, 140, 0], darkorchid: [153, 50, 204], darkred: [139, 0, 0], darksalmon: [233, 150, 122], darkseagreen: [143, 188, 143], darkslateblue: [72, 61, 139], darkslategray: [47, 79, 79], darkslategrey: [47, 79, 79], darkturquoise: [0, 206, 209], darkviolet: [148, 0, 211], deeppink: [255, 20, 147], deepskyblue: [0, 191, 255], dimgray: [105, 105, 105], dimgrey: [105, 105, 105], dodgerblue: [30, 144, 255], firebrick: [178, 34, 34], floralwhite: [255, 250, 240], forestgreen: [34, 139, 34], fuchsia: [255, 0, 255], gainsboro: [220, 220, 220], ghostwhite: [248, 248, 255], gold: [255, 215, 0], goldenrod: [218, 165, 32], gray: [128, 128, 128], green: [0, 128, 0], greenyellow: [173, 255, 47], grey: [128, 128, 128], honeydew: [240, 255, 240], hotpink: [255, 105, 180], indianred: [205, 92, 92], indigo: [75, 0, 130], ivory: [255, 255, 240], khaki: [240, 230, 140], lavender: [230, 230, 250], lavenderblush: [255, 240, 245], lawngreen: [124, 252, 0], lemonchiffon: [255, 250, 205], lightblue: [173, 216, 230], lightcoral: [240, 128, 128], lightcyan: [224, 255, 255], lightgoldenrodyellow: [250, 250, 210], lightgray: [211, 211, 211], lightgreen: [144, 238, 144], lightgrey: [211, 211, 211], lightpink: [255, 182, 193], lightsalmon: [255, 160, 122], lightseagreen: [32, 178, 170], lightskyblue: [135, 206, 250], lightslategray: [119, 136, 153], lightslategrey: [119, 136, 153], lightsteelblue: [176, 196, 222], lightyellow: [255, 255, 224], lime: [0, 255, 0], limegreen: [50, 205, 50], linen: [250, 240, 230], magenta: [255, 0, 255], maroon: [128, 0, 0], mediumaquamarine: [102, 205, 170], mediumblue: [0, 0, 205], mediumorchid: [186, 85, 211], mediumpurple: [147, 112, 219], mediumseagreen: [60, 179, 113], mediumslateblue: [123, 104, 238], mediumspringgreen: [0, 250, 154], mediumturquoise: [72, 209, 204], mediumvioletred: [199, 21, 133], midnightblue: [25, 25, 112], mintcream: [245, 255, 250], mistyrose: [255, 228, 225], moccasin: [255, 228, 181], navajowhite: [255, 222, 173], navy: [0, 0, 128], oldlace: [253, 245, 230], olive: [128, 128, 0], olivedrab: [107, 142, 35], orange: [255, 165, 0], orangered: [255, 69, 0], orchid: [218, 112, 214], palegoldenrod: [238, 232, 170], palegreen: [152, 251, 152], paleturquoise: [175, 238, 238], palevioletred: [219, 112, 147], papayawhip: [255, 239, 213], peachpuff: [255, 218, 185], peru: [205, 133, 63], pink: [255, 192, 203], plum: [221, 160, 221], powderblue: [176, 224, 230], purple: [128, 0, 128], rebeccapurple: [102, 51, 153], red: [255, 0, 0], rosybrown: [188, 143, 143], royalblue: [65, 105, 225], saddlebrown: [139, 69, 19], salmon: [250, 128, 114], sandybrown: [244, 164, 96], seagreen: [46, 139, 87], seashell: [255, 245, 238], sienna: [160, 82, 45], silver: [192, 192, 192], skyblue: [135, 206, 235], slateblue: [106, 90, 205], slategray: [112, 128, 144], slategrey: [112, 128, 144], snow: [255, 250, 250], springgreen: [0, 255, 127], steelblue: [70, 130, 180], tan: [210, 180, 140], teal: [0, 128, 128], thistle: [216, 191, 216], tomato: [255, 99, 71], turquoise: [64, 224, 208], violet: [238, 130, 238], wheat: [245, 222, 179], white: [255, 255, 255], whitesmoke: [245, 245, 245], yellow: [255, 255, 0], yellowgreen: [154, 205, 50] };
   }),
-      o = a && "object" === ("undefined" == typeof a ? "undefined" : t["typeof"](a)) && "default" in a ? a["default"] : a,
-      i = e(function (e) {
-    var r = o,
+      i = o && "object" === ("undefined" == typeof o ? "undefined" : t["typeof"](o)) && "default" in o ? o["default"] : o,
+      u = e(function (e) {
+    var r = i,
         n = {};for (var t in r) {
       r.hasOwnProperty(t) && (n[r[t].join()] = t);
-    }var a = e.exports = { rgb: { channels: 3 }, hsl: { channels: 3 }, hsv: { channels: 3 }, hwb: { channels: 3 }, cmyk: { channels: 4 }, xyz: { channels: 3 }, lab: { channels: 3 }, lch: { channels: 3 }, hex: { channels: 1 }, keyword: { channels: 1 }, ansi16: { channels: 1 }, ansi256: { channels: 1 }, hcg: { channels: 3 }, apple: { channels: 3 } };for (var i in a) {
-      if (a.hasOwnProperty(i)) {
-        if (!("channels" in a[i])) throw new Error("missing channels property: " + i);var u = a[i].channels;delete a[i].channels, Object.defineProperty(a[i], "channels", { value: u });
+    }var a = e.exports = { rgb: { channels: 3 }, hsl: { channels: 3 }, hsv: { channels: 3 }, hwb: { channels: 3 }, cmyk: { channels: 4 }, xyz: { channels: 3 }, lab: { channels: 3 }, lch: { channels: 3 }, hex: { channels: 1 }, keyword: { channels: 1 }, ansi16: { channels: 1 }, ansi256: { channels: 1 }, hcg: { channels: 3 }, apple: { channels: 3 } };for (var o in a) {
+      if (a.hasOwnProperty(o)) {
+        if (!("channels" in a[o])) throw new Error("missing channels property: " + o);var u = a[o].channels;delete a[o].channels, Object.defineProperty(a[o], "channels", { value: u });
       }
     }a.rgb.hsl = function (e) {
       var r,
@@ -64,7 +86,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           i = e[2] / 255,
           u = Math.min(a, o, i),
           h = Math.max(a, o, i),
-          s = h - u;return h === u ? r = 0 : a === h ? r = (o - i) / s : o === h ? r = 2 + (i - a) / s : i === h && (r = 4 + (a - o) / s), r = Math.min(60 * r, 360), 0 > r && (r += 360), t = (u + h) / 2, n = h === u ? 0 : .5 >= t ? s / (h + u) : s / (2 - h - u), [r, 100 * n, 100 * t];
+          l = h - u;return h === u ? r = 0 : a === h ? r = (o - i) / l : o === h ? r = 2 + (i - a) / l : i === h && (r = 4 + (a - o) / l), r = Math.min(60 * r, 360), 0 > r && (r += 360), t = (u + h) / 2, n = h === u ? 0 : .5 >= t ? l / (h + u) : l / (2 - h - u), [r, 100 * n, 100 * t];
     }, a.rgb.hsv = function (e) {
       var r,
           n,
@@ -74,7 +96,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           i = e[2],
           u = Math.min(a, o, i),
           h = Math.max(a, o, i),
-          s = h - u;return n = 0 === h ? 0 : s / h * 1e3 / 10, h === u ? r = 0 : a === h ? r = (o - i) / s : o === h ? r = 2 + (i - a) / s : i === h && (r = 4 + (a - o) / s), r = Math.min(60 * r, 360), 0 > r && (r += 360), t = h / 255 * 1e3 / 10, [r, n, t];
+          l = h - u;return n = 0 === h ? 0 : l / h * 1e3 / 10, h === u ? r = 0 : a === h ? r = (o - i) / l : o === h ? r = 2 + (i - a) / l : i === h && (r = 4 + (a - o) / l), r = Math.min(60 * r, 360), 0 > r && (r += 360), t = h / 255 * 1e3 / 10, [r, n, t];
     }, a.rgb.hwb = function (e) {
       var r = e[0],
           n = e[1],
@@ -115,8 +137,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           o,
           i = e[0] / 360,
           u = e[1] / 100,
-          h = e[2] / 100;if (0 === u) return o = 255 * h, [o, o, o];n = .5 > h ? h * (1 + u) : h + u - h * u, r = 2 * h - n, a = [0, 0, 0];for (var s = 0; 3 > s; s++) {
-        t = i + 1 / 3 * -(s - 1), 0 > t && t++, t > 1 && t--, o = 1 > 6 * t ? r + 6 * (n - r) * t : 1 > 2 * t ? n : 2 > 3 * t ? r + (n - r) * (2 / 3 - t) * 6 : r, a[s] = 255 * o;
+          h = e[2] / 100;if (0 === u) return o = 255 * h, [o, o, o];n = .5 > h ? h * (1 + u) : h + u - h * u, r = 2 * h - n, a = [0, 0, 0];for (var l = 0; 3 > l; l++) {
+        t = i + 1 / 3 * -(l - 1), 0 > t && t++, t > 1 && t--, o = 1 > 6 * t ? r + 6 * (n - r) * t : 1 > 2 * t ? n : 2 > 3 * t ? r + (n - r) * (2 / 3 - t) * 6 : r, a[l] = 255 * o;
       }return a;
     }, a.hsl.hsv = function (e) {
       var r,
@@ -153,13 +175,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           o = e[0] / 360,
           i = e[1] / 100,
           u = e[2] / 100,
-          h = i + u;h > 1 && (i /= h, u /= h), r = Math.floor(6 * o), n = 1 - u, t = 6 * o - r, 0 !== (1 & r) && (t = 1 - t), a = i + t * (n - i);var s, l, c;switch (r) {default:case 6:case 0:
-          s = n, l = a, c = i;break;case 1:
-          s = a, l = n, c = i;break;case 2:
-          s = i, l = n, c = a;break;case 3:
-          s = i, l = a, c = n;break;case 4:
-          s = a, l = i, c = n;break;case 5:
-          s = n, l = i, c = a;}return [255 * s, 255 * l, 255 * c];
+          h = i + u;h > 1 && (i /= h, u /= h), r = Math.floor(6 * o), n = 1 - u, t = 6 * o - r, 0 !== (1 & r) && (t = 1 - t), a = i + t * (n - i);var l, s, c;switch (r) {default:case 6:case 0:
+          l = n, s = a, c = i;break;case 1:
+          l = a, s = n, c = i;break;case 2:
+          l = i, s = n, c = a;break;case 3:
+          l = i, s = a, c = n;break;case 4:
+          l = a, s = i, c = n;break;case 5:
+          l = n, s = i, c = a;}return [255 * l, 255 * s, 255 * c];
     }, a.cmyk.rgb = function (e) {
       var r,
           n,
@@ -294,8 +316,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       return [e[0] / 255 * 65535, e[1] / 255 * 65535, e[2] / 255 * 65535];
     };
   }),
-      u = i && "object" === ("undefined" == typeof i ? "undefined" : t["typeof"](i)) && "default" in i ? i["default"] : i,
-      h = e(function (e) {
+      h = u && "object" === ("undefined" == typeof u ? "undefined" : t["typeof"](u)) && "default" in u ? u["default"] : u,
+      l = e(function (e) {
     function r() {
       for (var e = {}, r = i.length, n = 0; r > n; n++) {
         e[i[n]] = { distance: -1, parent: null };
@@ -304,8 +326,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       var n = r(),
           t = [e];for (n[e].distance = 0; t.length;) {
         for (var a = t.pop(), i = Object.keys(o[a]), u = i.length, h = 0; u > h; h++) {
-          var s = i[h],
-              l = n[s];-1 === l.distance && (l.distance = n[a].distance + 1, l.parent = a, t.unshift(s));
+          var l = i[h],
+              s = n[l];-1 === s.distance && (s.distance = n[a].distance + 1, s.parent = a, t.unshift(l));
         }
       }return n;
     }function t(e, r) {
@@ -316,16 +338,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       for (var n = [r[e].parent, e], a = o[r[e].parent][e], i = r[e].parent; r[i].parent;) {
         n.unshift(r[i].parent), a = t(o[r[i].parent][i], a), i = r[i].parent;
       }return a.conversion = n, a;
-    }var o = u,
+    }var o = h,
         i = Object.keys(o);e.exports = function (e) {
       for (var r = n(e), t = {}, o = Object.keys(r), i = o.length, u = 0; i > u; u++) {
         var h = o[u],
-            s = r[h];null !== s.parent && (t[h] = a(h, r));
+            l = r[h];null !== l.parent && (t[h] = a(h, r));
       }return t;
     };
   }),
-      s = h && "object" === ("undefined" == typeof h ? "undefined" : t["typeof"](h)) && "default" in h ? h["default"] : h,
-      l = e(function (e) {
+      s = l && "object" === ("undefined" == typeof l ? "undefined" : t["typeof"](l)) && "default" in l ? l["default"] : l,
+      c = e(function (e) {
     function r(e) {
       var r = function r(_r) {
         return void 0 === _r || null === _r ? _r : (arguments.length > 1 && (_r = Array.prototype.slice.call(arguments)), e(_r));
@@ -336,107 +358,119 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           n[o] = Math.round(n[o]);
         }return n;
       };return "conversion" in e && (r.conversion = e.conversion), r;
-    }var a = u,
+    }var a = h,
         o = s,
         i = {},
-        h = Object.keys(a);h.forEach(function (e) {
+        u = Object.keys(a);u.forEach(function (e) {
       i[e] = {}, Object.defineProperty(i[e], "channels", { value: a[e].channels });var t = o(e),
           u = Object.keys(t);u.forEach(function (a) {
         var o = t[a];i[e][a] = n(o), i[e][a].raw = r(o);
       });
     }), e.exports = i;
   }),
-      c = l && "object" === ("undefined" == typeof l ? "undefined" : t["typeof"](l)) && "default" in l ? l["default"] : l,
-      f = /^#([a-fA-F0-9]{3})$/,
-      d = /^#([a-fA-F0-9]{6})$/,
-      v = Math.pow(25, 7),
+      f = c && "object" === ("undefined" == typeof c ? "undefined" : t["typeof"](c)) && "default" in c ? c["default"] : c,
+      d = /^#([a-fA-F0-9]{3})$/,
+      v = /^#([a-fA-F0-9]{6})$/,
+      b = 100,
+      g = Math.pow(25, 7),
       p = n(6),
-      g = n(25),
-      b = n(30),
-      y = n(60),
-      M = n(63),
-      m = n(275),
-      k = 1,
-      w = 1,
+      y = n(25),
+      M = n(30),
+      m = n(60),
+      k = n(63),
+      w = n(275),
       x = 1,
-      C = function () {
+      C = 1,
+      P = 1,
+      j = { CIEDE2000: "CIEDE2000", HSV: "HSV", RGB: "RGB" },
+      q = (a = {}, t.defineProperty(a, j.CIEDE2000, "ciede2kDistance"), t.defineProperty(a, j.HSV, "hsvDistance"), t.defineProperty(a, j.RGB, "rgbDistance"), a),
+      A = function () {
     function e(r) {
-      t.classCallCheck(this, e), this.original = r, this.rgb = e.parseHex(r), this.hsv = e.rgbToHsv(this.rgb);
-    }return t.createClass(e, null, [{ key: "parseHex", value: function value(e) {
-        var r = {};if (f.test(e)) {
-          var n = e.slice(1, 2),
-              t = e.slice(2, 3),
-              a = e.slice(3, 4);r.r = parseInt(n + n, 16), r.g = parseInt(t + t, 16), r.b = parseInt(a + a, 16);
-        } else {
-          if (!d.test(e)) return null;r.r = parseInt(e.slice(1, 3), 16), r.g = parseInt(e.slice(3, 5), 16), r.b = parseInt(e.slice(5, 7), 16);
-        }return r;
+      t.classCallCheck(this, e), this.original = r, this.hex = e.normalizeHex(r), this.rgb = e.parseHex(this.hex), this.hsv = e.rgbToHsv(this.rgb);
+    }return t.createClass(e, null, [{ key: "normalizeHex", value: function value(e) {
+        if (v.test(e)) return e;if (d.test(e)) {
+          var r = e.slice(1, 2),
+              n = e.slice(2, 3),
+              t = e.slice(3, 4);return "#" + (r + r) + (n + n) + (t + t);
+        }return null;
+      } }, { key: "parseHex", value: function value(e) {
+        var r = this.normalizeHex(e);if (null === r) return null;var n = f.hex.rgb(r),
+            a = t.slicedToArray(n, 3),
+            o = a[0],
+            i = a[1],
+            u = a[2];return { r: o, g: i, b: u };
       } }, { key: "rgbToHsv", value: function value(e) {
-        var r = e.r,
-            n = e.g,
-            t = e.b,
-            a = {},
-            o = Math.min(r, n, t),
-            i = Math.max(r, n, t),
-            u = i - o;return 0 === i ? a.s = 0 : a.s = Math.round(u / i * 100), i === o ? a.h = 0 : r === i ? a.h = (n - t) / u : n === i ? a.h = 2 + (t - r) / u : a.h = 4 + (r - n) / u, a.h = Math.min(Math.round(60 * a.h), 360), a.h < 0 && (a.h += 360), a.v = Math.round(i / 255 * 100), a;
-      } }, { key: "hsvDistance", value: function value(e, r) {
-        var n = 0;return n = e.h > r.h ? Math.min(e.h - r.h, r.h - e.h + 360) : Math.min(r.h - e.h, e.h - r.h + 360), Math.sqrt(Math.pow(n, 2) + Math.pow(e.s - r.s, 2) + Math.pow(e.v - r.v, 2));
+        var r = f.rgb.hsv([e.r, e.g, e.b]),
+            n = t.slicedToArray(r, 3),
+            a = n[0],
+            o = n[1],
+            i = n[2];return { h: a, s: o, v: i };
+      } }, { key: "distance", value: function value(r, n, t) {
+        return e[q[t]](r, n);
+      } }, { key: "rgbDistance", value: function value(e, r) {} }, { key: "hsvDistance", value: function value(e, r) {
+        var n = e.hsv,
+            t = e.hsv,
+            a = 0;return a = n.h > t.h ? Math.min(n.h - t.h, t.h - n.h + 360) : Math.min(t.h - n.h, n.h - t.h + 360), Math.sqrt(Math.pow(a, 2) + Math.pow(n.s - t.s, 2) + Math.pow(n.v - t.v, 2));
       } }, { key: "ciede2kDistance", value: function value(r, n) {
-        return e._ciede2kDistance(r, n) / 100;
+        var t = r.hex,
+            a = n.hex;return e._ciede2kDistance(t, a) / b;
       } }, { key: "_ciede2kDistance", value: function value(r, n) {
-        var t = c.hex.lab(r),
-            a = c.hex.lab(n),
+        var t = f.hex.lab(r),
+            a = f.hex.lab(n),
             o = t[0],
             i = t[1],
             u = t[2],
             h = a[0],
-            s = a[1],
-            l = a[2];return e.__ciede2kDistance(o, i, u, h, s, l);
+            l = a[1],
+            s = a[2];return e.__ciede2kDistance(o, i, u, h, l, s);
       } }, { key: "__ciede2kDistance", value: function value(e, r, n, t, a, o) {
         var i = t - e,
             u = (e + t) / 2,
             h = Math.hypot(r, n),
-            s = Math.hypot(a, o),
-            l = (h + s) / 2,
-            c = Math.pow(l, 7),
-            f = r + r / 2 * (1 - Math.sqrt(c / (c + v))),
-            d = a + a / 2 * (1 - Math.sqrt(c / (c + v))),
-            C = Math.hypot(f, n),
-            j = Math.hypot(d, o),
-            q = (C + j) / 2,
-            I = Math.pow(q, 7),
-            P = j - C,
-            A = 0 === n && 0 === f ? 0 : Math.atan2(n, f);0 > A && (A += 2 * Math.PI);var O = 0 === o && 0 === d ? 0 : Math.atan2(o, d);0 > O && (O += 2 * Math.PI);var z = O - A;C * j === 0 ? z = 0 : Math.abs(A - O) > Math.PI && (A >= O ? z += 2 * Math.PI : z -= 2 * Math.PI);var D = 2 * Math.sqrt(C * j) * Math.sin(z / 2),
-            E = 0;C * j !== 0 && (E = Math.abs(A - O) > Math.PI ? (A + O + 2 * Math.PI) / 2 : (A + O) / 2);var S = 1 - .17 * Math.cos(E - b) + .24 * Math.cos(2 * E) + .32 * Math.cos(3 * E + p) - .2 * Math.cos(4 * E - M),
-            _ = Math.pow(u - 50, 2),
-            H = 1 + .0015 * _ / Math.sqrt(20 + _),
-            B = 1 + .045 * q,
-            F = 1 + .015 * q * S,
-            T = -2 * Math.sqrt(I / (I + v)) * Math.sin(y * Math.exp(-Math.pow((E - m) / g, 2))),
-            $ = Math.pow(i / (k * H), 2) + Math.pow(P / (w * B), 2) + Math.pow(D / (x * F), 2) + T * (P / (w * B)) * (D / (x * F));return Math.sqrt($);
+            l = Math.hypot(a, o),
+            s = (h + l) / 2,
+            c = Math.pow(s, 7),
+            f = r + r / 2 * (1 - Math.sqrt(c / (c + g))),
+            d = a + a / 2 * (1 - Math.sqrt(c / (c + g))),
+            v = Math.hypot(f, n),
+            b = Math.hypot(d, o),
+            j = (v + b) / 2,
+            q = Math.pow(j, 7),
+            A = b - v,
+            E = 0 === n && 0 === f ? 0 : Math.atan2(n, f);0 > E && (E += 2 * Math.PI);var I = 0 === o && 0 === d ? 0 : Math.atan2(o, d);0 > I && (I += 2 * Math.PI);var D = I - E;v * b === 0 ? D = 0 : Math.abs(E - I) > Math.PI && (E >= I ? D += 2 * Math.PI : D -= 2 * Math.PI);var O = 2 * Math.sqrt(v * b) * Math.sin(D / 2),
+            S = 0;v * b !== 0 && (S = Math.abs(E - I) > Math.PI ? (E + I + 2 * Math.PI) / 2 : (E + I) / 2);var z = 1 - .17 * Math.cos(S - M) + .24 * Math.cos(2 * S) + .32 * Math.cos(3 * S + p) - .2 * Math.cos(4 * S - k),
+            H = Math.pow(u - 50, 2),
+            T = 1 + .0015 * H / Math.sqrt(20 + H),
+            B = 1 + .045 * j,
+            _ = 1 + .015 * j * z,
+            F = -2 * Math.sqrt(q / (q + g)) * Math.sin(m * Math.exp(-Math.pow((S - w) / y, 2))),
+            G = Math.pow(i / (x * T), 2) + Math.pow(A / (C * B), 2) + Math.pow(O / (P * _), 2) + F * (A / (C * B)) * (O / (P * _));return Math.sqrt(G);
       } }]), e;
   }(),
-      j = ["#000000", "#808080", "#c0c0c0", "#ffffff", "#0000ff", "#000080", "#008080", "#008000", "#00ff00", "#00ffff", "#ffff00", "#ff0000", "#ff00ff", "#808000", "#800080", "#800000"],
-      q = function () {
+      E = ["#000000", "#808080", "#c0c0c0", "#ffffff", "#0000ff", "#000080", "#008080", "#008000", "#00ff00", "#00ffff", "#ffff00", "#ff0000", "#ff00ff", "#808000", "#800080", "#800000"],
+      I = function () {
     function e() {
-      var r = arguments.length <= 0 || void 0 === arguments[0] ? j : arguments[0];t.classCallCheck(this, e), this.setBaseColors(r);
+      var r = arguments.length <= 0 || void 0 === arguments[0] ? E : arguments[0];t.classCallCheck(this, e), this.setBaseColors(r);
     }return t.createClass(e, [{ key: "setBaseColors", value: function value(e) {
         this.baseColors = e.map(function (e) {
-          return new C(e);
+          return new A(e);
         });
       } }, { key: "getBaseColors", value: function value() {
         return this.baseColors;
       } }, { key: "classify", value: function value(e) {
-        var n = this.baseColors,
-            t = (new C(e).hsv, []);return n.forEach(function (r) {
-          t.push({ distance: C.ciede2kDistance(r.original, e), color: r.original });
-        }), r(t, "distance").color;
+        var n = arguments.length <= 1 || void 0 === arguments[1] ? j.CIEDE2000 : arguments[1],
+            t = this.baseColors,
+            a = new A(e),
+            o = [];return t.forEach(function (e) {
+          o.push({ distance: A.distance(e, a, n), color: e.original });
+        }), r(o, "distance").color;
       } }, { key: "classifyFromArray", value: function value(e) {
         var r = this,
-            n = {};return e.forEach(function (e) {
+            n = (arguments.length <= 1 || void 0 === arguments[1] ? j.CIEDE2000 : arguments[1], {});return e.forEach(function (e) {
           var t = r.classify(e);n.hasOwnProperty(t) || (n[t] = []), n[t].push(e);
         }), n;
       } }]), e;
-  }();return q.base16Colors = j, q;
+  }();return I.AlgorithmTypes = j, I.base16Colors = E, I;
 });
 
 },{}],2:[function(require,module,exports){
@@ -63808,8 +63842,13 @@ arguments[4][226][0].apply(exports,arguments)
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.AlgorithmTypes = undefined;
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _distanceMethodMap;
 
 var _colorConvert = require("color-convert");
 
@@ -63823,8 +63862,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var HEX_SHORT = /^#([a-fA-F0-9]{3})$/;
 var HEX = /^#([a-fA-F0-9]{6})$/;
+var MAX = 100; // diff #fff, #000
 
 var v25_7 = Math.pow(25, 7);
 var d6 = (0, _radians2.default)(6);
@@ -63853,70 +63895,76 @@ var d = m11 * m22 * m33 + m21 * m32 * m13 + m31 * m12 * m23 - m11 * m32 * m23 - 
 
 var mi = [[(m22 * m33 - m23 * m32) / d, (m13 * m32 - m12 * m33) / d, (m12 * m23 - m13 * m22) / d], [(m23 * m31 - m21 * m33) / d, (m11 * m33 - m13 * m31) / d, (m13 * m21 - m11 * m23) / d], [(m21 * m32 - m22 * m31) / d, (m12 * m31 - m11 * m32) / d, (m11 * m22 - m12 * m21) / d]];
 
+var AlgorithmTypes = exports.AlgorithmTypes = {
+  CIEDE2000: "CIEDE2000",
+  HSV: "HSV",
+  RGB: "RGB"
+};
+
+var distanceMethodMap = (_distanceMethodMap = {}, _defineProperty(_distanceMethodMap, AlgorithmTypes.CIEDE2000, "ciede2kDistance"), _defineProperty(_distanceMethodMap, AlgorithmTypes.HSV, "hsvDistance"), _defineProperty(_distanceMethodMap, AlgorithmTypes.RGB, "rgbDistance"), _distanceMethodMap);
+
 var Color = function () {
   _createClass(Color, null, [{
-    key: "parseHex",
-    value: function parseHex(hex) {
-      var rgb = {};
-
-      if (HEX_SHORT.test(hex)) {
+    key: "normalizeHex",
+    value: function normalizeHex(hex) {
+      if (HEX.test(hex)) {
+        return hex;
+      } else if (HEX_SHORT.test(hex)) {
         var r = hex.slice(1, 2);
         var g = hex.slice(2, 3);
         var b = hex.slice(3, 4);
-        rgb.r = parseInt(r + r, 16);
-        rgb.g = parseInt(g + g, 16);
-        rgb.b = parseInt(b + b, 16);
-      } else if (HEX.test(hex)) {
-        rgb.r = parseInt(hex.slice(1, 3), 16);
-        rgb.g = parseInt(hex.slice(3, 5), 16);
-        rgb.b = parseInt(hex.slice(5, 7), 16);
-      } else {
+        return "#" + (r + r) + (g + g) + (b + b);
+      }
+
+      return null;
+    }
+  }, {
+    key: "parseHex",
+    value: function parseHex(hex) {
+      var normalizedHex = this.normalizeHex(hex);
+
+      if (normalizedHex === null) {
         return null;
       }
 
-      return rgb;
+      var _convert$hex$rgb = _colorConvert2.default.hex.rgb(normalizedHex);
+
+      var _convert$hex$rgb2 = _slicedToArray(_convert$hex$rgb, 3);
+
+      var r = _convert$hex$rgb2[0];
+      var g = _convert$hex$rgb2[1];
+      var b = _convert$hex$rgb2[2];
+
+      return { r: r, g: g, b: b };
     }
   }, {
     key: "rgbToHsv",
     value: function rgbToHsv(rgb) {
-      var r = rgb.r;
-      var g = rgb.g;
-      var b = rgb.b;
+      var _convert$rgb$hsv = _colorConvert2.default.rgb.hsv([rgb.r, rgb.g, rgb.b]);
 
-      var hsv = {};
-      var min = Math.min(r, g, b);
-      var max = Math.max(r, g, b);
-      var delta = max - min;
+      var _convert$rgb$hsv2 = _slicedToArray(_convert$rgb$hsv, 3);
 
-      if (max === 0) {
-        hsv.s = 0;
-      } else {
-        hsv.s = Math.round(delta / max * 100);
-      }
+      var h = _convert$rgb$hsv2[0];
+      var s = _convert$rgb$hsv2[1];
+      var v = _convert$rgb$hsv2[2];
 
-      if (max === min) {
-        hsv.h = 0;
-      } else if (r === max) {
-        hsv.h = (g - b) / delta;
-      } else if (g === max) {
-        hsv.h = 2 + (b - r) / delta;
-      } else {
-        hsv.h = 4 + (r - g) / delta;
-      }
-
-      hsv.h = Math.min(Math.round(hsv.h * 60), 360);
-
-      if (hsv.h < 0) {
-        hsv.h += 360;
-      }
-
-      hsv.v = Math.round(max / 255 * 100);
-
-      return hsv;
+      return { h: h, s: s, v: v };
+    }
+  }, {
+    key: "distance",
+    value: function distance(color1, color2, algorithmType) {
+      return Color[distanceMethodMap[algorithmType]](color1, color2);
+    }
+  }, {
+    key: "rgbDistance",
+    value: function rgbDistance(color1, color2) {
+      // TODO
     }
   }, {
     key: "hsvDistance",
-    value: function hsvDistance(a, b) {
+    value: function hsvDistance(color1, color2) {
+      var a = color1.hsv;
+      var b = color1.hsv;
       var hueDiff = 0;
 
       if (a.h > b.h) {
@@ -63929,8 +63977,10 @@ var Color = function () {
     }
   }, {
     key: "ciede2kDistance",
-    value: function ciede2kDistance(a, b) {
-      return Color._ciede2kDistance(a, b) / 100; //100 = diff #fff #000
+    value: function ciede2kDistance(color1, color2) {
+      var a = color1.hex;
+      var b = color2.hex;
+      return Color._ciede2kDistance(a, b) / MAX;
     }
   }, {
     key: "_ciede2kDistance",
@@ -64010,7 +64060,8 @@ var Color = function () {
     _classCallCheck(this, Color);
 
     this.original = hex;
-    this.rgb = Color.parseHex(hex);
+    this.hex = Color.normalizeHex(hex);
+    this.rgb = Color.parseHex(this.hex);
     this.hsv = Color.rgbToHsv(this.rgb);
   }
 

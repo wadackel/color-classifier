@@ -3,6 +3,7 @@ import radians from "./radians"
 
 const HEX_SHORT = /^#([a-fA-F0-9]{3})$/;
 const HEX = /^#([a-fA-F0-9]{6})$/;
+const MAX = 100; // diff #fff, #000
 
 const v25_7 = Math.pow(25, 7);
 const d6 = radians(6);
@@ -45,65 +46,61 @@ const mi = [
 ];
 
 
-export default class Color {
-  static parseHex(hex) {
-    const rgb = {};
+export const AlgorithmTypes = {
+  CIEDE2000: "CIEDE2000",
+  HSV: "HSV",
+  RGB: "RGB"
+};
 
-    if (HEX_SHORT.test(hex)) {
+const distanceMethodMap = {
+  [AlgorithmTypes.CIEDE2000]: "ciede2kDistance",
+  [AlgorithmTypes.HSV]: "hsvDistance",
+  [AlgorithmTypes.RGB]: "rgbDistance"
+};
+
+export default class Color {
+  static normalizeHex(hex) {
+    if (HEX.test(hex)) {
+      return hex;
+
+    } else if (HEX_SHORT.test(hex)) {
       const r = hex.slice(1, 2);
       const g = hex.slice(2, 3);
       const b = hex.slice(3, 4);
-      rgb.r = parseInt(r + r, 16);
-      rgb.g = parseInt(g + g, 16);
-      rgb.b = parseInt(b + b, 16);
+      return `#${r + r}${g + g}${b + b}`;
 
-    } else if (HEX.test(hex)) {
-      rgb.r = parseInt(hex.slice(1, 3), 16);
-      rgb.g = parseInt(hex.slice(3, 5), 16);
-      rgb.b = parseInt(hex.slice(5, 7), 16);
+    }
 
-    } else {
+    return null;
+  }
+
+  static parseHex(hex) {
+    let normalizedHex = this.normalizeHex(hex);
+
+    if (normalizedHex === null) {
       return null;
     }
 
-    return rgb;
+    const [r, g, b] = convert.hex.rgb(normalizedHex);
+    return {r, g, b};
   }
 
   static rgbToHsv(rgb) {
-    const { r, g, b } = rgb;
-    const hsv = {};
-    const min = Math.min(r, g, b);
-    const max = Math.max(r, g, b);
-    const delta = max - min;
-
-    if (max === 0) {
-      hsv.s = 0;
-    } else {
-      hsv.s = Math.round(delta / max * 100);
-    }
-
-    if (max === min) {
-      hsv.h = 0;
-    } else if (r === max) {
-      hsv.h = (g - b) / delta;
-    } else if (g === max) {
-      hsv.h = 2 + (b - r) / delta;
-    } else {
-      hsv.h = 4 + (r - g) / delta;
-    }
-
-    hsv.h = Math.min(Math.round(hsv.h * 60), 360);
-
-    if (hsv.h < 0) {
-      hsv.h += 360;
-    }
-
-    hsv.v = Math.round((max / 255) * 100);
-
-    return hsv;
+    const [h, s, v] = convert.rgb.hsv([rgb.r, rgb.g, rgb.b]);
+    return {h, s, v};
   }
 
-  static hsvDistance(a, b) {
+  static distance(color1, color2, algorithmType) {
+    return Color[distanceMethodMap[algorithmType]](color1, color2);
+  }
+
+  static rgbDistance(color1, color2) {
+    // TODO
+  }
+
+  static hsvDistance(color1, color2) {
+    const a = color1.hsv;
+    const b = color1.hsv;
     let hueDiff = 0;
 
     if (a.h > b.h) {
@@ -119,8 +116,10 @@ export default class Color {
     );
   }
 
-  static ciede2kDistance(a, b) {
-    return Color._ciede2kDistance(a, b) / 100; //100 = diff #fff #000
+  static ciede2kDistance(color1, color2) {
+    const a = color1.hex;
+    const b = color2.hex;
+    return Color._ciede2kDistance(a, b) / MAX;
   }
 
   static _ciede2kDistance(a, b) {
@@ -205,7 +204,8 @@ export default class Color {
 
   constructor(hex) {
     this.original = hex;
-    this.rgb = Color.parseHex(hex);
+    this.hex = Color.normalizeHex(hex);
+    this.rgb = Color.parseHex(this.hex);
     this.hsv = Color.rgbToHsv(this.rgb);
   }
 }
