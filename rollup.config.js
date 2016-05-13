@@ -29,17 +29,6 @@ export default {
     commonjs({
       include: "node_modules/**"
     }),
-    babel(),
-    uglify({
-      output: {
-        comments: function(node, comment) {
-          const text = comment.value;
-          const type = comment.type;
-          if (type == "comment2") {
-            return /@preserve|@license|@cc_on/i.test(text);
-          }
-        }
-      }
-    })
+    babel()
   ]
 }
