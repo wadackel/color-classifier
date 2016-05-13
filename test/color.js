@@ -5,7 +5,7 @@ import Color, { AlgorithmTypes } from "../src/utils/color"
 
 
 function ciede2kEqual(expected, l1, a1, b1, l2, a2, b2) {
-  assert(expected === Math.round(Color._ciede2kDistance(l1, a1, b1, l2, a2, b2) * 10000) / 10000, `{L:${l1}, a:${a2}, b:${b1}}, {L:${l2}, a:${a2}, b:${b2}} == ${expected}`);
+  assert(expected === Math.round(Color._ciede2kDistance(l1, a1, b1, l2, a2, b2) * 10000) / 10000, `{L:${l1}, a:${a1}, b:${b1}}, {L:${l2}, a:${a2}, b:${b2}} == ${expected}`);
 }
 
 
