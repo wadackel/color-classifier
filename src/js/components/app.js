@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Select from "react-select"
+import Tooltip from "react-tooltip"
 import ColorClassifier, { Palette, AlgorithmTypes } from "../../../../"
 import ColorList from "./color-list"
 import ColorPicker from "./color-picker"
@@ -9,7 +10,7 @@ import { getTextColor, getRandomColor } from "../utils/color"
 export default class App extends Component {
   state = {
     color: getRandomColor(),
-    colors: [...Palette.PCCS],
+    colors: [...Palette.W3C],
     displayColorPicker: false,
     algorithmType: AlgorithmTypes.CIEDE2000
   };
@@ -74,8 +75,10 @@ export default class App extends Component {
         <div className="header">
           <h1 className="logo">color-classifier.js</h1>
           <ul className="gnav">
-            <li className="gnav__item"><button onClick={::this.handleRandomColorClick}><i className="fa fa-random" /></button></li>
-            <li className="gnav__item">
+            <li className="gnav__item" data-tip="Random Color">
+              <button onClick={::this.handleRandomColorClick}><i className="fa fa-random" /></button>
+            </li>
+            <li className="gnav__item" data-tip="Select AlgorithmType">
               <Select
                 options={[
                   {value: AlgorithmTypes.RGB, label: "RGB"},
@@ -86,7 +89,8 @@ export default class App extends Component {
                 placeholder="AlgorithmTypes"
                 clearable={false}
                 searchable={false}
-                onChange={::this.handleAlgorithmTypeChange}/>
+                onChange={::this.handleAlgorithmTypeChange}
+                onOpen={() => Tooltip.hide()}/>
             </li>
             <li className="gnav__item"><a href="https://github.com/tsuyoshiwada/color-classifier" target="_blank"><i className="fa fa-github" /> Source on GitHub</a></li>
           </ul>
@@ -125,6 +129,8 @@ export default class App extends Component {
               onRequestAddColor={::this.handleRequestAddColor} />
           </div>
         </div>
+
+        <Tooltip place="bottom" effect="solid" />
       </div>
     );
   }
