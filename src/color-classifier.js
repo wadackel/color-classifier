@@ -1,5 +1,6 @@
 import minBy from "./utils/min-by"
-import Color, { AlgorithmTypes } from "./utils/color"
+import Color from "./utils/color"
+import ColorDiff, { AlgorithmTypes } from "./utils/color-diff"
 import * as Palette from "./palette/"
 
 
@@ -17,7 +18,7 @@ class ColorClassifier {
     if (!Array.isArray(palette)) {
       ColorClassifier.throwError(`palette is should be a Array.`)
     }
-    this.palette = palette.map(baseColor => new Color(baseColor));
+    this.palette = palette.map(c => new Color(c));
   }
 
   getPalette() {
@@ -42,7 +43,7 @@ class ColorClassifier {
 
     palette.forEach(paletteColor => {
       array.push({
-        distance: Color.distance(paletteColor, color, algorithmType),
+        distance: ColorDiff.diff(algorithmType, paletteColor, color),
         color: paletteColor.original
       });
     });

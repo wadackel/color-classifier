@@ -4,6 +4,7 @@ import assert from "power-assert"
 import isPlainObject from "is-plain-object"
 import ColorClassifier from "../src/color-classifier"
 import Color from "../src/utils/color"
+
 const { Palette, AlgorithmTypes } = ColorClassifier;
 
 
