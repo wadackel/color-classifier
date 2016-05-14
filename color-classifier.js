@@ -402,7 +402,7 @@
       key: "hsv",
       value: function hsv(color1, color2) {
         var a = color1.hsv;
-        var b = color1.hsv;
+        var b = color2.hsv;
         var h = 0;
 
         if (a.h > b.h) {
@@ -425,20 +425,15 @@
   }();
 
   // https://www.w3.org/TR/css3-color/#html4
-  var W3C = ["#000000", "#C0C0C0", "#808080", "#FFFFFF", "#800000", "#FF0000", "#800080", "#FF00FF", "#008000", "#00FF00", "#808000", "#FFFF00", "#000080", "#0000FF", "#008080", "#00FFFF"];
+  var W3C = ["#000000", "#808080", "#c0c0c0", "#ffffff", "#800000", "#ff0000", "#008000", "#00ff00", "#808000", "#ffff00", "#008080", "#00ffff", "#000080", "#0000ff", "#800080", "#ff00ff"];
 
-  var PCCS = [
-  // Vivid-tone
-  "#b5184f", "#cd1f42", "#dd3737", "#e55125", "#e66d00", "#f29500", "#eeac00", "#e2c500", "#c8bb00", "#a4b300", "#4aa315", "#009a55", "#008c69", "#007e77", "#007c8c", "#006b93", "#005a91", "#00569c", "#00509d", "#474798", "#663e8c", "#793580", "#892c71", "#ab2664",
-
-  // Mono-tone
-  "#efefef", "#d2d2d2", "#b6b6b6", "#9b9b9b", "#818181", "#696969", "#525252", "#3c3c3c", "#292929"];
+  var RAINBOW = ["#000000", "#808080", "#ffffff", "#ff0000", "#ffa500", "#ffff00", "#008000", "#00ffff", "#0000ff", "#800080"];
 
 
 
   var Palette = Object.freeze({
   	W3C: W3C,
-  	PCCS: PCCS
+  	RAINBOW: RAINBOW
   });
 
   function equal(a, b) {

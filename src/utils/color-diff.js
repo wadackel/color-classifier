@@ -86,7 +86,7 @@ export default class ColorDiff {
 
   static hsv(color1, color2) {
     const a = color1.hsv;
-    const b = color1.hsv;
+    const b = color2.hsv;
     let h = 0;
 
     if (a.h > b.h) {
