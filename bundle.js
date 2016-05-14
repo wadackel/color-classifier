@@ -18,6 +18,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   'use strict';
 
   var babelHelpers = {};
+  babelHelpers.typeof = typeof Symbol === "function" && _typeof(Symbol.iterator) === "symbol" ? function (obj) {
+    return typeof obj === 'undefined' ? 'undefined' : _typeof(obj);
+  } : function (obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === 'undefined' ? 'undefined' : _typeof(obj);
+  };
 
   babelHelpers.classCallCheck = function (instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -57,6 +62,44 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     return obj;
   };
+
+  babelHelpers.slicedToArray = function () {
+    function sliceIterator(arr, i) {
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _e = undefined;
+
+      try {
+        for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+
+          if (i && _arr.length === i) break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"]) _i["return"]();
+        } finally {
+          if (_d) throw _e;
+        }
+      }
+
+      return _arr;
+    }
+
+    return function (arr, i) {
+      if (Array.isArray(arr)) {
+        return arr;
+      } else if (Symbol.iterator in Object(arr)) {
+        return sliceIterator(arr, i);
+      } else {
+        throw new TypeError("Invalid attempt to destructure non-iterable instance");
+      }
+    };
+  }();
 
   babelHelpers.toConsumableArray = function (arr) {
     if (Array.isArray(arr)) {
@@ -397,6 +440,28 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     PCCS: PCCS
   });
 
+  function equal(a, b) {
+    if (a === b) return true;
+
+    var ka = void 0;
+    var kb = void 0;
+    try {
+      ka = Object.keys(a);
+      kb = Object.keys(b);
+    } catch (e) {
+      return false;
+    }
+
+    if (ka.length !== kb.length) return false;
+
+    for (var i = 0; ka.length - 1; i++) {
+      var key = ka[i];
+      if (a[key] !== b[key]) return false;
+    }
+
+    return (typeof a === "undefined" ? "undefined" : babelHelpers.typeof(a)) === (typeof b === "undefined" ? "undefined" : babelHelpers.typeof(b));
+  }
+
   var ColorClassifier = function () {
     babelHelpers.createClass(ColorClassifier, null, [{
       key: "throwError",
@@ -444,17 +509,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       }
     }, {
       key: "classify",
-      value: function classify(hex) {
+      value: function classify(value) {
+        var format = arguments.length <= 1 || arguments[1] === undefined ? "rgb" : arguments[1];
         var palette = this.palette;
         var algorithmType = this.algorithmType;
 
-        var color = new Color(hex);
+        var color = new Color(value);
         var array = [];
 
         palette.forEach(function (paletteColor) {
           array.push({
             distance: ColorDiff.diff(algorithmType, paletteColor, color),
-            color: paletteColor.original
+            color: format === "raw" ? paletteColor : paletteColor[format]
           });
         });
 
@@ -462,19 +528,40 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       }
     }, {
       key: "classifyFromArray",
-      value: function classifyFromArray(hexArray) {
+      value: function classifyFromArray(array) {
         var _this = this;
 
-        var results = {};
+        var format = arguments.length <= 1 || arguments[1] === undefined ? "rgb" : arguments[1];
 
-        hexArray.forEach(function (hex) {
-          var resultColor = _this.classify(hex);
+        var results = [];
+        var tmpArray = [];
 
-          if (!results.hasOwnProperty(resultColor)) {
-            results[resultColor] = [];
+        array.forEach(function (value) {
+          var color = new Color(value);
+          var palette = _this.classify(color.rgb, "raw");
+          tmpArray.push({ palette: palette, color: color });
+        });
+
+        tmpArray.forEach(function (obj) {
+          var palette = obj.palette;
+          var color = obj.color;
+
+          var _results$filter = results.filter(function (o) {
+            return equal(o.palette ? o.palette[format] : null, palette[format]);
+          });
+
+          var _results$filter2 = babelHelpers.slicedToArray(_results$filter, 1);
+
+          var paletteColor = _results$filter2[0];
+
+          if (!paletteColor) {
+            results.push({
+              palette: palette[format],
+              colors: [color[format]]
+            });
+          } else {
+            paletteColor.colors.push(color[format]);
           }
-
-          results[resultColor].push(hex);
         });
 
         return results;
