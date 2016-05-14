@@ -4,6 +4,29 @@ import ColorDiff, { AlgorithmTypes } from "./utils/color-diff"
 import * as Palette from "./palette/"
 
 
+function equal(a, b) {
+  if (a === b) return true;
+
+  let ka;
+  let kb;
+  try {
+    ka = Object.keys(a);
+    kb = Object.keys(b);
+  } catch (e) {
+    return false;
+  }
+
+  if (ka.length !== kb.length) return false;
+
+  for (let i = 0; ka.length - 1; i++) {
+    const key = ka[i];
+    if (a[key] !== b[key]) return false;
+  }
+
+  return typeof a === typeof b;
+}
+
+
 class ColorClassifier {
   static throwError(msg) {
     throw new Error(`[ColorClassifier] ${msg}`);
@@ -16,7 +39,7 @@ class ColorClassifier {
 
   setPalette(palette) {
     if (!Array.isArray(palette)) {
-      ColorClassifier.throwError(`palette is should be a Array.`)
+      ColorClassifier.throwError("palette is should be a Array.")
     }
     this.palette = palette.map(c => new Color(c));
   }
@@ -36,32 +59,44 @@ class ColorClassifier {
     return this.algorithmType;
   }
 
-  classify(hex) {
+  classify(value, format = "rgb") {
     const { palette, algorithmType } = this;
-    const color = new Color(hex);
+    const color = new Color(value);
     const array = [];
 
     palette.forEach(paletteColor => {
       array.push({
         distance: ColorDiff.diff(algorithmType, paletteColor, color),
-        color: paletteColor.original
+        color: format === "raw" ? paletteColor : paletteColor[format]
       });
     });
 
     return minBy(array, "distance").color;
   }
 
-  classifyFromArray(hexArray) {
-    const results = {};
+  classifyFromArray(array, format = "rgb") {
+    const results = [];
+    const tmpArray = [];
 
-    hexArray.forEach(hex => {
-      const resultColor = this.classify(hex);
+    array.forEach(value => {
+      const color = new Color(value);
+      const palette = this.classify(color.rgb, "raw");
+      tmpArray.push({ palette, color });
+    });
 
-      if (!results.hasOwnProperty(resultColor)) {
-        results[resultColor] = [];
+    tmpArray.forEach(obj => {
+      const { palette, color } = obj;
+      const [ paletteColor ] = results.filter(o => equal(o.palette ? o.palette[format] : null, palette[format]));
+
+      if (!paletteColor) {
+        results.push({
+          palette: palette[format],
+          colors: [color[format]]
+        });
+
+      } else {
+        paletteColor.colors.push(color[format]);
       }
-
-      results[resultColor].push(hex);
     });
 
     return results;
