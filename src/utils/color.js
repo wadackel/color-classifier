@@ -1,6 +1,16 @@
 const HEX_SHORT = /^#([a-fA-F0-9]{3})$/;
 const HEX = /^#([a-fA-F0-9]{6})$/;
 
+function roundColors(obj, round) {
+  if (!round) return obj;
+
+  const o = {};
+  for (let k in obj) {
+    o[k] = Math.round(obj[k]);
+  }
+  return o;
+}
+
 
 export default class Color {
   static normalizeHex(hex) {
@@ -30,10 +40,10 @@ export default class Color {
     const g = (i >> 8) & 0xFF;
     const b = i & 0xFF;
 
-    return {r, g, b};
+    return { r, g, b };
   }
 
-  static rgbToHsv(rgb) {
+  static rgbToHsv(rgb, round = true) {
     const { r, g, b } = rgb;
     const min = Math.min(r, g, b);
     const max = Math.max(r, g, b);
@@ -43,7 +53,7 @@ export default class Color {
     if (max === 0) {
       hsv.s = 0;
     } else {
-      hsv.s = Math.round((delta / max * 1000) / 10);
+      hsv.s = (delta / max * 1000) / 10;
     }
 
     if (max === min) {
@@ -56,16 +66,48 @@ export default class Color {
       hsv.h = 4 + (r - g) / delta;
     }
 
-    hsv.h = Math.round(Math.min(hsv.h * 60, 360));
+    hsv.h = Math.min(hsv.h * 60, 360);
     hsv.h = hsv.h < 0 ? hsv.h + 360 : hsv.h;
 
-    hsv.v = Math.round(((max / 255) * 1000) / 10);
+    hsv.v = ((max / 255) * 1000) / 10;
 
-    return hsv;
+    return roundColors(hsv, round);
   }
 
-  static rgbToLab(rgb) {
-    //TODO
+  static rgbToXyz(rgb, round = true) {
+    const xyz = {};
+    const r = rgb.r / 255;
+    const g = rgb.g / 255;
+    const b = rgb.b / 255;
+
+    const rr = r > 0.04045 ? Math.pow(((r + 0.055) / 1.055), 2.4) : r / 12.92;
+    const gg = g > 0.04045 ? Math.pow(((g + 0.055) / 1.055), 2.4) : g / 12.92;
+    const bb = b > 0.04045 ? Math.pow(((b + 0.055) / 1.055), 2.4) : b / 12.92;
+
+    const x = (rr * 0.4124 + gg * 0.3576 + bb * 0.1805) * 100;
+    const y = (rr * 0.2126 + gg * 0.7152 + bb * 0.0722) * 100;
+    const z = (rr * 0.0193 + gg * 0.1192 + bb * 0.9505) * 100;
+
+    return roundColors({ x, y, z }, round);
+  }
+
+  static rgbToLab(rgb, round = true) {
+    const xyz = Color.rgbToXyz(rgb, false);
+    let { x, y, z } = xyz;
+
+    x /= 95.047;
+    y /= 100;
+    z /= 108.883;
+
+    x = x > 0.008856 ? Math.pow(x, 1 / 3) : 7.787 * x + 16 / 116;
+    y = y > 0.008856 ? Math.pow(y, 1 / 3) : 7.787 * y + 16 / 116;
+    z = z > 0.008856 ? Math.pow(z, 1 / 3) : 7.787 * z + 16 / 116;
+
+    const l = (116 * y) - 16;
+    const a = 500 * (x - y);
+    const b = 200 * (y - z);
+
+    return roundColors({ l, a, b }, round);
   }
 
   constructor(hex) {

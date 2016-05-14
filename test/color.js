@@ -38,4 +38,26 @@ describe("Color", () => {
       assert.deepStrictEqual(Color.rgbToHsv({r: 32,  g: 11,  b: 67}),  {h: 263, s: 84, v: 26});
     });
   });
+
+  describe("rgbToXyz()", () => {
+    it("should be converted", () => {
+      assert.deepStrictEqual(Color.rgbToXyz({r: 0,   g: 0,    b: 0}),   {x: 0,  y: 0,   z: 0});
+      assert.deepStrictEqual(Color.rgbToXyz({r: 255, g: 255, b: 255}),  {x: 95, y: 100, z: 109});
+      assert.deepStrictEqual(Color.rgbToXyz({r: 92, g: 191, b: 84}),  {x: 25, y: 40, z: 15});
+      assert.deepStrictEqual(Color.rgbToXyz({r: 224, g: 128,  b: 21}),  {x: 39, y: 31,  z: 5});
+      assert.deepStrictEqual(Color.rgbToXyz({r: 120, g: 5,    b: 90}),  {x: 10, y: 5,   z: 10});
+      assert.deepStrictEqual(Color.rgbToXyz({r: 56,  g: 91,   b: 234}), {x: 20, y: 14,  z: 80});
+    });
+  });
+
+  describe("rgbToLab()", () => {
+    it("should be converted", () => {
+      assert.deepStrictEqual(Color.rgbToLab({r: 0,   g: 0,   b: 0}),   {l: 0,   a: 0,   b: 0});
+      assert.deepStrictEqual(Color.rgbToLab({r: 255, g: 255, b: 255}), {l: 100, a: 0,   b: 0});
+      assert.deepStrictEqual(Color.rgbToLab({r: 92, g: 191, b: 84}), {l: 70, a: -50,   b: 45});
+      assert.deepStrictEqual(Color.rgbToLab({r: 120, g: 45,  b: 12}),  {l: 29,  a: 31,  b: 36});
+      assert.deepStrictEqual(Color.rgbToLab({r: 32,  g: 99,  b: 241}), {l: 46,  a: 33,  b: -77});
+      assert.deepStrictEqual(Color.rgbToLab({r: 0,   g: 255, b: 186}), {l: 89,  a: -66, b: 19});
+    });
+  });
 });

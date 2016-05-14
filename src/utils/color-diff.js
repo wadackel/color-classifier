@@ -1,4 +1,4 @@
-import convert from "color-convert"
+import Color from "./color"
 import { radians, degrees, hypot, pow2, pow7 } from "./math"
 const { abs, atan2, cos, pow, PI, min, exp, sqrt, sin } = Math;
 
@@ -28,15 +28,12 @@ export default class ColorDiff {
   }
 
   static ciede2000(color1, color2) {
-    const a = convert.hex.lab(color1.hex);
-    const b = convert.hex.lab(color2.hex);
-
-    const [l1, a1, b1] = a;
-    const [l2, a2, b2] = b;
+    const a = Color.rgbToLab(color1.rgb);
+    const b = Color.rgbToLab(color2.rgb);
 
     return ColorDiff._ciede2000(
-      l1, a1, b1,
-      l2, a2, b2
+      a.l, a.a, a.b,
+      b.l, b.a, b.b
     );
   }
 
