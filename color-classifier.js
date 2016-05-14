@@ -92,6 +92,14 @@
     return o;
   }
 
+  function hasProp(obj, key) {
+    return obj.hasOwnProperty(key);
+  }
+
+  function isRgb(obj) {
+    return hasProp(obj, "r") && hasProp(obj, "g") && hasProp(obj, "b");
+  }
+
   var Color = function () {
     babelHelpers.createClass(Color, null, [{
       key: "normalizeHex",
@@ -123,6 +131,17 @@
         var b = i & 0xFF;
 
         return { r: r, g: g, b: b };
+      }
+    }, {
+      key: "rgbToHex",
+      value: function rgbToHex(rgb) {
+        var r = rgb.r;
+        var g = rgb.g;
+        var b = rgb.b;
+
+        var i = ((Math.round(r) & 0xFF) << 16) + ((Math.round(g) & 0xFF) << 8) + (Math.round(b) & 0xFF);
+        var s = i.toString(16).toLowerCase();
+        return "#" + ("000000".substring(s.length) + s);
       }
     }, {
       key: "rgbToHsv",
@@ -165,7 +184,6 @@
       value: function rgbToXyz(rgb) {
         var round = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
 
-        var xyz = {};
         var r = rgb.r / 255;
         var g = rgb.g / 255;
         var b = rgb.b / 255;
@@ -207,12 +225,19 @@
       }
     }]);
 
-    function Color(hex) {
+    function Color(value) {
       babelHelpers.classCallCheck(this, Color);
 
-      this.original = hex;
-      this.hex = Color.normalizeHex(hex);
-      this.rgb = Color.hexToRgb(this.hex);
+      this.original = value;
+
+      if (isRgb(value)) {
+        this.rgb = value;
+        this.hex = Color.rgbToHex(value);
+      } else {
+        this.hex = Color.normalizeHex(value);
+        this.rgb = Color.hexToRgb(this.hex);
+      }
+
       this.hsv = Color.rgbToHsv(this.rgb);
     }
 

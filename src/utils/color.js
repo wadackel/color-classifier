@@ -11,6 +11,14 @@ function roundColors(obj, round) {
   return o;
 }
 
+function hasProp(obj, key) {
+  return obj.hasOwnProperty(key);
+}
+
+function isRgb(obj) {
+  return hasProp(obj, "r") && hasProp(obj, "g") && hasProp(obj, "b");
+}
+
 
 export default class Color {
   static normalizeHex(hex) {
@@ -41,6 +49,13 @@ export default class Color {
     const b = i & 0xFF;
 
     return { r, g, b };
+  }
+
+  static rgbToHex(rgb) {
+    const { r, g, b} = rgb;
+    const i = ((Math.round(r) & 0xFF) << 16) + ((Math.round(g) & 0xFF) << 8) + (Math.round(b) & 0xFF);
+    const s = i.toString(16).toLowerCase();
+    return `#${"000000".substring(s.length) + s}`;
   }
 
   static rgbToHsv(rgb, round = true) {
@@ -75,7 +90,6 @@ export default class Color {
   }
 
   static rgbToXyz(rgb, round = true) {
-    const xyz = {};
     const r = rgb.r / 255;
     const g = rgb.g / 255;
     const b = rgb.b / 255;
@@ -110,10 +124,18 @@ export default class Color {
     return roundColors({ l, a, b }, round);
   }
 
-  constructor(hex) {
-    this.original = hex;
-    this.hex = Color.normalizeHex(hex);
-    this.rgb = Color.hexToRgb(this.hex);
+  constructor(value) {
+    this.original = value;
+
+    if (isRgb(value)) {
+      this.rgb = value;
+      this.hex = Color.rgbToHex(value);
+
+    } else {
+      this.hex = Color.normalizeHex(value);
+      this.rgb = Color.hexToRgb(this.hex);
+    }
+
     this.hsv = Color.rgbToHsv(this.rgb);
   }
 }
