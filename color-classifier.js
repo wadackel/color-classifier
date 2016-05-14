@@ -125,6 +125,95 @@
 	  return sortedArray.shift();
 	}
 
+	var HEX_SHORT = /^#([a-fA-F0-9]{3})$/;
+	var HEX = /^#([a-fA-F0-9]{6})$/;
+
+	var Color = function () {
+	  babelHelpers.createClass(Color, null, [{
+	    key: "normalizeHex",
+	    value: function normalizeHex(hex) {
+	      if (HEX.test(hex)) {
+	        return hex;
+	      } else if (HEX_SHORT.test(hex)) {
+	        var r = hex.slice(1, 2);
+	        var g = hex.slice(2, 3);
+	        var b = hex.slice(3, 4);
+	        return "#" + (r + r) + (g + g) + (b + b);
+	      }
+
+	      return null;
+	    }
+	  }, {
+	    key: "hexToRgb",
+	    value: function hexToRgb(hex) {
+	      var normalizedHex = this.normalizeHex(hex);
+
+	      if (normalizedHex == null) {
+	        return null;
+	      }
+
+	      var m = normalizedHex.match(HEX);
+	      var i = parseInt(m[1], 16);
+	      var r = i >> 16 & 0xFF;
+	      var g = i >> 8 & 0xFF;
+	      var b = i & 0xFF;
+
+	      return { r: r, g: g, b: b };
+	    }
+	  }, {
+	    key: "rgbToHsv",
+	    value: function rgbToHsv(rgb) {
+	      var r = rgb.r;
+	      var g = rgb.g;
+	      var b = rgb.b;
+
+	      var min = Math.min(r, g, b);
+	      var max = Math.max(r, g, b);
+	      var delta = max - min;
+	      var hsv = {};
+
+	      if (max === 0) {
+	        hsv.s = 0;
+	      } else {
+	        hsv.s = Math.round(delta / max * 1000 / 10);
+	      }
+
+	      if (max === min) {
+	        hsv.h = 0;
+	      } else if (r === max) {
+	        hsv.h = (g - b) / delta;
+	      } else if (g === max) {
+	        hsv.h = 2 + (b - r) / delta;
+	      } else {
+	        hsv.h = 4 + (r - g) / delta;
+	      }
+
+	      hsv.h = Math.round(Math.min(hsv.h * 60, 360));
+	      hsv.h = hsv.h < 0 ? hsv.h + 360 : hsv.h;
+
+	      hsv.v = Math.round(max / 255 * 1000 / 10);
+
+	      return hsv;
+	    }
+	  }, {
+	    key: "rgbToLab",
+	    value: function rgbToLab(rgb) {
+	      //TODO
+	    }
+	  }]);
+
+	  function Color(hex) {
+	    babelHelpers.classCallCheck(this, Color);
+
+	    this.original = hex;
+	    this.hex = Color.normalizeHex(hex);
+	    this.rgb = Color.hexToRgb(this.hex);
+	    this.hsv = Color.rgbToHsv(this.rgb);
+	  }
+
+	  return Color;
+	}();
+
 	var cssKeywords = __commonjs(function (module) {
 		module.exports = {
 			aliceblue: [240, 248, 255],
@@ -1224,70 +1313,6 @@
 	});
 
 	var convert = index && (typeof index === 'undefined' ? 'undefined' : babelHelpers.typeof(index)) === 'object' && 'default' in index ? index['default'] : index;
-
-	var HEX_SHORT = /^#([a-fA-F0-9]{3})$/;
-	var HEX = /^#([a-fA-F0-9]{6})$/;
-
-	var Color = function () {
-	  babelHelpers.createClass(Color, null, [{
-	    key: "normalizeHex",
-	    value: function normalizeHex(hex) {
-	      if (HEX.test(hex)) {
-	        return hex;
-	      } else if (HEX_SHORT.test(hex)) {
-	        var r = hex.slice(1, 2);
-	        var g = hex.slice(2, 3);
-	        var b = hex.slice(3, 4);
-	        return "#" + (r + r) + (g + g) + (b + b);
-	      }
-
-	      return null;
-	    }
-	  }, {
-	    key: "parseHex",
-	    value: function parseHex(hex) {
-	      var normalizedHex = this.normalizeHex(hex);
-
-	      if (normalizedHex === null) {
-	        return null;
-	      }
-
-	      var _convert$hex$rgb = convert.hex.rgb(normalizedHex);
-
-	      var _convert$hex$rgb2 = babelHelpers.slicedToArray(_convert$hex$rgb, 3);
-
-	      var r = _convert$hex$rgb2[0];
-	      var g = _convert$hex$rgb2[1];
-	      var b = _convert$hex$rgb2[2];
-
-	      return { r: r, g: g, b: b };
-	    }
-	  }, {
-	    key: "rgbToHsv",
-	    value: function rgbToHsv(rgb) {
-	      var _convert$rgb$hsv = convert.rgb.hsv([rgb.r, rgb.g, rgb.b]);
-
-	      var _convert$rgb$hsv2 = babelHelpers.slicedToArray(_convert$rgb$hsv, 3);
-
-	      var h = _convert$rgb$hsv2[0];
-	      var s = _convert$rgb$hsv2[1];
-	      var v = _convert$rgb$hsv2[2];
-
-	      return { h: h, s: s, v: v };
-	    }
-	  }]);
-
-	  function Color(hex) {
-	    babelHelpers.classCallCheck(this, Color);
-
-	    this.original = hex;
-	    this.hex = Color.normalizeHex(hex);
-	    this.rgb = Color.parseHex(this.hex);
-	    this.hsv = Color.rgbToHsv(this.rgb);
-	  }
-
-	  return Color;
-	}();
 
 	function radians(n) {
 	  return n * Math.PI / 180;
