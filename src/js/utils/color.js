@@ -1,7 +1,7 @@
-import ColorUtil from "../../../../src/utils/color"
+import Color from "../../../../src/utils/color"
 
-export function luminance(color) {
-  const rgb = ColorUtil.parseHex(color);
+export function luminance(hex) {
+  const rgb = Color.hexToRgb(hex);
   return Math.floor(
     0.298912 * rgb.r +
     0.586611 * rgb.g +

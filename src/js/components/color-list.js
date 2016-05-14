@@ -27,7 +27,7 @@ export default class ColorList extends Component {
     ));
 
     colorItems.push(
-      <div className="color-list__item--add" key="add-color" onClick={::this.handleAddColorClick}>Add Color</div>
+      <div className="color-list__item--add" key="add-color" onClick={::this.handleAddColorClick}><i className="fa fa-plus-circle" /> Add Color</div>
     );
 
     return (
