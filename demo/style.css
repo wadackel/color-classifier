@@ -2601,6 +2601,7 @@ textarea {
   position: relative;
   width: 100%; }
   .Select-control:hover {
+    background-color: #eaeaea;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06); }
 
 .is-searchable.is-open > .Select-control {
