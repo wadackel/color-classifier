@@ -7,7 +7,7 @@ import Color from "../src/utils/color"
 describe("Color", () => {
 
   describe("hexToRgb()", () => {
-    it("should be parsed", () => {
+    it("should be converted", () => {
       assert.deepStrictEqual(Color.hexToRgb("#ffffff"), {r: 255, g: 255, b: 255});
       assert.deepStrictEqual(Color.hexToRgb("#993dba"), {r: 153, g: 61,  b: 186});
       assert.deepStrictEqual(Color.hexToRgb("#52d034"), {r: 82,  g: 208, b: 52});
@@ -29,6 +29,16 @@ describe("Color", () => {
     });
   });
 
+  describe("rgbToHex()", () => {
+    it("should be converted", () => {
+      assert(Color.rgbToHex({r: 0, g: 0, b: 0}) === "#000000");
+      assert(Color.rgbToHex({r: 255, g: 0, b: 0}) === "#ff0000");
+      assert(Color.rgbToHex({r: 0, g: 255, b: 0}) === "#00ff00");
+      assert(Color.rgbToHex({r: 0, g: 0, b: 255}) === "#0000ff");
+      assert(Color.rgbToHex({r: 255, g: 255, b: 255}) === "#ffffff");
+    });
+  });
+
   describe("rgbToHsv()", () => {
     it("should be converted", () => {
       assert.deepStrictEqual(Color.rgbToHsv({r: 255, g: 255, b: 255}), {h: 0,   s: 0,  v: 100});
@@ -42,8 +52,8 @@ describe("Color", () => {
   describe("rgbToXyz()", () => {
     it("should be converted", () => {
       assert.deepStrictEqual(Color.rgbToXyz({r: 0,   g: 0,    b: 0}),   {x: 0,  y: 0,   z: 0});
-      assert.deepStrictEqual(Color.rgbToXyz({r: 255, g: 255, b: 255}),  {x: 95, y: 100, z: 109});
-      assert.deepStrictEqual(Color.rgbToXyz({r: 92, g: 191, b: 84}),  {x: 25, y: 40, z: 15});
+      assert.deepStrictEqual(Color.rgbToXyz({r: 255, g: 255,  b: 255}), {x: 95, y: 100, z: 109});
+      assert.deepStrictEqual(Color.rgbToXyz({r: 92,  g: 191,  b: 84}),  {x: 25, y: 40,  z: 15});
       assert.deepStrictEqual(Color.rgbToXyz({r: 224, g: 128,  b: 21}),  {x: 39, y: 31,  z: 5});
       assert.deepStrictEqual(Color.rgbToXyz({r: 120, g: 5,    b: 90}),  {x: 10, y: 5,   z: 10});
       assert.deepStrictEqual(Color.rgbToXyz({r: 56,  g: 91,   b: 234}), {x: 20, y: 14,  z: 80});
@@ -54,10 +64,26 @@ describe("Color", () => {
     it("should be converted", () => {
       assert.deepStrictEqual(Color.rgbToLab({r: 0,   g: 0,   b: 0}),   {l: 0,   a: 0,   b: 0});
       assert.deepStrictEqual(Color.rgbToLab({r: 255, g: 255, b: 255}), {l: 100, a: 0,   b: 0});
-      assert.deepStrictEqual(Color.rgbToLab({r: 92, g: 191, b: 84}), {l: 70, a: -50,   b: 45});
+      assert.deepStrictEqual(Color.rgbToLab({r: 92,  g: 191, b: 84}),  {l: 70,  a: -50, b: 45});
       assert.deepStrictEqual(Color.rgbToLab({r: 120, g: 45,  b: 12}),  {l: 29,  a: 31,  b: 36});
       assert.deepStrictEqual(Color.rgbToLab({r: 32,  g: 99,  b: 241}), {l: 46,  a: 33,  b: -77});
       assert.deepStrictEqual(Color.rgbToLab({r: 0,   g: 255, b: 186}), {l: 89,  a: -66, b: 19});
+    });
+  });
+
+  describe("constructor()", () => {
+    it("should be create instance", () => {
+      const c1 = new Color("#000");
+      assert(c1.original === "#000");
+      assert(c1.hex === "#000000");
+      assert.deepStrictEqual(c1.rgb, {r: 0, g: 0, b: 0});
+      assert.deepStrictEqual(c1.hsv, {h: 0, s: 0, v: 0});
+
+      const c2 = new Color({r: 255, g: 255, b: 255});
+      assert.deepStrictEqual(c2.original, {r: 255, g: 255, b: 255});
+      assert(c2.hex === "#ffffff");
+      assert.deepStrictEqual(c2.rgb, {r: 255, g: 255, b: 255});
+      assert.deepStrictEqual(c2.hsv, {h: 0  , s: 0,   v: 100});
     });
   });
 });
