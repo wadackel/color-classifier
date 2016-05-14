@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import ColorClassifier, { Palette } from "../../../../"
+import Select from "react-select"
+import ColorClassifier, { Palette, AlgorithmTypes } from "../../../../"
 import ColorList from "./color-list"
 import ColorPicker from "./color-picker"
 import { getTextColor, getRandomColor } from "../utils/color"
@@ -9,7 +10,8 @@ export default class App extends Component {
   state = {
     color: getRandomColor(),
     colors: [...Palette.PCCS],
-    displayColorPicker: false
+    displayColorPicker: false,
+    algorithmType: AlgorithmTypes.CIEDE2000
   };
 
   constructor(props) {
@@ -51,16 +53,44 @@ export default class App extends Component {
     this.setState({colors});
   }
 
+  handleRandomColorClick() {
+    this.setState({color: getRandomColor()});
+  }
+
+  handleAlgorithmTypeChange(obj) {
+    this.setState({algorithmType: obj.value});
+  }
+
   render() {
     const { colorClassifier } = this;
-    const { color, colors, displayColorPicker } = this.state;
+    const { color, colors, displayColorPicker, algorithmType } = this.state;
 
     colorClassifier.setPalette(colors);
-    const activeColor = colorClassifier.classify(color);
+    colorClassifier.setAlgorithmType(algorithmType);
+    const activeColor = colorClassifier.classify(color, "hex");
 
     return (
       <div className="full-size">
-        <h1 className="logo">color-classifier.js</h1>
+        <div className="header">
+          <h1 className="logo">color-classifier.js</h1>
+          <ul className="gnav">
+            <li className="gnav__item"><button onClick={::this.handleRandomColorClick}><i className="fa fa-random" /></button></li>
+            <li className="gnav__item">
+              <Select
+                options={[
+                  {value: AlgorithmTypes.RGB, label: "RGB"},
+                  {value: AlgorithmTypes.HSV, label: "HSV"},
+                  {value: AlgorithmTypes.CIEDE2000, label: "CIEDE2000"}
+                ]}
+                value={algorithmType}
+                placeholder="AlgorithmTypes"
+                clearable={false}
+                searchable={false}
+                onChange={::this.handleAlgorithmTypeChange}/>
+            </li>
+            <li className="gnav__item"><a href="https://github.com/tsuyoshiwada/color-classifier" target="_blank"><i className="fa fa-github" /> Source on GitHub</a></li>
+          </ul>
+        </div>
         <div className="row">
           <div className="col">
             <ColorPicker

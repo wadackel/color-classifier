@@ -2,6 +2,10 @@
 
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,600);
 @import "normalize";
+@import "font-awesome/font-awesome";
+@import "select/default";
+
+$header-height: 50px;
 
 *,
 *::before,
@@ -34,22 +38,67 @@ html {
   height: 100%;
 }
 
-.logo {
+.header {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 9999;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  height: $header-height;
+  box-shadow: 0 0 6px rgba(0, 0, 0, .26);
+}
+
+.logo {
+  float: left;
   margin: 0;
-  padding: .2em .2em .1em .2em;
-  background: #fff;
-  border: 3px solid #000;
-  font-size: 1.875rem;
-  line-height: 1;
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  line-height: $header-height;
+  letter-spacing: .05em;
+}
+
+.gnav {
+  float: right;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    float: left;
+    border-left: 1px solid #eaeaea;
+
+    a, button {
+      display: block;
+      min-width: $header-height;
+      padding: 0 1rem;
+      background: #fff;
+      border: none;
+      color: #000;
+      line-height: $header-height;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .2s ease-out;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+
+    .Select {
+      min-width: 150px;
+    }
+  }
 }
 
 .row {
   overflow: hidden;
   height: 100%;
+  padding-top: $header-height;
 }
 
 .col {
@@ -83,10 +132,11 @@ html {
       cursor: pointer;
       background: #fff;
       line-height: $_height;
-      transition: all .3s ease-out;
+      transition: all .2s ease-out;
 
       &:hover {
-        background: darken(#fff, 8%);
+        background: #000;
+        color: #fff;
       }
     }
   }
