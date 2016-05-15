@@ -92,7 +92,7 @@ export default class App extends Component {
                 onChange={::this.handleAlgorithmTypeChange}
                 onOpen={() => Tooltip.hide()}/>
             </li>
-            <li className="gnav__item"><a href="https://github.com/tsuyoshiwada/color-classifier" target="_blank"><i className="fa fa-github" /> Source on GitHub</a></li>
+            <li className="gnav__item"><a href="https://github.com/tsuyoshiwada/color-classifier"><i className="fa fa-github" /> Source on GitHub</a></li>
           </ul>
         </div>
         <div className="row">
