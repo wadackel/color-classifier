@@ -1,8 +1,15 @@
 {
   "name": "color-classifier",
   "version": "0.0.1",
-  "description": "Classify the color along the reference color.",
+  "description": "Classify the color along the reference color. using algorithm the CIEDE2000, RGB, HSV.",
   "main": "color-classifier.js",
+  "keywords": [
+    "color",
+    "classify",
+    "ciede2000",
+    "hsv",
+    "rgb"
+  ],
   "scripts": {
     "start": "npm run watch & npm run demo:watch",
     "build": "NODE_ENV=production npm run build:js && npm run demo:build",
@@ -56,8 +63,5 @@
     "rollup-plugin-node-resolve": "^1.5.0",
     "uglify-js": "^2.6.2",
     "watchify": "^3.7.0"
-  },
-  "dependencies": {
-    "rc-tooltip": "^3.3.2"
   }
 }
