@@ -1,5 +1,5 @@
-color-classifier
-================
+color-classifier.js
+===================
 
 [![Build Status](http://img.shields.io/travis/tsuyoshiwada/color-classifier.svg?style=flat-square)](https://travis-ci.org/tsuyoshiwada/color-classifier)
 [![npm version](https://img.shields.io/npm/v/color-classifier.svg?style=flat-square)](http://badge.fury.io/js/color-classifier)
@@ -8,6 +8,11 @@ color-classifier
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/master/LICENSE)
 
 Classify the color along the reference color. using algorithm the CIEDE2000, RGB, HSV.
+
+
+## Playground
+
+[![Playground Screenshot](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/playground.png)](http://tsuyoshiwada.github.io/color-classifier/)
 
 [Playground](http://tsuyoshiwada.github.io/color-classifier/)
 
@@ -57,40 +62,40 @@ The following is the palette list of preset.
 
 #### [Palette.W3C](https://github.com/tsuyoshiwada/color-classifier/blob/master/src/palette/w3c.js)
 
-| hex       | color                                                                                |
-|-----------|--------------------------------------------------------------------------------------|
-| `#000000` | <div style="width:30px;height:30px;background:#000000;border:1px solid #ccc;"></div> |
-| `#808080` | <div style="width:30px;height:30px;background:#808080;border:1px solid #ccc;"></div> |
-| `#c0c0c0` | <div style="width:30px;height:30px;background:#c0c0c0;border:1px solid #ccc;"></div> |
-| `#ffffff` | <div style="width:30px;height:30px;background:#ffffff;border:1px solid #ccc;"></div> |
-| `#800000` | <div style="width:30px;height:30px;background:#800000;border:1px solid #ccc;"></div> |
-| `#ff0000` | <div style="width:30px;height:30px;background:#ff0000;border:1px solid #ccc;"></div> |
-| `#008000` | <div style="width:30px;height:30px;background:#008000;border:1px solid #ccc;"></div> |
-| `#00ff00` | <div style="width:30px;height:30px;background:#00ff00;border:1px solid #ccc;"></div> |
-| `#808000` | <div style="width:30px;height:30px;background:#808000;border:1px solid #ccc;"></div> |
-| `#ffff00` | <div style="width:30px;height:30px;background:#ffff00;border:1px solid #ccc;"></div> |
-| `#008080` | <div style="width:30px;height:30px;background:#008080;border:1px solid #ccc;"></div> |
-| `#00ffff` | <div style="width:30px;height:30px;background:#00ffff;border:1px solid #ccc;"></div> |
-| `#000080` | <div style="width:30px;height:30px;background:#000080;border:1px solid #ccc;"></div> |
-| `#0000ff` | <div style="width:30px;height:30px;background:#0000ff;border:1px solid #ccc;"></div> |
-| `#800080` | <div style="width:30px;height:30px;background:#800080;border:1px solid #ccc;"></div> |
-| `#ff00ff` | <div style="width:30px;height:30px;background:#ff00ff;border:1px solid #ccc;"></div> |
+| hex       | color                                                                                      |
+|-----------|--------------------------------------------------------------------------------------------|
+| `#000000` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-000000.png) |
+| `#808080` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-808080.png) |
+| `#c0c0c0` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-c0c0c0.png) |
+| `#ffffff` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-ffffff.png) |
+| `#800000` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-800000.png) |
+| `#ff0000` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-ff0000.png) |
+| `#008000` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-008000.png) |
+| `#00ff00` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-00ff00.png) |
+| `#808000` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-808000.png) |
+| `#ffff00` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-ffff00.png) |
+| `#008080` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-008080.png) |
+| `#00ffff` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-00ffff.png) |
+| `#000080` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-000080.png) |
+| `#0000ff` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-0000ff.png) |
+| `#800080` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-800080.png) |
+| `#ff00ff` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-ff00ff.png) |
 
 
 #### [Palette.RAINBOW](https://github.com/tsuyoshiwada/color-classifier/blob/master/src/palette/rainbow.js)
 
-| hex       | color                                                                                |
-|-----------|--------------------------------------------------------------------------------------|
-| `#000000` | <div style="width:30px;height:30px;background:#000000;border:1px solid #ccc;"></div> |
-| `#808080` | <div style="width:30px;height:30px;background:#808080;border:1px solid #ccc;"></div> |
-| `#ffffff` | <div style="width:30px;height:30px;background:#ffffff;border:1px solid #ccc;"></div> |
-| `#ff0000` | <div style="width:30px;height:30px;background:#ff0000;border:1px solid #ccc;"></div> |
-| `#ffa500` | <div style="width:30px;height:30px;background:#ffa500;border:1px solid #ccc;"></div> |
-| `#ffff00` | <div style="width:30px;height:30px;background:#ffff00;border:1px solid #ccc;"></div> |
-| `#008000` | <div style="width:30px;height:30px;background:#008000;border:1px solid #ccc;"></div> |
-| `#00ffff` | <div style="width:30px;height:30px;background:#00ffff;border:1px solid #ccc;"></div> |
-| `#0000ff` | <div style="width:30px;height:30px;background:#0000ff;border:1px solid #ccc;"></div> |
-| `#800080` | <div style="width:30px;height:30px;background:#800080;border:1px solid #ccc;"></div> |
+| hex       | color                                                                                      |
+|-----------|--------------------------------------------------------------------------------------------|
+| `#000000` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-000000.png) |
+| `#808080` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-808080.png) |
+| `#ffffff` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-ffffff.png) |
+| `#ff0000` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-ff0000.png) |
+| `#ffa500` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-ffa500.png) |
+| `#ffff00` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-ffff00.png) |
+| `#008000` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-008000.png) |
+| `#00ffff` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-00ffff.png) |
+| `#0000ff` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-0000ff.png) |
+| `#800080` | ![](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/images/hex-800080.png) |
 
 
 
