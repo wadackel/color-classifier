@@ -742,7 +742,7 @@ var App = function (_Component) {
               { className: "gnav__item" },
               _react2.default.createElement(
                 "a",
-                { href: "https://github.com/tsuyoshiwada/color-classifier", target: "_blank" },
+                { href: "https://github.com/tsuyoshiwada/color-classifier" },
                 _react2.default.createElement("i", { className: "fa fa-github" }),
                 " Source on GitHub"
               )
