@@ -7,14 +7,9 @@ color-classifier
 [![David](https://img.shields.io/david/dev/tsuyoshiwada/color-classifier.svg?style=flat-square)](https://david-dm.org/tsuyoshiwada/color-classifier/#info=devDependencies&view=table)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/master/LICENSE)
 
-**----------WIP---------**
+Classify the color along the reference color. using algorithm the CIEDE2000, RGB, HSV.
 
-Classify the color along the reference color.
-
-
-## WHY
-
-__TODO__
+[Playground](http://tsuyoshiwada.github.io/color-classifier/)
 
 
 
@@ -24,25 +19,183 @@ __TODO__
 $ npm install color-classifier --save
 ```
 
+or
+
+Download the [color-classifier.min.js](https://raw.githubusercontent.com/tsuyoshiwada/color-classifier/master/color-classifier.min.js).
 
 
 ## USAGE
 
+The following is the basic usage.
+
 ```javascript
-import ColorClassifier, {base16Colors} from "color-classifier"
+import ColorClassifier from "color-classifier"
 
-const colorClassifier = new ColorClassifier(base16Colors);
-const color = colorClassifier.classify("__TODO__");
+const palette = ["#fff", "#000"];
+const colorClassifier = new ColorClassifier(palette);
+const color = colorClassifier.classify("#fefefe");
 
-console.log(color); // __TODO__
+console.log(color); // {r: 255, g: 255, b: 255}
 ```
+
+The type of pallet and algorithms have been some available.
+
+```javascript
+import ColorClassifier, { Palette, AlgorithmTypes } from "color-classifier"
+
+const colorClassifier = new ColorClassifier(Palette.W3C, AlgorithmTypes.HSV);
+const color = colorClassifier.classify("#fefefe");
+
+console.log(color); // {r: 255, g: 255, b: 255}
+```
+
+The available values are as follows.
+
+### Palette
+
+The following is the palette list of preset.
+
+#### [Palette.W3C](https://github.com/tsuyoshiwada/color-classifier/blob/master/src/palette/w3c.js)
+
+| hex       | color                                                                                |
+|-----------|--------------------------------------------------------------------------------------|
+| `#000000` | <div style="width:30px;height:30px;background:#000000;border:1px solid #ccc;"></div> |
+| `#808080` | <div style="width:30px;height:30px;background:#808080;border:1px solid #ccc;"></div> |
+| `#c0c0c0` | <div style="width:30px;height:30px;background:#c0c0c0;border:1px solid #ccc;"></div> |
+| `#ffffff` | <div style="width:30px;height:30px;background:#ffffff;border:1px solid #ccc;"></div> |
+| `#800000` | <div style="width:30px;height:30px;background:#800000;border:1px solid #ccc;"></div> |
+| `#ff0000` | <div style="width:30px;height:30px;background:#ff0000;border:1px solid #ccc;"></div> |
+| `#008000` | <div style="width:30px;height:30px;background:#008000;border:1px solid #ccc;"></div> |
+| `#00ff00` | <div style="width:30px;height:30px;background:#00ff00;border:1px solid #ccc;"></div> |
+| `#808000` | <div style="width:30px;height:30px;background:#808000;border:1px solid #ccc;"></div> |
+| `#ffff00` | <div style="width:30px;height:30px;background:#ffff00;border:1px solid #ccc;"></div> |
+| `#008080` | <div style="width:30px;height:30px;background:#008080;border:1px solid #ccc;"></div> |
+| `#00ffff` | <div style="width:30px;height:30px;background:#00ffff;border:1px solid #ccc;"></div> |
+| `#000080` | <div style="width:30px;height:30px;background:#000080;border:1px solid #ccc;"></div> |
+| `#0000ff` | <div style="width:30px;height:30px;background:#0000ff;border:1px solid #ccc;"></div> |
+| `#800080` | <div style="width:30px;height:30px;background:#800080;border:1px solid #ccc;"></div> |
+| `#ff00ff` | <div style="width:30px;height:30px;background:#ff00ff;border:1px solid #ccc;"></div> |
+
+
+#### [Palette.RAINBOW](https://github.com/tsuyoshiwada/color-classifier/blob/master/src/palette/rainbow.js)
+
+| hex       | color                                                                                |
+|-----------|--------------------------------------------------------------------------------------|
+| `#000000` | <div style="width:30px;height:30px;background:#000000;border:1px solid #ccc;"></div> |
+| `#808080` | <div style="width:30px;height:30px;background:#808080;border:1px solid #ccc;"></div> |
+| `#ffffff` | <div style="width:30px;height:30px;background:#ffffff;border:1px solid #ccc;"></div> |
+| `#ff0000` | <div style="width:30px;height:30px;background:#ff0000;border:1px solid #ccc;"></div> |
+| `#ffa500` | <div style="width:30px;height:30px;background:#ffa500;border:1px solid #ccc;"></div> |
+| `#ffff00` | <div style="width:30px;height:30px;background:#ffff00;border:1px solid #ccc;"></div> |
+| `#008000` | <div style="width:30px;height:30px;background:#008000;border:1px solid #ccc;"></div> |
+| `#00ffff` | <div style="width:30px;height:30px;background:#00ffff;border:1px solid #ccc;"></div> |
+| `#0000ff` | <div style="width:30px;height:30px;background:#0000ff;border:1px solid #ccc;"></div> |
+| `#800080` | <div style="width:30px;height:30px;background:#800080;border:1px solid #ccc;"></div> |
+
+
+
+### AlgorithmTypes
+
+The difference algorithm of color is possible some selection.  
+Please try in [Playground](http://tsuyoshiwada.github.io/color-classifier/) for the difference of each algorithm.
+
+| value                      | description                                                                                                                                                                                                                         |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `AlgorithmTypes.CIEDE2000` | Using the CIE Delta E 2000 Color-Difference algorithm (CIEDE2000).<br>[The CIEDE2000 color-difference formula](http://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf),<br>[Color difference - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000) |
+| `AlgorithmTypes.HSV`       | Using the HSV color space.<br>[HSL and HSV - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/HSL_and_HSV)                                                                                                                                         |
+| `AlgorithmTypes.RGB`       | Using the RGB color space.<br>[RGB color model - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/RGB_color_model)
 
 
 
 ## API
 
-__TODO__
+### new ColorClassifier(palette = Palette.W3C, algorithmType = AlgorithmTypes.CIEDE2000)
 
+**palette**: {Array}  
+**algorithmType**: {String}
+
+Palette is specify array in RGB object or HEX string.
+
+**HEX String**:
+
+```javascript
+const palette = ["#fff", "#000"];
+const colorClassifier = new ColorClassifier(palette);
+```
+
+**RGB Object**:
+
+```javascript
+const palette = [
+  {r: 255, g: 255, b: 255},
+  {r: 0,   g: 0,   b: 0}
+];
+const colorClassifier = new ColorClassifier(palette);
+```
+
+
+
+### classify(color, format = "rgb")
+
+**color**: {Object || String}  
+**format**: {String} ("rgb", "hex", "hsv")
+
+Classifies the specified color along the palette.
+
+```javascript
+const color1 = {r: 255, g: 255, b: 255};
+
+console.log(colorClassifier.classify(color1, "rgb")); //{r: 255, g: 255, b: 255}
+console.log(colorClassifier.classify(color1, "hex")); //#ffffff
+console.log(colorClassifier.classify(color1, "hsv")); //{h: 0, s: 0, v: 100}
+
+
+const color2 = "#fff";
+
+console.log(colorClassifier.classify(color2, "rgb")); //{r: 255, g: 255, b: 255}
+console.log(colorClassifier.classify(color2, "hex")); //#ffffff
+console.log(colorClassifier.classify(color2, "hsv")); //{h: 0, s: 0, v: 100}
+```
+
+
+
+### classifyFromArray(colors, format = "rgb")
+
+**colors**: {Array}  
+**format**: {String} ("rgb, "hex", "hsv")
+
+Classifies the specified array of colors along the palette.
+
+```javascript
+const colors = ["#fefefe", "#fafafa", "#010101", "#020202"];
+const results = colorClassifier.classifyFromArray(colors, "hex");
+
+console.log(results);
+// [
+//   {
+//     palette: "#ffffff",
+//     colors: [
+//       "#fefefe",
+//       "#fafafa"
+//     ]
+//   },
+//   {
+//     palette: "#000000",
+//     colors: [
+//       "#010101",
+//       "#020202"
+//     ]
+//   }
+// ]
+```
+
+
+### More APIs
+
+* `setPalette(palette)`
+* `getPalette()`
+* `setAlgorithmType(algorithmType)`
+* `getAlgorithmType()`
 
 
 ## LICENCE
@@ -59,8 +212,37 @@ Released under the [MIT Licence](https://raw.githubusercontent.com/tsuyoshiwada/
 
 ## DEVELOPMENT
 
-__TODO__
+Initialization of the project.
 
+```bash
+$ cd /your/project/dir
+$ git clone https://github.com/tsuyoshiwada/sweet-scroll.git
+```
+
+Install some dependencies.
+
+```bash
+$ npm install
+```
+
+Start the development.
+You can access to the http://localhost:3000/.
+
+```bash
+$ npm start
+```
+
+Run lint and testing.
+
+```bash
+$ npm test
+```
+
+Generates build file.
+
+```bash
+$ npm run build
+```
 
 
 ---
