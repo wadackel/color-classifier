@@ -524,26 +524,26 @@
       }
     }, {
       key: "classifyFromArray",
-      value: function classifyFromArray(array) {
+      value: function classifyFromArray(colors) {
         var _this = this;
 
         var format = arguments.length <= 1 || arguments[1] === undefined ? "rgb" : arguments[1];
 
         var results = [];
-        var tmpArray = [];
+        var array = [];
 
-        array.forEach(function (value) {
+        colors.forEach(function (value) {
           var color = new Color(value);
           var palette = _this.classify(color.rgb, "raw");
-          tmpArray.push({ palette: palette, color: color });
+          array.push({ palette: palette, color: color });
         });
 
-        tmpArray.forEach(function (obj) {
+        array.forEach(function (obj) {
           var palette = obj.palette;
           var color = obj.color;
 
           var _results$filter = results.filter(function (o) {
-            return equal(o.palette ? o.palette[format] : null, palette[format]);
+            return equal(o.palette, palette[format]);
           });
 
           var _results$filter2 = babelHelpers.slicedToArray(_results$filter, 1);

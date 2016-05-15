@@ -74,19 +74,19 @@ class ColorClassifier {
     return minBy(array, "distance").color;
   }
 
-  classifyFromArray(array, format = "rgb") {
+  classifyFromArray(colors, format = "rgb") {
     const results = [];
-    const tmpArray = [];
+    const array = [];
 
-    array.forEach(value => {
+    colors.forEach(value => {
       const color = new Color(value);
       const palette = this.classify(color.rgb, "raw");
-      tmpArray.push({ palette, color });
+      array.push({ palette, color });
     });
 
-    tmpArray.forEach(obj => {
+    array.forEach(obj => {
       const { palette, color } = obj;
-      const [ paletteColor ] = results.filter(o => equal(o.palette ? o.palette[format] : null, palette[format]));
+      const [ paletteColor ] = results.filter(o => equal(o.palette, palette[format]));
 
       if (!paletteColor) {
         results.push({
