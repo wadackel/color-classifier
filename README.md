@@ -220,7 +220,7 @@ Initialization of the project.
 
 ```bash
 $ cd /your/project/dir
-$ git clone https://github.com/tsuyoshiwada/sweet-scroll.git
+$ git clone https://github.com/tsuyoshiwada/color-classifier.git
 ```
 
 Install some dependencies.
